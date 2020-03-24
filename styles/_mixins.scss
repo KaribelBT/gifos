@@ -1,0 +1,40 @@
+@mixin tittle-gradient-ligth{
+    width: 100%;
+    height: 24px;
+    background-image: $bg-gradient-tittle-ligth;
+    display: flex;
+    align-items: center;
+}
+
+@mixin h2{
+    font-family: $font-family-bold;
+    color: $color-secondary;
+    font-size: 14px;
+}
+
+@mixin windows{
+    background: $bg-windows-ligth;
+    box-shadow: $box-shadow-windows;
+}
+
+@mixin buttonNormal{
+    height: 36px;
+    font-size: 16px;
+    background-color: $bg-button-ligth;
+    border: $border-button;
+    box-shadow: $box-shadow-button;
+}
+
+@mixin buttonHover{
+    background-color:$bg-button-hover-ligth;
+    outline-offset:-4px;
+    outline: 1px dotted #110038;   
+    cursor: pointer;
+}
+@mixin buttonActive{
+    background-color:$bg-button-hover-ligth;
+    outline-offset:-4px;
+    outline: 1px dotted #110038; 
+}
+
+

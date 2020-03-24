@@ -1,0 +1,392 @@
+html {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Chakra Petch-regular";
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #110038;
+  line-height: 18px;
+}
+
+.titleBox {
+  margin-top: 1px;
+  -webkit-box-shadow: 0 1px 0 0 #110038;
+          box-shadow: 0 1px 0 0 #110038;
+  width: 100%;
+  height: 24px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.titleBox h1 {
+  margin-left: 9px;
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+.headerBox {
+  margin-top: 35px;
+  margin-left: 91px;
+  margin-right: 91px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerBox .logoBox .darkLogo {
+  display: none;
+}
+
+.headerBox .buttonsBox {
+  width: 419px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerBox .buttonsBox .createButton {
+  width: 144px;
+  height: 36px;
+  height: 36px;
+  font-size: 16px;
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.headerBox .buttonsBox .createButton:hover {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.headerBox .buttonsBox .createButton:active {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.headerBox .buttonsBox .createButton:focus {
+  outline: none;
+}
+
+.headerBox .buttonsBox .themeButton .chooseBox:hover button {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.headerBox .buttonsBox .themeButton .chooseBox:active button {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.headerBox .buttonsBox .themeButton .chooseBox:focus {
+  outline: none;
+}
+
+.headerBox .buttonsBox .themeButton .chooseButton {
+  width: 131px;
+  height: 36px;
+  font-size: 16px;
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.headerBox .buttonsBox .themeButton .dropButton {
+  width: 36px;
+  -webkit-transform: translate(-5px);
+          transform: translate(-5px);
+  height: 36px;
+  font-size: 16px;
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.headerBox .buttonsBox .themeButton .dropButton img {
+  width: 10px;
+  height: 6px;
+}
+
+.headerBox .buttonsBox .themeButton ul {
+  display: none;
+}
+
+.headerBox .buttonsBox .themeButton ul:active {
+  display: block;
+  position: absolute;
+  width: 167px;
+  height: 102px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  list-style: none;
+}
+
+.headerBox .buttonsBox .themeButton ul:active li {
+  width: 150px;
+  height: 36px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+  cursor: pointer;
+}
+
+.headerBox .buttonsBox .themeButton ul:active li .sLigth {
+  text-decoration: underline;
+}
+
+.headerBox .buttonsBox .themeButton ul:active li:last-child {
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.headerBox .buttonsBox .misGuifosBox {
+  width: 95px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerBox .buttonsBox .misGuifosBox:hover {
+  border: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.headerBox .buttonsBox .misGuifosBox:hover span {
+  text-decoration: underline;
+}
+
+.headerBox .buttonsBox .misGuifosBox:active {
+  color: #8C7D9D;
+}
+
+.createGuifos {
+  display: none;
+}
+
+.myGuifos {
+  display: none;
+}
+
+.search {
+  height: 99px;
+  margin-left: 91px;
+  margin-right: 91px;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.search .searchTittleBox {
+  width: 100%;
+  height: 24px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .searchTittleBox h2 {
+  margin-left: 5px;
+  font-family: "Chakra Petch-bold";
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.search .searchBar {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .searchBar input {
+  width: 84%;
+  height: 48px;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+.search .searchBar input::-webkit-input-placeholder {
+  color: #B4B4B4;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.search .searchBar input:-ms-input-placeholder {
+  color: #B4B4B4;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.search .searchBar input::-ms-input-placeholder {
+  color: #B4B4B4;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.search .searchBar input::placeholder {
+  color: #B4B4B4;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.search .searchBar button {
+  width: 102px;
+  height: 36px;
+  font-size: 16px;
+  color: #B4B4B4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .searchBar button .lensActive {
+  display: none;
+}
+
+.search .searchBar button:enabled {
+  height: 36px;
+  font-size: 16px;
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  color: #110038;
+}
+
+.search .searchBar button:enabled .lensActive {
+  display: block;
+}
+
+.search .searchBar button:enabled .lensInactive {
+  display: none;
+}
+
+.search .sugResults {
+  display: none;
+}
+
+.search .sugResults:active {
+  display: block;
+  width: 100%;
+  height: 140px;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.search .sugResults:active li {
+  width: 80%;
+  height: 34px;
+  margin-left: 2%;
+  padding-left: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.search .sugResults:active li:hover {
+  background-color: #DBDBDB;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */

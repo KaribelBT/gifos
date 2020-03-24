@@ -1,0 +1,125 @@
+.titleBox{
+    margin-top: 1px;
+    box-shadow: $bg-box-shadow-tittle;
+    @include tittle-gradient-ligth;
+    h1{
+        margin-left: 9px;
+        color: $color-secondary;
+        font-size: 12px;
+    }
+}
+.headerBox{
+    margin-top: 35px;
+    margin-left: 91px;
+    margin-right: 91px;
+    display: flex;
+    justify-content: space-between;
+    .logoBox{
+        .darkLogo{
+            display: none;
+        }
+    }
+    .buttonsBox{
+        width: 419px;
+        height: 36px;
+        display: flex;
+        justify-content: space-between;
+        .createButton{
+            width: 144px;
+            height: 36px;
+            @include buttonNormal;
+            &:hover{
+                @include buttonHover;
+            }
+            &:active{
+                @include buttonActive
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+        .themeButton{
+            .chooseBox{
+                &:hover{
+                    button{
+                        @include buttonHover;
+                    }
+                }
+                &:active{
+                    button{
+                        @include buttonActive;
+                    }
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            .chooseButton{
+                width: 131px;
+                @include buttonNormal;
+            }
+            .dropButton{
+                width: 36px;
+                transform: translate(-5px);
+                @include buttonNormal;
+                img{
+                    width: 10px;
+                    height: 6px;
+                }
+            }
+            ul{
+                display:none;
+                &:active{
+                    display: block;
+                    position: absolute;
+                    width: 167px;
+                    height: 102px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    background-color: $bg-windows-ligth;
+                    box-shadow: $box-shadow-windows;
+                    list-style: none;
+                    li{
+                        width: 150px;
+                        height: 36px;
+                        font-size: 16px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #FFF4FD;
+                        border: 1px solid #CCA6C9;
+                        box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+                        cursor: pointer;
+                        .sLigth{
+                            text-decoration: underline;
+                        }
+                        &:last-child{
+                            background: #F0F0F0;
+                            border: 1px solid #808080;
+                            box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+        .misGuifosBox{
+            width: 95px;
+            height: 36px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                border: 1px dotted #110038;
+                cursor: pointer;
+                span{
+                    text-decoration: underline;
+                }
+            }
+            &:active{
+                color: #8C7D9D;
+            }
+        }
+    }
+}   

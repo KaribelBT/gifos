@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="buscador gif">
+    <meta name="keywords" content="buscar, gif">
+    <meta name="author" content="Karibel Barco Taboada">
+    <link rel="stylesheet" href="styles/styles.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:700&display=swap" rel="stylesheet">
+    <title>gif.OS</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="titleBox">
+            <h1>
+                ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 
+                <span id="visitCounter"> 0 </span>
+            </h1>
+        </div>
+
+        <div class="headerBox">
+            <div class=logoBox>
+                <img src="./images/gifOF_logo.png" alt="Logo Gifos">
+                <img class="darkLogo" src="./images/gifOF_logo_dark.png" alt="Logo Gifos dark">
+            </div>
+            <div class="buttonsBox">
+                <button class="createButton">Crear Guifos</button>
+                <div class="themeButton">
+                    <div class="chooseBox">
+                        <button class="chooseButton">Elegir Tema</button>
+                        <button class="dropButton">
+                            <img src="/images/dropdown.svg" alt="">
+                        </button>
+                    </div>
+                    <ul>
+                        <li><span class="sLigth">S</span>ailor Day</li>
+                        <li><span class="sDark">S</span>ailor Night</li>
+                    </ul>
+                </div>
+                <div class="misGuifosBox">
+                    <p><span>M</span>is Guifos</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="createGuifos">
+            <div class="createGuifosLogo">
+                <img src="./images/arrow.svg" alt="flecha">
+                <img src="./images/gifOF_logo.png" alt="gifos logo">
+                <img src="./images/gifOF_logo_dark.png" alt="gifos logo dark">
+            </div>
+            <div class="instructions">
+                <div class="instructionsTitleBox">
+                    <h2>Crear Guifos</h2>
+                </div>
+                <div class="instructionsHeader">
+                    <img src="./images/window img.png" alt="icono ventana">
+                    <p>Aquí podrás crear tus propios guifos</p>
+                    <p>Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</p>
+                    <br>
+                    <p>1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
+                    <br>
+                    <p>2) Capturar tu momento guifo</p>
+                    <br>
+                    <p>3) Revisar el momento</p>
+                    <br>
+                    <p>4) Listo para subir y compartir!</p>
+                    <p>¿Quieres comenzar a crear tu guifo ahora?</p>
+                </div>
+                <div class="instructionsBody">
+                    
+                </div>
+                <div class="instructionsFooter">
+                    <button class="cancel">Cancelar</button>
+                    <button class="begin">Comenzar</button>
+                </div>
+            </div> 
+            <div class="test">
+                <div class="testTittleBox">
+                    <h2>Un Chequeo Antes de Empezar</h2>
+                    <img src="./images/button3.svg" alt="cross">
+                </div>
+                <div class="photoBox">
+                    <img src="./images/creategif.jpg" alt="prueba gif">
+                </div>
+                <div class="testButtonBox">
+                    <button class="camera">
+                        <img src="./images/camera.svg" alt="icono camara">
+                    </button>
+                    <button class="captureButton">Capturar</button>
+                </div>
+            </div>
+            <div class="capturing">
+                <div class="captureTittleBox">
+                    <h2>Capturando Tu Guifo</h2>
+                    <img src="./images/button3.svg" alt="cross">
+                </div>
+                <div class="photoBox">
+                    <img src="./images/creategif.jpg" alt="prueba gif">
+                </div>
+                <div class="capturingFooter">
+                    <div class="timer">
+                        <p>00:00:03:06</p>
+                    </div>
+                    <button class="recording">
+                        <img src="./images/recording.svg" alt="icono grabando">
+                    </button>
+                    <button class="readyButton">Listo</button>
+            </div>
+            <div class="preview">
+                <div class="previewTittleBox">
+                    <h2>Vista Previa</h2>
+                </div>
+                <div class="photoBox">
+                    <img src="./images/creategif.jpg" alt="preview gif">
+                </div>
+                <div class="previewFooter">
+                    <div class="timer">
+                        <p>00:00:03:06</p>
+                    </div>
+                    <div class="iconBox">
+                        <img src="./images/forward.svg" alt="forward icon">
+                    </div>
+                    <button class="repeatButton">Repetir Captura</button>
+                    <button class="uploadyButton">Subir Guifo</button>
+            </div>
+            <div class="loading">
+                <div class="loadingTittleBox">
+                    <h2>Subiendo Guifo</h2>
+                    <img src="./images/button3.svg" alt="cross">
+                </div>
+                <div class="loadingBox">
+                    <img src=".images/globe_img.png" alt="globe icon">
+                    <p>Estamos subiendo tu guifo…</p>
+                    <div class="loadingBarGraphic">
+                    </div>
+                    <p>Tiempo restante: 38 años algunos minutos</p>
+                    <div class="loadingFooter">
+                        <button class="cancelButton">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="myGuifos">
+            <div class="myGuifosBox">
+                <h3>Mis guifos:</h2>
+            </div>
+            <div class="myGuifosBox">
+                <div class="myGuifosImage">
+                    <div class="imageTittle">
+                        <img src="./images/pruebagif.jpg" alt="prueba gif">
+                        <p>#Jonathanvanness</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="search">
+            <div class="searchTittleBox">
+                <h2>Buscar</h2>
+            </div>
+            <form class="searchBar">
+                <input type="search" id="search" name="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button disabled="disabled"> 
+                    <img class="lensInactive" src="./images/lupa_inactive.svg" alt="lens inactive">
+                    <img class="lensActive" src="./images/lupa.svg" alt="lens active">
+                    Buscar
+                </button>
+            </form>
+            <ul class="sugResults">
+                <li>resultado de busqueda 1</li>
+                <li>resultado de busqueda 2</li>
+                <li>resultado de busqueda 3</li>
+            </ul>
+            
+        </section>
+
+        <section class="searchResults">
+            <div class="searchResultsButtons">
+                <button class="searchResultButton">#Un ejemplo</button>
+                <button class="searchResultButton">#Un ejemplomáslargo</button>
+                <button class="searchResultButton">#tagsrelacionados</button>
+            </div>
+            <div class="searchResultsTittle">
+                <h3>Ejemplo de búsqueda (resultados)</h2>
+            </div>
+            <div class="searchResultsImage">
+                <div class="imageTittle">
+                    <img src="./images/pruebagif.jpg" alt="prueba gif">
+                    <p>#Jonathanvanness</p>
+            </div>
+        </section>
+
+        <section class="suggestions">
+            <div class="suggestionsTittleBox">
+                <h3>Hoy te sugerimos:</h2>
+            </div>
+            <div class="suggestionsBox">
+                <div class="sugestionImage">
+                    <div class="imageTittle">
+                        <p>#Jonathanvanness</p>
+                        <img src="./images/button3.svg" alt="cross button">
+                    </div>
+                    <img src="./images/pruebagif.jpg" alt="prueba gif">
+                    <button class="seeMoreButton">Ver más…</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="top">
+            <div class="topTittleBox">
+                <h3>Tendencias:</h2>
+            </div>
+            <div class="topBox">
+                <div class="topImage">
+                    <div class="imageTittle">
+                        <img src="./images/pruebagif.jpg" alt="prueba gif">
+                        <p>#Jonathanvanness</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
