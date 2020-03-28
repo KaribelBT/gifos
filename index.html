@@ -16,15 +16,11 @@
 <body>
 
     <header>
-
         <div class="titleBox">
-            <h1>
-                ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 
-                <span id="visitCounter"> 0 </span>
-            </h1>
+            <h1>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</h1>
         </div>
 
-        <div class="headerBox">
+        <nav class="headerBox">
             <div class=logoBox>
                 <img src="./images/gifOF_logo.png" alt="Logo Gifos">
                 <img class="darkLogo" src="./images/gifOF_logo_dark.png" alt="Logo Gifos dark">
@@ -34,25 +30,24 @@
                 <div class="themeButton">
                     <div class="chooseBox">
                         <button class="chooseButton">Elegir Tema</button>
-                        <button class="dropButton">
+                        <button id="dropButton" class="dropButton">
                             <img src="/images/dropdown.svg" alt="">
                         </button>
                     </div>
-                    <ul>
+                    <ul id="themes">
                         <li><span class="sLigth">S</span>ailor Day</li>
                         <li><span class="sDark">S</span>ailor Night</li>
                     </ul>
                 </div>
                 <div class="misGuifosBox">
-                    <p><span>M</span>is Guifos</p>
+                    <p>Mis Guifos</p>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
 
     <main>
-
-        <section class="createGuifos">
+        <!-- <section class="createGuifos">
             <div class="createGuifosLogo">
                 <img src="./images/arrow.svg" alt="flecha">
                 <img src="./images/gifOF_logo.png" alt="gifos logo">
@@ -150,21 +145,7 @@
                 </div>
 
             </div>
-        </section>
-
-        <section class="myGuifos">
-            <div class="myGuifosBox">
-                <h3>Mis guifos:</h2>
-            </div>
-            <div class="myGuifosBox">
-                <div class="myGuifosImage">
-                    <div class="imageTittle">
-                        <img src="./images/pruebagif.jpg" alt="prueba gif">
-                        <p>#Jonathanvanness</p>
-                </div>
-            </div>
-        </section>
-
+        </section> -->
         <section class="search">
             <div class="searchTittleBox">
                 <h2>Buscar</h2>
@@ -185,7 +166,20 @@
             
         </section>
 
-        <section class="searchResults">
+        <section class="resultsBox"> 
+            <div class="resultsTittleBox">
+                <h3>Tendencias:</h3>
+            </div>
+            <div class="resultsImageBox">
+                <div class="itemBox">
+                    <img src="./images/pruebagif.jpg" alt="prueba gif">
+                    <div class="resultsTagBox">
+                        <p>#Jonathanvanness</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="searchResults">
             <div class="searchResultsButtons">
                 <button class="searchResultButton">#Un ejemplo</button>
                 <button class="searchResultButton">#Un ejemplomáslargo</button>
@@ -228,9 +222,10 @@
                         <p>#Jonathanvanness</p>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
+    <script src="./js/header.js"></script>
 </body>
 
 </html>

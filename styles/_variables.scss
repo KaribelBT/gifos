@@ -1,27 +1,41 @@
+//media queries 
+$large-devices: 992px;
+$xl-devices: 1448px;
+
 //font
 $font-family: 'Chakra Petch-regular';
 $font-family-bold: 'Chakra Petch-bold';
+$font-size: 16px;
+$font-heigh-line: 18px;
 $color-primary: #110038;
 $color-secondary: #FFFFFF;
 $color-disabled: #B4B4B4;
 
-//background & borders
+
+//background 
 $bg-color-ligth:#FFFFFF;
 $bg-color-dark:#110038;
 $bg-gradient-tittle-ligth: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 $bg-gradient-tittle-dark: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
-$bg-box-shadow-tittle: 0 1px 0 0 #110038;
 $bg-button-ligth: #F7C9F3;
 $bg-button-dark: #EE3EFE;
-$border-button: 1px solid #110038;
-$box-shadow-button: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 $bg-button-hover-ligth: #E6BBE2;
 $bg-button-hover-dark: #CE36DB;
 $bg-windows-ligth: #E6E6E6;;
 $bg-windows-dark: #8F8F8F;
-$box-shadow-windows: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-$border-input: 1px solid #979797;
-$box-shadow-input: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
 $bg-sugestion-ligth:  #F0F0F0;
-$border-sugestion: 1px solid #808080;
 $bg-sugestions-hover: #DBDBDB;
+$bg-sectionTittle: #FFFAFE;
+
+//borders
+$border-button: 1px solid #110038;
+$border-input: 1px solid #979797;
+$border-sugestion: 1px solid #808080;
+$border-sectionTittle:1px solid #E6BBE2;
+
+//box shadow
+$box-shadow-tittle: 0 1px 0 0 #110038;
+$box-shadow-button: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+$box-shadow-windows: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+$box-shadow-input: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+$box-shadow-sectionTittle: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;

@@ -1,9 +1,18 @@
-@mixin tittle-gradient-ligth{
+@mixin container{
+    max-width: $xl-devices;
     width: 100%;
-    height: 24px;
+}
+
+@mixin center-container{
+    padding-left: 91px;
+    padding-right: 91px;
+}
+
+@mixin title-gradient-light{
     background-image: $bg-gradient-tittle-ligth;
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 @mixin h2{

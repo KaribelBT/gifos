@@ -1,32 +1,37 @@
+//small & medium devices up to 991px
 .titleBox{
+    @include container;
     margin-top: 1px;
-    box-shadow: $bg-box-shadow-tittle;
-    @include tittle-gradient-ligth;
+    box-shadow: $box-shadow-tittle;
+    @include title-gradient-light;
+    box-sizing: border-box;
+    height: 30px;
     h1{
-        margin-left: 9px;
+        padding: 9px;
         color: $color-secondary;
         font-size: 12px;
     }
 }
 .headerBox{
-    margin-top: 35px;
-    margin-left: 91px;
-    margin-right: 91px;
+    @include container;
+    margin-top: 24px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     .logoBox{
         .darkLogo{
             display: none;
         }
     }
     .buttonsBox{
-        width: 419px;
-        height: 36px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
         .createButton{
             width: 144px;
             height: 36px;
+            margin: 4px;
             @include buttonNormal;
             &:hover{
                 @include buttonHover;
@@ -39,6 +44,7 @@
             }
         }
         .themeButton{
+            margin: 4px;
             .chooseBox{
                 &:hover{
                     button{
@@ -67,9 +73,9 @@
                     height: 6px;
                 }
             }
-            ul{
-                display:none;
-                &:active{
+            ul{                
+                display: none;
+                &.active{
                     display: block;
                     position: absolute;
                     width: 167px;
@@ -102,6 +108,7 @@
                         }
                     }
                 }
+                
             }
         }
         .misGuifosBox{
@@ -113,13 +120,30 @@
             &:hover{
                 border: 1px dotted #110038;
                 cursor: pointer;
-                span{
-                    text-decoration: underline;
-                }
-            }
+                p{
+                    &::first-letter{
+                        text-decoration: underline;
+                        text-underline-position: under;           }
+                    }
+                 }
             &:active{
                 color: #8C7D9D;
             }
         }
     }
 }   
+//desktop 992px - 1438px
+
+@media screen and (min-width: $large-devices){
+    .headerBox{
+        box-sizing: border-box;
+        flex-direction: row;
+        justify-content: space-between;
+        @include center-container;
+        .buttonsBox{
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }       
+    } 
+}

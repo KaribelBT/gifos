@@ -1,0 +1,21 @@
+//normalize
+html{
+    overflow-x: hidden;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: $font-family;
+}
+
+body{
+    background-color: $bg-color-ligth;
+    color: $color-primary;
+    font-size: $font-size;
+    line-height: $font-heigh-line;
+    &.dark{
+        background-color: $bg-color-dark;
+    }
+}
