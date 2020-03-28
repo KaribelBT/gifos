@@ -6,3 +6,23 @@ let themes = document.querySelector('#themes')
 dropButton.addEventListener('click', ()=>{
     themes.classList.toggle('active');
 })
+
+let btnLight = document.querySelector('#btnLight');
+let btnDark = document.querySelector('#btnDark');
+let logo = document.querySelector('#logo');
+let darkLogo = "./images/gifOF_logo_dark.png";
+let lightLogo = "./images/gifOF_logo.png";
+
+
+btnDark.addEventListener('click', ()=>{
+    document.body.classList.add('dark');
+    document.body.classList.remove('light');
+    logo.src = darkLogo;
+    
+})
+
+btnLight.addEventListener('click', ()=>{
+    document.body.classList.add('light');
+    document.body.classList.remove('dark');
+    logo.src = lightLogo;
+})

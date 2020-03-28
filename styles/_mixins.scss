@@ -9,7 +9,14 @@
 }
 
 @mixin title-gradient-light{
-    background-image: $bg-gradient-tittle-ligth;
+    background-image: $bg-gradient-title-light;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin title-gradient-dark{
+    background-image: $bg-gradient-title-dark;
     display: flex;
     align-items: center;
     text-align: center;
@@ -27,15 +34,25 @@
 }
 
 @mixin buttonNormal{
-    height: 36px;
-    font-size: 16px;
     background-color: $bg-button-ligth;
     border: $border-button;
     box-shadow: $box-shadow-button;
 }
 
+@mixin buttonDark{
+    color: $color-secondary;
+    background-color: $bg-button-dark;
+    box-shadow: $box-shadow-button-dark;
+}
 @mixin buttonHover{
     background-color:$bg-button-hover-ligth;
+    outline-offset:-4px;
+    outline: 1px dotted #110038;   
+    cursor: pointer;
+}
+
+@mixin buttonHoverDark{
+    background-color:$bg-button-hover-dark;
     outline-offset:-4px;
     outline: 1px dotted #110038;   
     cursor: pointer;
@@ -45,5 +62,9 @@
     outline-offset:-4px;
     outline: 1px dotted #110038; 
 }
-
+@mixin buttonActiveDark{
+    background-color:$bg-button-hover-dark;
+    outline-offset:-4px;
+    outline: 1px dotted #110038; 
+}
 

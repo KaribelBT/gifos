@@ -13,29 +13,37 @@ $color-disabled: #B4B4B4;
 
 
 //background 
-$bg-color-ligth:#FFFFFF;
+$bg-color-light:#FFFFFF;
 $bg-color-dark:#110038;
-$bg-gradient-tittle-ligth: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
-$bg-gradient-tittle-dark: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+$bg-gradient-title-light: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+$bg-gradient-title-dark: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 $bg-button-ligth: #F7C9F3;
 $bg-button-dark: #EE3EFE;
 $bg-button-hover-ligth: #E6BBE2;
 $bg-button-hover-dark: #CE36DB;
 $bg-windows-ligth: #E6E6E6;;
 $bg-windows-dark: #8F8F8F;
-$bg-sugestion-ligth:  #F0F0F0;
+$bg-options-light:  #F0F0F0;
+$bg-options-dark: #2E32FB;
 $bg-sugestions-hover: #DBDBDB;
 $bg-sectionTittle: #FFFAFE;
 
+
 //borders
 $border-button: 1px solid #110038;
+$border-button-dotted: 1px dotted #110038;
 $border-input: 1px solid #979797;
-$border-sugestion: 1px solid #808080;
-$border-sectionTittle:1px solid #E6BBE2;
+$border-options: 1px solid #808080;
+$border-options-pink: 1px solid #CCA6C9;
+$border-options-dark: 1px solid #33358F;
+$border-sectionTitle:1px solid #E6BBE2;
 
 //box shadow
 $box-shadow-tittle: 0 1px 0 0 #110038;
 $box-shadow-button: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+$box-shadow-button-dark: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
 $box-shadow-windows: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+$box-shadow-windows-dark: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 $box-shadow-input: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-$box-shadow-sectionTittle: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+$box-shadow-sectionTitle: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+$box-shadow-options: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;

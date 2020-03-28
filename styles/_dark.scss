@@ -1,0 +1,56 @@
+.dark{
+    background-color:$bg-color-dark;
+    .titleBox {
+        @include title-gradient-dark;
+    }
+    .createButton{
+        @include buttonDark;
+        &:hover{
+            @include buttonHoverDark;
+        }
+        &:active{
+            @include buttonActiveDark
+        }
+    }  
+    .chooseBox{
+        &:hover{
+            button{
+                @include buttonHoverDark;
+            }
+        }
+        &:active{
+            button{
+                @include buttonActiveDark;
+            }
+        }
+    }
+    .chooseButton{
+        @include buttonDark;
+    }
+    .dropButton{
+        @include buttonDark;
+    }
+    .misGuifosBox{
+        color: $color-secondary;
+    }
+    #themes{          
+        &.active{
+            background-color: $bg-windows-dark;
+            box-shadow: $box-shadow-windows-dark;
+            li{
+                background-color:#CCCCCC;
+                border: $box-shadow-windows;
+                box-shadow: $box-shadow-options;
+                &:last-child{
+                    background: $bg-options-dark;
+                    border: $border-options-dark;
+                    box-shadow: $box-shadow-options;
+                }
+                .sDark{
+                    text-decoration: underline;
+                    text-underline-position: under;               
+                }
+            }
+        }
+    }
+}

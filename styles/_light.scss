@@ -1,0 +1,57 @@
+.light{
+    background-color: $bg-color-light;
+    color: $color-primary;
+    .titleBox {
+        @include title-gradient-light;
+    }
+    .createButton{
+        @include buttonNormal;
+        &:hover{
+            @include buttonHover;
+        }
+        &:active{
+            @include buttonActive
+        }
+    }  
+    .chooseBox{
+        &:hover{
+            button{
+                @include buttonHover;
+            }
+        }
+        &:active{
+            button{
+                @include buttonActive;
+            }
+        }
+    }
+    .chooseButton{
+        @include buttonNormal;
+    }
+    .dropButton{
+        @include buttonNormal;
+    }
+    .guifosBox{
+        color: $color-secondary;
+    }
+    #themes{                
+        &.active{
+            background-color: $bg-windows-ligth;
+            box-shadow: $box-shadow-windows;
+            li{
+                background-color: #FFF4FD;
+                border: $border-options-pink;
+                box-shadow: $box-shadow-options;
+                &:last-child{
+                    background: $bg-options-light;
+                    border: $border-options;
+                    box-shadow: $box-shadow-windows;
+                }
+                .sLight{
+                    text-decoration: underline;
+                    text-underline-position: under;               
+                }
+            }
+        }
+    }
+}

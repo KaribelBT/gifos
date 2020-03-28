@@ -1,4 +1,3 @@
-//normalize
 html{
     overflow-x: hidden;
 }
@@ -11,11 +10,6 @@ html{
 }
 
 body{
-    background-color: $bg-color-ligth;
-    color: $color-primary;
     font-size: $font-size;
     line-height: $font-heigh-line;
-    &.dark{
-        background-color: $bg-color-dark;
-    }
 }

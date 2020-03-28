@@ -10,22 +10,108 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #110038;
   font-size: 16px;
   line-height: 18px;
 }
 
-body.dark {
+.dark {
   background-color: #110038;
 }
 
-.titleBox {
-  max-width: 1448px;
-  width: 100%;
-  margin-top: 1px;
-  -webkit-box-shadow: 0 1px 0 0 #110038;
-          box-shadow: 0 1px 0 0 #110038;
+.dark .titleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.dark .createButton {
+  color: #FFFFFF;
+  background-color: #EE3EFE;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark .createButton:hover {
+  background-color: #CE36DB;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.dark .createButton:active {
+  background-color: #CE36DB;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.dark .chooseBox:hover button {
+  background-color: #CE36DB;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.dark .chooseBox:active button {
+  background-color: #CE36DB;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.dark .chooseButton {
+  color: #FFFFFF;
+  background-color: #EE3EFE;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark .dropButton {
+  color: #FFFFFF;
+  background-color: #EE3EFE;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark .misGuifosBox {
+  color: #FFFFFF;
+}
+
+.dark #themes.active {
+  background-color: #8F8F8F;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark #themes.active li {
+  background-color: #CCCCCC;
+  border: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark #themes.active li:last-child {
+  background: #2E32FB;
+  border: 1px solid #33358F;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark #themes.active li .sDark {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.light {
+  background-color: #FFFFFF;
+  color: #110038;
+}
+
+.light .titleBox {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
   display: -webkit-box;
@@ -35,6 +121,90 @@ body.dark {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.light .createButton {
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.light .createButton:hover {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.light .createButton:active {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.light .chooseBox:hover button {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+.light .chooseBox:active button {
+  background-color: #E6BBE2;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+.light .chooseButton {
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.light .dropButton {
+  background-color: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.light .guifosBox {
+  color: #FFFFFF;
+}
+
+.light #themes.active {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light #themes.active li {
+  background-color: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.light #themes.active li:last-child {
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light #themes.active li .sLight {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.titleBox {
+  max-width: 1448px;
+  width: 100%;
+  margin-top: 1px;
+  -webkit-box-shadow: 0 1px 0 0 #110038;
+          box-shadow: 0 1px 0 0 #110038;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 30px;
@@ -64,10 +234,6 @@ body.dark {
           align-items: center;
 }
 
-.headerBox .logoBox .darkLogo {
-  display: none;
-}
-
 .headerBox .buttonsBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,25 +251,7 @@ body.dark {
   width: 144px;
   height: 36px;
   margin: 4px;
-  height: 36px;
   font-size: 16px;
-  background-color: #F7C9F3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-}
-
-.headerBox .buttonsBox .createButton:hover {
-  background-color: #E6BBE2;
-  outline-offset: -4px;
-  outline: 1px dotted #110038;
-  cursor: pointer;
-}
-
-.headerBox .buttonsBox .createButton:active {
-  background-color: #E6BBE2;
-  outline-offset: -4px;
-  outline: 1px dotted #110038;
 }
 
 .headerBox .buttonsBox .createButton:focus {
@@ -114,19 +262,6 @@ body.dark {
   margin: 4px;
 }
 
-.headerBox .buttonsBox .themeButton .chooseBox:hover button {
-  background-color: #E6BBE2;
-  outline-offset: -4px;
-  outline: 1px dotted #110038;
-  cursor: pointer;
-}
-
-.headerBox .buttonsBox .themeButton .chooseBox:active button {
-  background-color: #E6BBE2;
-  outline-offset: -4px;
-  outline: 1px dotted #110038;
-}
-
 .headerBox .buttonsBox .themeButton .chooseBox:focus {
   outline: none;
 }
@@ -135,22 +270,13 @@ body.dark {
   width: 131px;
   height: 36px;
   font-size: 16px;
-  background-color: #F7C9F3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
 .headerBox .buttonsBox .themeButton .dropButton {
   width: 36px;
-  -webkit-transform: translate(-5px);
-          transform: translate(-5px);
   height: 36px;
-  font-size: 16px;
-  background-color: #F7C9F3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-transform: translate(-5px, -1px);
+          transform: translate(-5px, -1px);
 }
 
 .headerBox .buttonsBox .themeButton .dropButton img {
@@ -180,9 +306,6 @@ body.dark {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   list-style: none;
 }
 
@@ -199,22 +322,7 @@ body.dark {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #FFF4FD;
-  border: 1px solid #CCA6C9;
-  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
   cursor: pointer;
-}
-
-.headerBox .buttonsBox .themeButton ul.active li .sLigth {
-  text-decoration: underline;
-}
-
-.headerBox .buttonsBox .themeButton ul.active li:last-child {
-  background: #F0F0F0;
-  border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
 .headerBox .buttonsBox .misGuifosBox {
