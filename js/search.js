@@ -13,7 +13,11 @@ let getSuggest = async (q) =>{
     let suggest = await response.json();
     return suggest.results.splice(0,3);
 }
-
+function setSug(suggestion){
+    search.value = suggestion
+    sugResults.innerHTML = '';
+    sugResults.classList.toggle('active');
+}
 search.addEventListener('keyup', ev=> {
     if (search.value.length !==0){
         searchButton.disabled = false;
@@ -24,14 +28,15 @@ search.addEventListener('keyup', ev=> {
         searchButton.disabled = true;
         lens.src = inactiveLens;
     }
-
     let query = ev.target.value;
-    if (query.length < 3) return;
     getSuggest(query).then(results =>{
+        sugResults.innerHTML = '';        
         results.forEach(result=>{
-            let li = document.createElement('li');
-            li.innerHTML = result;
-            sugResults.appendChild(li);
+            sugResults.innerHTML += 
+            `<li onclick="setSug('${result}')">
+                ${result}
+            </li>`
         })
     })
+    
 })
