@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+@mixin center-container-mobile{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 @mixin center-container{
     padding-left: 91px;
     padding-right: 91px;
@@ -22,19 +27,13 @@
     text-align: center;
 }
 
-@mixin h2{
-    font-family: $font-family-bold;
-    color: $color-secondary;
-    font-size: 14px;
-}
-
 @mixin windows{
-    background: $bg-windows-ligth;
+    background: $bg-windows-light;
     box-shadow: $box-shadow-windows;
 }
 
 @mixin buttonNormal{
-    background-color: $bg-button-ligth;
+    background-color: $bg-button-light;
     border: $border-button;
     box-shadow: $box-shadow-button;
 }
@@ -45,7 +44,7 @@
     box-shadow: $box-shadow-button-dark;
 }
 @mixin buttonHover{
-    background-color:$bg-button-hover-ligth;
+    background-color:$bg-button-hover-light;
     outline-offset:-4px;
     outline: 1px dotted #110038;   
     cursor: pointer;
@@ -58,7 +57,7 @@
     cursor: pointer;
 }
 @mixin buttonActive{
-    background-color:$bg-button-hover-ligth;
+    background-color:$bg-button-hover-light;
     outline-offset:-4px;
     outline: 1px dotted #110038; 
 }

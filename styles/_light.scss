@@ -36,7 +36,7 @@
     }
     #themes{                
         &.active{
-            background-color: $bg-windows-ligth;
+            background-color: $bg-windows-light;
             box-shadow: $box-shadow-windows;
             li{
                 background-color: #FFF4FD;
@@ -50,6 +50,46 @@
                 .sLight{
                     text-decoration: underline;
                     text-underline-position: under;               
+                }
+            }
+        }
+    }
+    main{
+        .search{
+            background-color: $bg-windows-light;
+            box-shadow: $box-shadow-windows;
+            .searchTitleBox{
+                background-image: $bg-gradient-title-light;                
+            }
+            .searchBar{
+                #searchButton{
+                    &:disabled{
+                        background-color: $bg-windows-light;
+                        border: $border-options;
+                        box-shadow: $box-shadow-windows;
+                        color: $color-disabled;
+                    }
+                    &:enabled{
+                        @include buttonNormal;
+                        &:hover{
+                            @include buttonHover;
+                        }
+                    }
+                }
+            }
+            #sugResults{
+                &.active{
+                    background-color: $bg-windows-light;
+                    box-shadow: $box-shadow-windows;
+                    li{
+                        background-color: $bg-options-light;
+                        border: $border-options;
+                        box-shadow: $box-shadow-windows;
+                        &:hover{
+                            background-color: $bg-sugestions-hover;
+                            border: $border-button;    
+                        }
+                    }
                 }
             }
         }

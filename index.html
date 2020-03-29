@@ -45,6 +45,20 @@
     </header>
 
     <main>
+        <aside class="search">
+            <div class="searchTitleBox">
+                <h2>Buscar</h2>
+            </div>
+            <form class="searchBar">
+                <input type="search" id="search" name="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button id="searchButton" disabled="disabled"> 
+                    <img id="lens" src="./images/lupa_inactive.svg" alt="lens inactive">
+                    Buscar
+                </button>
+            </form>
+            <ul id="sugResults"> </ul>
+        </aside>
+
         <!-- <section class="createGuifos">
             <div class="createGuifosLogo">
                 <img src="./images/arrow.svg" alt="flecha">
@@ -144,27 +158,9 @@
 
             </div>
         </section> -->
-        <section class="search">
-            <div class="searchTittleBox">
-                <h2>Buscar</h2>
-            </div>
-            <form class="searchBar">
-                <input type="search" id="search" name="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button disabled="disabled"> 
-                    <img class="lensInactive" src="./images/lupa_inactive.svg" alt="lens inactive">
-                    <img class="lensActive" src="./images/lupa.svg" alt="lens active">
-                    Buscar
-                </button>
-            </form>
-            <ul class="sugResults">
-                <li>resultado de busqueda 1</li>
-                <li>resultado de busqueda 2</li>
-                <li>resultado de busqueda 3</li>
-            </ul>
-            
-        </section>
+        
 
-        <section class="resultsBox"> 
+    <!--     <section class="resultsBox"> 
             <div class="resultsTittleBox">
                 <h3>Tendencias:</h3>
             </div>
@@ -177,7 +173,7 @@
                 </div>
             </div>
         </section>
-        <!-- <section class="searchResults">
+        <section class="searchResults">
             <div class="searchResultsButtons">
                 <button class="searchResultButton">#Un ejemplo</button>
                 <button class="searchResultButton">#Un ejemplomáslargo</button>
@@ -224,6 +220,7 @@
     </main>
 
     <script src="./js/header.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>

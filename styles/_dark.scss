@@ -53,4 +53,43 @@
             }
         }
     }
+    main{
+        .search{
+            background-color: $bg-windows-dark;
+            box-shadow: $box-shadow-windows;
+            .searchTitleBox{
+                background-image: $bg-gradient-title-dark;                
+            }
+            .searchBar{
+                #searchButton{
+                    &:disabled{
+                        background-color: $bg-windows-dark;
+                        border: $border-options;
+                        box-shadow: $box-shadow-windows;
+                        color: $color-disabled;
+                    }
+                    &:enabled{
+                        @include buttonNormal;
+                        &:hover{
+                            @include buttonHover;
+                        }
+                    }
+                }
+            }
+            #sugResults{
+                &.active{
+                    background-color: $bg-search-dark;
+                    box-shadow: $box-shadow-search-dark;
+                    li{
+                        background-color: $bg-sugestions-dark;
+                        border: $border-options;
+                        box-shadow: $box-shadow-windows;
+                        &:hover{
+                            border: $border-button;    
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
