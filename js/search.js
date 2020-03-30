@@ -31,18 +31,22 @@ search.addEventListener('keyup', ev=> {
     getSuggest(query).then(results =>{
         sugResults.innerHTML = '';        
         results.forEach(result=>{
-            sugResults.innerHTML += 
-            `<li onclick="setSug('${result}')">
-                ${result}
-            </li>`
+            if (results.length !== 0){
+                sugResults.innerHTML += 
+                `<li onclick="setSug('${result}')">
+                    ${result}
+                </li>`; 
+            }
+            else{
+                sugResults.classList.remove('active');
+            }
         })
     })
-    
 })
 
-let API_KEY_GIPHY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
+/*let API_KEY_GIPHY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
 
 searchButton.addEventListener('click', ()=>{
     let inputSearchQuery = search.value;
     console.log(inputSearchQuery)
-} )
+})*/
