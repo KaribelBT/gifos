@@ -15,23 +15,24 @@ let getSuggest = async (q) =>{
 function setSug(suggestion){
     search.value = suggestion
     sugResults.innerHTML = '';
-    sugResults.classList.toggle('active');
+    sugResults.classList.add('active');
 }
 search.addEventListener('keyup', ev=> {
-    if (search.value.length !==0){
+    if (search.value.length > 0){
         searchButton.disabled = false;
         lens.src = activeLens;
-        sugResults.classList.toggle('active');
+        sugResults.classList.add('active');
     }
     else{
         searchButton.disabled = true;
         lens.src = inactiveLens;
+        sugResults.classList.remove('active');
     }
     let query = ev.target.value;
     getSuggest(query).then(results =>{
         sugResults.innerHTML = '';        
         results.forEach(result=>{
-            if (results.length !== 0){
+            if (results.length > 0){
                 sugResults.innerHTML += 
                 `<li onclick="setSug('${result}')">
                     ${result}
