@@ -703,7 +703,7 @@ main .searchResults .searchResultsBox {
           justify-content: space-evenly;
 }
 
-main .searchResults .searchResultsBox .imageBox {
+main .searchResults .searchResultsBox #imageBox {
   padding: 16px;
 }
 /*# sourceMappingURL=styles.css.map */
