@@ -58,6 +58,7 @@
                 &.active{
                     display: block;
                     position: absolute;
+                    z-index: 2;
                     width: 167px;
                     height: 102px;
                     display: flex;

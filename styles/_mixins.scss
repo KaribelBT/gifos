@@ -67,3 +67,17 @@
     outline: 1px dotted #110038; 
 }
 
+@mixin sectionTitle{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    background-color: $bg-sectionTitle;
+    border: $border-sectionTitle;
+    box-shadow: $box-shadow-sectionTitle;
+    h3{
+        padding-left: 7px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+}

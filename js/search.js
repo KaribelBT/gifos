@@ -1,4 +1,3 @@
-//boton buscar y sugestions
 let search = document.querySelector('#search');
 let searchButton = document.querySelector('#searchButton');
 let lens = document.querySelector('#lens');
@@ -6,7 +5,7 @@ let inactiveLens = './images/lupa_inactive.svg';
 let activeLens = './images/lupa.svg';
 let sugResults = document.querySelector('#sugResults');
 
-let API_KEY = 'VA2FUF04PUZ6';
+let API_KEY = 'VA2FUF04PUZ6';//tenor
 let getSuggest = async (q) =>{
     console.log(q)
     let response = await fetch(`https://api.tenor.com/v1/search_suggestions?key=${API_KEY}&q=${q}`);
@@ -40,3 +39,10 @@ search.addEventListener('keyup', ev=> {
     })
     
 })
+
+let API_KEY_GIPHY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
+
+searchButton.addEventListener('click', ()=>{
+    let inputSearchQuery = search.value;
+    console.log(inputSearchQuery)
+} )

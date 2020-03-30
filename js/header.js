@@ -17,6 +17,7 @@ let lightLogo = "./images/gifOF_logo.png";
 btnDark.addEventListener('click', ()=>{
     document.body.classList.add('dark');
     document.body.classList.remove('light');
+    themes.classList.toggle('active')
     logo.src = darkLogo;
     
 })
@@ -24,5 +25,6 @@ btnDark.addEventListener('click', ()=>{
 btnLight.addEventListener('click', ()=>{
     document.body.classList.add('light');
     document.body.classList.remove('dark');
+    themes.classList.toggle('active')
     logo.src = lightLogo;
 })

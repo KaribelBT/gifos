@@ -392,6 +392,7 @@ body {
 .headerBox .buttonsBox .themeButton ul.active {
   display: block;
   position: absolute;
+  z-index: 2;
   width: 167px;
   height: 102px;
   display: -webkit-box;
@@ -496,6 +497,8 @@ main {
 }
 
 main .search {
+  width: 100%;
+  position: relative;
   margin-top: 19px;
 }
 
@@ -572,6 +575,8 @@ main .search #sugResults {
 }
 
 main .search #sugResults.active {
+  z-index: 2;
+  position: absolute;
   display: block;
   width: 100%;
   height: 140px;
@@ -635,5 +640,70 @@ main .search #sugResults.active li:hover {
   main .search .searchBar #searchButton {
     margin: 0px;
   }
+}
+
+main .searchResults {
+  z-index: 1;
+  width: 100%;
+}
+
+main .searchResults .searchResultsButtons {
+  margin-top: 12px;
+  margin-bottom: 54px;
+}
+
+main .searchResults .searchResultsButtons .searchResultButton {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 34px;
+  padding: 7px 8px;
+  margin-right: 8px;
+  background-color: #4180F6;
+  border: 1px solid #4C2F99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+main .searchResults .searchResultsTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 32px;
+  background-color: #FFFAFE;
+  border: 1px solid #E6BBE2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+          box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+}
+
+main .searchResults .searchResultsTitle h3 {
+  padding-left: 7px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+main .searchResults .searchResultsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main .searchResults .searchResultsBox .imageBox {
+  padding: 16px;
 }
 /*# sourceMappingURL=styles.css.map */

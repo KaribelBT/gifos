@@ -1,0 +1,34 @@
+main{
+    .searchResults{
+        z-index: 1;
+        width: 100%;
+        .searchResultsButtons{
+            margin-top: 12px;
+            margin-bottom: 54px;
+            .searchResultButton{
+                box-sizing: border-box;
+                height: 34px;
+                padding: 7px 8px;
+                margin-right: 8px;
+                background-color: $bg-button-tag;
+                border: $border-button-tag;
+                box-shadow: $box-shadow-button-tag;
+                color: $color-secondary;
+                font-size: 14px;
+            }
+        }
+        .searchResultsTitle{
+            @include sectionTitle;                   
+        }  
+        .searchResultsBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .imageBox{
+                padding: 16px; 
+            }
+
+        }
+    }
+}

@@ -4,6 +4,8 @@ main{
     @include center-container-mobile;
     @include container;
     .search{
+        width: 100%;
+        position: relative;
         margin-top: 19px;
         .searchTitleBox{
             width: 100%;
@@ -42,6 +44,8 @@ main{
         #sugResults{
             display:none;
             &.active{
+                z-index: 2; 
+                position: absolute;
                 display:block;
                 width: 100%;
                 height: 140px;
@@ -84,9 +88,9 @@ main{
                     margin: 0px;
                 }
                 #searchButton{
-                    margin: 0px;
+                    margin: 0px;                    
                 }
-            }    
+            } 
         }
     }
 }
