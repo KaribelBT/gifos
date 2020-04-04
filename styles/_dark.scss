@@ -29,6 +29,9 @@
     }
     .dropButton{
         @include buttonDark;
+        img{
+            filter: invert(100);
+        }
     }
     .misGuifosBox{
         color: $color-secondary;

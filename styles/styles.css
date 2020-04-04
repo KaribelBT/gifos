@@ -77,6 +77,11 @@ body {
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
 }
 
+.dark .dropButton img {
+  -webkit-filter: invert(100);
+          filter: invert(100);
+}
+
 .dark .misGuifosBox {
   color: #FFFFFF;
 }
@@ -643,6 +648,7 @@ main .search #sugResults.active li:hover {
 }
 
 main .searchResults {
+  display: none;
   z-index: 1;
   width: 100%;
 }
@@ -666,7 +672,7 @@ main .searchResults .searchResultsButtons .searchResultButton {
   font-size: 14px;
 }
 
-main .searchResults .searchResultsTitle {
+main .searchResults .searchResultsTittle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -681,7 +687,7 @@ main .searchResults .searchResultsTitle {
           box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
 }
 
-main .searchResults .searchResultsTitle h3 {
+main .searchResults .searchResultsTittle h3 {
   padding-left: 7px;
   font-size: 14px;
   font-weight: 300;

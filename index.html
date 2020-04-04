@@ -49,7 +49,7 @@
             <div class="searchTitleBox">
                 <h2>Buscar</h2>
             </div>
-            <form class="searchBar">
+            <form id="searchBar" class="searchBar">
                 <input type="search" id="search" name="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
                 <button id="searchButton" disabled="disabled"> 
                     <img id="lens" src="./images/lupa_inactive.svg" alt="lens inactive">
@@ -59,16 +59,15 @@
             <ul id="sugResults"> </ul>
         </aside>
 
-        <section class="searchResults">
+        <section id="searchResult" class="searchResults">
             <div class="searchResultsButtons">
                 <button class="searchResultButton">#Un ejemplo</button>
                 <button class="searchResultButton">#Un ejemplomáslargo</button>
                 <button class="searchResultButton">#tagsrelacionados</button>
             </div>
-            <div class="searchResultsTitle">
-                <h3>Ejemplo de búsqueda (resultados)</h2>
+            <div id="searchResultTittle" class="searchResultsTittle">
             </div>
-            <div class="searchResultsBox">
+            <div id="searchResultBox" class="searchResultsBox">
                 <div id="imageBox">
                 </div>        
             </div>
