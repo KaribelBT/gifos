@@ -18,18 +18,37 @@ main{
                 font-size: 14px;
             }
         }
-        .searchResultsTittle{
+        .searchResultsTitle{
             @include sectionTitle;                   
         }  
         .searchResultsBox{
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: space-evenly;
-            #imageBox{
-                padding: 16px; 
+            .imageResultsBox{
+                width: 294px;
+                height: 304px;
+                margin-bottom: 16px;
+               .gifBox{
+                    .gifs{
+                        img{
+                            object-fit: cover;
+                            width: 288px;
+                            height: 298px;                  
+                        }
+                    }    
+                    .hashtags{
+                        width: 100;
+                        height: 4px;
+                        display: flex;
+                        text-align: center;
+                    }
+                    &:hover{
+                        outline-offset:-4px;
+                        border: $border-button-dotted;
+                    }
+                }
             }
-
         }
     }
 }

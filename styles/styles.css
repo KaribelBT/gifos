@@ -161,6 +161,17 @@ body {
   border: 1px solid #110038;
 }
 
+.dark main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
 .light {
   background-color: #FFFFFF;
   color: #110038;
@@ -303,6 +314,17 @@ body {
 .light main .search #sugResults.active li:hover {
   background-color: #DBDBDB;
   border: 1px solid #110038;
+}
+
+.light main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 }
 
 .titleBox {
@@ -672,7 +694,8 @@ main .searchResults .searchResultsButtons .searchResultButton {
   font-size: 14px;
 }
 
-main .searchResults .searchResultsTittle {
+main .searchResults .searchResultsTitle {
+  margin-bottom: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -687,7 +710,7 @@ main .searchResults .searchResultsTittle {
           box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
 }
 
-main .searchResults .searchResultsTittle h3 {
+main .searchResults .searchResultsTitle h3 {
   padding-left: 7px;
   font-size: 14px;
   font-weight: 300;
@@ -697,19 +720,37 @@ main .searchResults .searchResultsBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
 
-main .searchResults .searchResultsBox #imageBox {
-  padding: 16px;
+main .searchResults .searchResultsBox .imageResultsBox {
+  width: 294px;
+  height: 304px;
+  margin-bottom: 16px;
+}
+
+main .searchResults .searchResultsBox .imageResultsBox .gifBox .gifs img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 288px;
+  height: 298px;
+}
+
+main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
+  width: 100;
+  height: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
+  outline-offset: -4px;
+  border: 1px dotted #110038;
 }
 /*# sourceMappingURL=styles.css.map */

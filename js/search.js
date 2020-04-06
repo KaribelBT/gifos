@@ -1,17 +1,17 @@
-let search = document.querySelector('#search');
-let searchBar = document.querySelector('#searchBar');
-let lens = document.querySelector('#lens');
-let inactiveLens = './images/lupa_inactive.svg';
-let activeLens = './images/lupa.svg';
-let sugResults = document.querySelector('#sugResults');
-let imageBox = document.querySelector('#imageBox')
-let searchResult = document.querySelector('#searchResult');
+const search = document.querySelector('#search');
+const searchBar = document.querySelector('#searchBar');
+const lens = document.querySelector('#lens');
+const inactiveLens = './images/lupa_inactive.svg';
+const activeLens = './images/lupa.svg';
+const sugResults = document.querySelector('#sugResults');
+const searchResult = document.querySelector('#searchResult');
+const searchResultBox = document.querySelector('#searchResultBox');
+const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
 
-let API_KEY = 'VA2FUF04PUZ6';//tenor
 let getSuggest = async (q) =>{ //buscar sugerencias
-    let response = await fetch(`https://api.tenor.com/v1/search_suggestions?key=${API_KEY}&q=${q}&limit=3`);
+    let response = await fetch(`https://api.giphy.com/v1/tags/related/${q}?api_key=${API_KEY}`);
     let suggest = await response.json();
-    return suggest.results;
+    return suggest.data.splice(0,3);
 }
 
 function setSug(suggestion){ //busca sugerencias de busqueda input
@@ -37,8 +37,8 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
         if (results.length > 0) {
             results.forEach(result=>{
                 sugResults.innerHTML += 
-                `<li onclick="setSug('${result}')">
-                    ${result}
+                `<li onclick="setSug('${result.name}')">
+                    ${result.name}
                 </li>`; 
             })
         }
@@ -48,43 +48,51 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
     })
 })
 
-let API_KEY_GIPHY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj'; // giphy
+
 async function getGif(inputSearchQuery){ //busca gifs
-    let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY_GIPHY}&q=${inputSearchQuery}`);
+    let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
     let data = await resp.json();
     return data;
 }
 
-function createTittle(text){//crear y rellenar titulo 
-    let searchTittle = `<h3>${text}:</h3>`;
-    let searchResultTittle = document.querySelector('#searchResultTittle');
-    searchResultTittle.innerHTML = searchTittle;
+function createTitle(text){//crear y rellenar titulo 
+    let searchTitle = `<h3>${text}:</h3>`;
+    const searchResultTitle = document.querySelector('#searchResultTitle');
+    searchResultTitle.innerHTML = searchTitle;
 }
 
-function showResults(arrayGif){
-    let searchResultBox = document.querySelector('#searchResultBox');
+function showResults(arrayGif){ //muestra resultados de busqueda de gif
     if(arrayGif < 1){
         let noResults = 'Oops! no se encontraron resultados';
         let parragraph = document.createElement('p');
         parragraph.innerHTML = noResults;
         searchResultBox.append(parragraph)
     }
-    
-    
+        
     arrayGif.forEach( (gif)=> {
-        let img = `<img src ="${gif.images.original.url}">`;
-        imageBox.innerHTML += img;
+        let imageResultBox=
+         `<div class="imageResultsBox">
+            <div class="gifBox">
+                <div class="gifs">
+                    <img src ="${gif.images.original.url}">
+                </div>
+                <div class="hashtags">
+                 <h2></h2>
+                </div>
+            </div>            
+        </div>`
+        searchResultBox.innerHTML += imageResultBox;
     });
 }
 
-searchBar.addEventListener('submit', (e)=>{
+searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de gif
     e.preventDefault()
     let inputSearchQuery = search.value;
-    imageBox.innerHTML = '';
+    searchResultBox.innerHTML = '';
     search.value = '';
     sugResults.classList.remove('active');
     searchResult.style.display = 'block';
-    createTittle(inputSearchQuery);
+    createTitle(inputSearchQuery);
     getGif(inputSearchQuery).then(resp=>{
         showResults(resp.data)            
     })    

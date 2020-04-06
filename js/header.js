@@ -1,19 +1,17 @@
-//change theme
-let dropButton = document.querySelector('#dropButton');
-let themes = document.querySelector('#themes')
 
-dropButton.addEventListener('click', ()=>{
+const dropButton = document.querySelector('#dropButton');
+const themes = document.querySelector('#themes')
+const btnLight = document.querySelector('#btnLight');
+const btnDark = document.querySelector('#btnDark');
+const logo = document.querySelector('#logo');
+const darkLogo = "./images/gifOF_logo_dark.png";
+const lightLogo = "./images/gifOF_logo.png";
+
+dropButton.addEventListener('click', ()=>{ //muestra menu de themes
     themes.classList.toggle('active');
 })
 
-let btnLight = document.querySelector('#btnLight');
-let btnDark = document.querySelector('#btnDark');
-let logo = document.querySelector('#logo');
-let darkLogo = "./images/gifOF_logo_dark.png";
-let lightLogo = "./images/gifOF_logo.png";
-
-
-btnDark.addEventListener('click', ()=>{
+btnDark.addEventListener('click', ()=>{ //change theme
     document.body.classList.add('dark');
     document.body.classList.remove('light');
     themes.classList.toggle('active')
@@ -21,7 +19,7 @@ btnDark.addEventListener('click', ()=>{
     
 })
 
-btnLight.addEventListener('click', ()=>{
+btnLight.addEventListener('click', ()=>{ //change theme
     document.body.classList.add('light');
     document.body.classList.remove('dark');
     themes.classList.toggle('active')

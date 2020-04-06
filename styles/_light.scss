@@ -93,5 +93,20 @@
                 }
             }
         }
+        .searchResults{
+            .searchResultsBox{
+                .imageResultsBox{
+                    .gifBox{
+                        &:hover{
+                            background-color: $bg-windows-light;
+                            box-shadow: $box-shadow-windows;
+                        }
+                        .hashtags{
+                            background-image: $bg-gradient-title-light;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
