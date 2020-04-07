@@ -7,7 +7,9 @@ const sugResults = document.querySelector('#sugResults');
 const searchResult = document.querySelector('#searchResult');
 const searchResultBox = document.querySelector('#searchResultBox');
 const searchResultTitle = document.querySelector('#searchResultTitle');
+const searchResultButtons = document.querySelector('#searchResultButtons');
 const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
+let tagsArray = [];
 
 let getSuggest = async (q) =>{ //buscar sugerencias
     let response = await fetch(`https://api.giphy.com/v1/tags/related/${q}?api_key=${API_KEY}`);
@@ -58,6 +60,7 @@ async function getGif(inputSearchQuery){ //busca gifs
 
 function getNewGif(title){
     searchResultBox.innerHTML = '';
+    searchResult.style.display = 'block';
     createTitle(title)
     getGif(title)
     .then(resp=>{
@@ -70,16 +73,32 @@ function createTitle(text){//crear y rellenar titulo
     searchResultTitle.innerHTML = searchTitle;
 }
 
-function createTags (inputSearchQuery){ //crea los tags para volver a buscar
-    inputSearchQuery = JSON.stringify(inputSearchQuery)
-    let saveSearch = localStorage.setItem('busqueda', inputSearchQuery);
-    saveSearch = JSON.parse(saveSearch)
-    let searchSaved = localStorage.getItem('busqueda'); 
-    let searchResultsButtons = 
-        `<div class="searchResultsButtons">
-            <button class="searchResultButton">#${searchSaved}</button>
-        </div>`
-    searchResult.innerHTML = searchResultsButtons;
+function createTags (inputSearchQuery){//crea los tags para volver a buscar
+    let searchedTags = []
+    if(localStorage.getItem('searchedTags')){
+        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
+        searchedArray.map(s=>{
+            searchedTags.push(s)
+        })
+    }
+    if(searchedTags.length>0){
+        tagsArray = searchedTags
+
+    }
+    tagsArray.push(inputSearchQuery);
+    localStorage.setItem('searchedTags', JSON.stringify(tagsArray));
+}
+
+function getTags(){
+    if(localStorage.getItem('searchedTags')){
+        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
+        searchedArray.map(s=>{
+            searchResultButtons.innerHTML += 
+            `<button class="searchResultButton" onclick="getNewGif('${s}')">
+                #${s}
+            </button>`
+        })
+    }
 }
 
 function showResults(arrayGif){ //muestra resultados de busqueda de gif
@@ -131,9 +150,14 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
     sugResults.classList.remove('active');
     searchResult.style.display = 'block';
     createTitle(inputSearchQuery);
-    // createTags(inputSearchQuery);
+    createTags(inputSearchQuery);
+    getTags()
     getGif(inputSearchQuery)
     .then(resp=>{
         showResults(resp.data);  
     })    
 })
+
+window.onload = () =>{
+    getTags()
+}

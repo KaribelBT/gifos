@@ -669,18 +669,12 @@ main .search #sugResults.active li:hover {
   }
 }
 
-main .searchResults {
-  display: none;
-  z-index: 1;
-  width: 100%;
-}
-
-main .searchResults .searchResultsButtons {
+main .searchResultsButtons {
   margin-top: 12px;
   margin-bottom: 54px;
 }
 
-main .searchResults .searchResultsButtons .searchResultButton {
+main .searchResultsButtons .searchResultButton {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 34px;
@@ -692,6 +686,13 @@ main .searchResults .searchResultsButtons .searchResultButton {
           box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
   color: #FFFFFF;
   font-size: 14px;
+  cursor: pointer;
+}
+
+main .searchResults {
+  display: none;
+  z-index: 1;
+  width: 100%;
 }
 
 main .searchResults .searchResultsTitle {
