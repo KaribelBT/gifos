@@ -29,20 +29,41 @@ main{
                 width: 294px;
                 height: 304px;
                 margin-bottom: 16px;
-               .gifBox{
-                    .gifs{
-                        img{
-                            object-fit: cover;
-                            width: 288px;
-                            height: 298px;                  
-                        }
-                    }    
-                    .hashtags{
-                        @include hashtagsGif    
+                position: relative;
+                .gifs{
+                    img{
+                        object-fit: cover;
+                        width: 288px;
+                        height: 298px;                  
                     }
-                    &:hover{
-                        outline-offset:-4px;
-                        border: $border-button-dotted;
+                }    
+                .hashtags{
+                    display: none;
+                    h2{
+                        margin-left: 3px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: $color-secondary;
+                    }
+                    
+                }
+                &:hover{
+                    outline-offset:-4px;
+                    border: $border-button-dotted;
+                    display: flex;
+                    flex-direction: column;
+                    .gifs{
+                        position: relative;
+                        z-index: 0;
+                    }
+                    .hashtags{
+                        width: 100%;
+                        height: 24px;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        z-index: 1;
+                        transform: translateY(274px);
                     }
                 }
             }

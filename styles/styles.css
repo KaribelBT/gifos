@@ -161,13 +161,13 @@ body {
   border: 1px solid #110038;
 }
 
-.dark main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
+.dark main .searchResults .searchResultsBox .imageResultsBox:hover {
   background-color: #B4B4B4;
   -webkit-box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
 }
 
-.dark main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
+.dark main .searchResults .searchResultsBox .imageResultsBox .hashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
@@ -316,13 +316,13 @@ body {
   border: 1px solid #110038;
 }
 
-.light main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
+.light main .searchResults .searchResultsBox .imageResultsBox:hover {
   background-color: #E6E6E6;
   -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
-.light main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
+.light main .searchResults .searchResultsBox .imageResultsBox .hashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 }
@@ -731,34 +731,56 @@ main .searchResults .searchResultsBox .imageResultsBox {
   width: 294px;
   height: 304px;
   margin-bottom: 16px;
+  position: relative;
 }
 
-main .searchResults .searchResultsBox .imageResultsBox .gifBox .gifs img {
+main .searchResults .searchResultsBox .imageResultsBox .gifs img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 288px;
   height: 298px;
 }
 
-main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
-  width: 100;
-  height: 4px;
+main .searchResults .searchResultsBox .imageResultsBox .hashtags {
+  display: none;
+}
+
+main .searchResults .searchResultsBox .imageResultsBox .hashtags h2 {
+  margin-left: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+main .searchResults .searchResultsBox .imageResultsBox:hover {
+  outline-offset: -4px;
+  border: 1px dotted #110038;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags h2 {
-  font-family: "Chakra Petch-bold";
-  color: #FFFFFF;
-  padding-left: 1px;
-  font-size: 14px;
-  font-weight: 300;
+main .searchResults .searchResultsBox .imageResultsBox:hover .gifs {
+  position: relative;
+  z-index: 0;
 }
 
-main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
-  outline-offset: -4px;
-  border: 1px dotted #110038;
+main .searchResults .searchResultsBox .imageResultsBox:hover .hashtags {
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform: translateY(274px);
+          transform: translateY(274px);
 }
 /*# sourceMappingURL=styles.css.map */

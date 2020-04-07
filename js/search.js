@@ -60,6 +60,16 @@ function createTitle(text){//crear y rellenar titulo
     searchResultTitle.innerHTML = searchTitle;
 }
 
+function createTags (inputSearchQuery){ //crea los tags para volver a buscar
+    let saveSearch = localStorage.setItem('busqueda', inputSearchQuery);
+    let searchSaved = localStorage.getItem('busqueda'); 
+    let searchResultsButtons = 
+        `<div class="searchResultsButtons">
+            <button class="searchResultButton">#${searchSaved}</button>
+        </div>`
+    searchResult.innerHTML = searchResultsButtons;
+}
+
 function showResults(arrayGif){ //muestra resultados de busqueda de gif
     if(arrayGif < 1){
         let noResults = 'Oops! no se encontraron resultados';
@@ -68,20 +78,38 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
         searchResultBox.append(parragraph)
     }
         
-    arrayGif.forEach( (gif)=> {
-        let imageResultBox=
-         `<div class="imageResultsBox">
-            <div class="gifBox">
+    arrayGif
+        .forEach( (gif)=> {
+            const textToRender = this.showHashtags(gif.title);
+            let imageResultBox=
+            `<div class="imageResultsBox">
                 <div class="gifs">
                     <img src ="${gif.images.original.url}">
                 </div>
                 <div class="hashtags">
-                    <h2 id="hashtagsGif"></h2>
+                    <h2 class="hashtagsGif">${textToRender}</h2>
                 </div>
-            </div>            
-        </div>`
-        searchResultBox.innerHTML += imageResultBox;
+            </div>`
+            searchResultBox.innerHTML += imageResultBox;
     });
+}
+
+function showHashtags(title){ //create - push #hastags #en #hover #gif    
+    const hashtag = '#';
+    let gifTitle = title
+    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
+    let valuesWithHashtag = hashtagsArray.map((valor)=>`${hashtag}${valor}`); // return array ['#hola', '#karibel']
+    let valuesWithHashtagLimited = valuesWithHashtag.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
+    let hashtagsString = valuesWithHashtagLimited.join(' '); //pasar a string separado por espacio
+    return hashtagsString
+}
+
+function showHashtag(title){ //create - push #hastagenhovergif    
+    let gifTitle = title
+    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
+    let valuesWithHashtagLimited = hashtagsArray.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
+    let hashtagsString = valuesWithHashtagLimited.join(''); //pasar a string separado por espacio
+    return `#${hashtagsString}`
 }
 
 searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de gif
@@ -92,18 +120,8 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
     sugResults.classList.remove('active');
     searchResult.style.display = 'block';
     createTitle(inputSearchQuery);
-    getGif(inputSearchQuery).then(resp=>{
-        showResults(resp.data)
-        //create - push hastags en hover gif
-        let hashtagsArray = ' ';
-        hashtagsArray = inputSearchQuery.split(' ');
-        //hashtagsArray.push(inputSearchQuery)
-        let h2Value = '';
-        for (let i = 0; i < hashtagsArray.length; i++) {
-            h2Value = h2Value + hashtagsArray[i];
-        }
-        let hashtagsGif = document.querySelector('#hashtagsGif')
-        hashtagsGif.innerHTML = h2Value;
-        console.log(h2Value)             
-        })      
+    getGif(inputSearchQuery)
+    .then(resp=>{
+        showResults(resp.data);  
+    })    
 })

@@ -97,14 +97,12 @@
         .searchResults{
             .searchResultsBox{
                 .imageResultsBox{
-                    .gifBox{
-                        &:hover{
-                            background-color: $bg-search-dark;
-                            box-shadow: $box-shadow-gif-dark;
-                        }
-                        .hashtags{
-                            background-image: $bg-gradient-title-dark;
-                        }
+                    &:hover{
+                        background-color: $bg-search-dark;
+                        box-shadow: $box-shadow-gif-dark;
+                    }
+                    .hashtags{
+                        background-image: $bg-gradient-title-dark;
                     }
                 }
             }
