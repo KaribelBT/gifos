@@ -33,26 +33,36 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
         sugResults.classList.remove('active');
     }
     let query = ev.target.value;
-    getSuggest(query).then(results =>{
-        sugResults.innerHTML = '';        
-        if (results.length > 0) {
-            results.forEach(result=>{
-                sugResults.innerHTML += 
-                `<li onclick="setSug('${result.name}')">
-                    ${result.name}
-                </li>`; 
-            })
-        }
-        else{
-            sugResults.classList.remove('active');
-        }
-    })
+    if (query.length != ''){
+        getSuggest(query).then(results =>{
+            sugResults.innerHTML = '';        
+            if (results.length > 0) {
+                results.forEach(result=>{
+                    sugResults.innerHTML += 
+                    `<li onclick="setSug('${result.name}')">
+                        ${result.name}
+                    </li>`; 
+                })
+            }
+            else{
+                sugResults.classList.remove('active');
+            }
+        })
+    } 
 })
-
 async function getGif(inputSearchQuery){ //busca gifs
     let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
     let data = await resp.json();
     return data;
+}
+
+function getNewGif(title){
+    searchResultBox.innerHTML = '';
+    createTitle(title)
+    getGif(title)
+    .then(resp=>{
+        showResults(resp.data);  
+    })  
 }
 
 function createTitle(text){//crear y rellenar titulo 
@@ -61,7 +71,9 @@ function createTitle(text){//crear y rellenar titulo
 }
 
 function createTags (inputSearchQuery){ //crea los tags para volver a buscar
+    inputSearchQuery = JSON.stringify(inputSearchQuery)
     let saveSearch = localStorage.setItem('busqueda', inputSearchQuery);
+    saveSearch = JSON.parse(saveSearch)
     let searchSaved = localStorage.getItem('busqueda'); 
     let searchResultsButtons = 
         `<div class="searchResultsButtons">
@@ -77,12 +89,11 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
         parragraph.innerHTML = noResults;
         searchResultBox.append(parragraph)
     }
-        
     arrayGif
         .forEach( (gif)=> {
             const textToRender = this.showHashtags(gif.title);
             let imageResultBox=
-            `<div class="imageResultsBox">
+            `<div class="imageResultsBox" onclick="getNewGif('${gif.title}')">
                 <div class="gifs">
                     <img src ="${gif.images.original.url}">
                 </div>
@@ -120,6 +131,7 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
     sugResults.classList.remove('active');
     searchResult.style.display = 'block';
     createTitle(inputSearchQuery);
+    // createTags(inputSearchQuery);
     getGif(inputSearchQuery)
     .then(resp=>{
         showResults(resp.data);  

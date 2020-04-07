@@ -762,6 +762,7 @@ main .searchResults .searchResultsBox .imageResultsBox:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
 }
 
 main .searchResults .searchResultsBox .imageResultsBox:hover .gifs {

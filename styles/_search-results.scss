@@ -52,6 +52,7 @@ main{
                     border: $border-button-dotted;
                     display: flex;
                     flex-direction: column;
+                    cursor: pointer;
                     .gifs{
                         position: relative;
                         z-index: 0;
