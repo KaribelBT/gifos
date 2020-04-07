@@ -38,10 +38,7 @@ main{
                         }
                     }    
                     .hashtags{
-                        width: 100;
-                        height: 4px;
-                        display: flex;
-                        text-align: center;
+                        @include hashtagsGif    
                     }
                     &:hover{
                         outline-offset:-4px;

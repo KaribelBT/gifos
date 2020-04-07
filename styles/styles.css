@@ -749,6 +749,14 @@ main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags {
   text-align: center;
 }
 
+main .searchResults .searchResultsBox .imageResultsBox .gifBox .hashtags h2 {
+  font-family: "Chakra Petch-bold";
+  color: #FFFFFF;
+  padding-left: 1px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
 main .searchResults .searchResultsBox .imageResultsBox .gifBox:hover {
   outline-offset: -4px;
   border: 1px dotted #110038;

@@ -6,6 +6,7 @@ const activeLens = './images/lupa.svg';
 const sugResults = document.querySelector('#sugResults');
 const searchResult = document.querySelector('#searchResult');
 const searchResultBox = document.querySelector('#searchResultBox');
+const searchResultTitle = document.querySelector('#searchResultTitle');
 const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
 
 let getSuggest = async (q) =>{ //buscar sugerencias
@@ -48,7 +49,6 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
     })
 })
 
-
 async function getGif(inputSearchQuery){ //busca gifs
     let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
     let data = await resp.json();
@@ -57,7 +57,6 @@ async function getGif(inputSearchQuery){ //busca gifs
 
 function createTitle(text){//crear y rellenar titulo 
     let searchTitle = `<h3>${text}:</h3>`;
-    const searchResultTitle = document.querySelector('#searchResultTitle');
     searchResultTitle.innerHTML = searchTitle;
 }
 
@@ -77,7 +76,7 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
                     <img src ="${gif.images.original.url}">
                 </div>
                 <div class="hashtags">
-                 <h2></h2>
+                    <h2 id="hashtagsGif"></h2>
                 </div>
             </div>            
         </div>`
@@ -94,6 +93,17 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
     searchResult.style.display = 'block';
     createTitle(inputSearchQuery);
     getGif(inputSearchQuery).then(resp=>{
-        showResults(resp.data)            
-    })    
+        showResults(resp.data)
+        //create - push hastags en hover gif
+        let hashtagsArray = ' ';
+        hashtagsArray = inputSearchQuery.split(' ');
+        //hashtagsArray.push(inputSearchQuery)
+        let h2Value = '';
+        for (let i = 0; i < hashtagsArray.length; i++) {
+            h2Value = h2Value + hashtagsArray[i];
+        }
+        let hashtagsGif = document.querySelector('#hashtagsGif')
+        hashtagsGif.innerHTML = h2Value;
+        console.log(h2Value)             
+        })      
 })
