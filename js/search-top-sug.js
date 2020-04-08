@@ -8,6 +8,7 @@ const searchResult = document.querySelector('#searchResult');
 const searchResultBox = document.querySelector('#searchResultBox');
 const searchResultTitle = document.querySelector('#searchResultTitle');
 const searchResultButtons = document.querySelector('#searchResultButtons');
+const topResultBox = document.querySelector('#topResultBox');
 const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
 let tagsArray = [];
 
@@ -21,6 +22,119 @@ function setSug(suggestion){ //busca sugerencias de busqueda input
     search.value = suggestion
     sugResults.innerHTML = '';
     sugResults.classList.remove('active');
+}
+
+async function getGif(inputSearchQuery){ //busca gifs desde un input
+    let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
+    let data = await resp.json();
+    return data;
+}
+
+async function getTopGif(){ //busca gifs de trending
+    let resp = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`);
+    let data = await resp.json();
+    return data;
+}
+
+function getNewGif(title){ // busca gif desde otro gif
+    searchResultBox.innerHTML = '';
+    searchResult.style.display = 'block';
+    createTitle(title)
+    getGif(title)
+    .then(resp=>{
+        showResults(resp.data);  
+    })  
+}
+
+function createTitle(text){//crear y rellenar titulo 
+    let searchTitle = `<h3>${text}:</h3>`;
+    searchResultTitle.innerHTML = searchTitle;
+}
+
+function createTags (inputSearchQuery){//crea los tags para volver a buscar
+    let searchedTags = []
+    if(localStorage.getItem('searchedTags')){
+        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
+        searchedArray.map(s=>{
+            searchedTags.push(s)
+        })
+    }
+    if(searchedTags.length>0){
+        tagsArray = searchedTags
+
+    }
+    tagsArray.push(inputSearchQuery);
+    localStorage.setItem('searchedTags', JSON.stringify(tagsArray));
+}
+
+function getTags(){ //muestra los tags creados
+    if(localStorage.getItem('searchedTags')){
+        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
+        searchedArray.map(s=>{
+            searchResultButtons.innerHTML += 
+            `<button class="searchResultButton" onclick="getNewGif('${s}')">
+                ${s}
+            </button>`
+        })
+    }
+}
+
+function showResults(arrayGif){ //muestra resultados de busqueda de gif
+    if(arrayGif < 1){
+        let noResults = 'Oops! no se encontraron resultados';
+        let parragraph = document.createElement('p');
+        parragraph.innerHTML = noResults;
+        searchResultBox.append(parragraph)
+    }
+    arrayGif
+        .forEach( (gif)=> {
+            const textToRender = this.showHashtags(gif.title);
+            let imageResultBox=
+            `<div class="imageResultsBox" onclick="getNewGif('${gif.title}')">
+                <div class="gifs">
+                    <img src ="${gif.images.original.url}">
+                </div>
+                <div class="hashtags">
+                    <h2 class="hashtagsGif">${textToRender}</h2>
+                </div>
+            </div>`
+            searchResultBox.innerHTML += imageResultBox;
+    });
+}
+
+function showTopResults(arrayGif){ //muestra tendencias
+    arrayGif
+        .forEach( (gif)=> {
+            const textToRender = this.showHashtags(gif.title);
+            let imageResultBox=
+            `<div class="imageTopResultsBox" onclick="getNewGif('${gif.title}')">
+                <div class="topGifs">
+                    <img src ="${gif.images.original.url}">
+                </div>
+                <div class="topHashtags">
+                    <h2 class="topHashtagsGif">${textToRender}</h2>
+                </div>
+            </div>`
+            topResultBox.innerHTML += imageResultBox;
+    });
+}
+
+function showHashtags(title){ //create - push #hastags #en #hover #gif    
+    const hashtag = '#';
+    let gifTitle = title
+    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
+    let valuesWithHashtag = hashtagsArray.map((valor)=>`${hashtag}${valor}`); // return array ['#hola', '#karibel']
+    let valuesWithHashtagLimited = valuesWithHashtag.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
+    let hashtagsString = valuesWithHashtagLimited.join(' '); //pasar a string separado por espacio
+    return hashtagsString
+}
+
+function showHashtag(title){ //create - push #hastagenhovergif    
+    let gifTitle = title
+    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
+    let valuesWithHashtagLimited = hashtagsArray.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
+    let hashtagsString = valuesWithHashtagLimited.join(''); //pasar a string separado por espacio
+    return `#${hashtagsString}`
 }
 
 search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar sugerencias
@@ -52,95 +166,6 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
         })
     } 
 })
-async function getGif(inputSearchQuery){ //busca gifs
-    let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
-    let data = await resp.json();
-    return data;
-}
-
-function getNewGif(title){
-    searchResultBox.innerHTML = '';
-    searchResult.style.display = 'block';
-    createTitle(title)
-    getGif(title)
-    .then(resp=>{
-        showResults(resp.data);  
-    })  
-}
-
-function createTitle(text){//crear y rellenar titulo 
-    let searchTitle = `<h3>${text}:</h3>`;
-    searchResultTitle.innerHTML = searchTitle;
-}
-
-function createTags (inputSearchQuery){//crea los tags para volver a buscar
-    let searchedTags = []
-    if(localStorage.getItem('searchedTags')){
-        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
-        searchedArray.map(s=>{
-            searchedTags.push(s)
-        })
-    }
-    if(searchedTags.length>0){
-        tagsArray = searchedTags
-
-    }
-    tagsArray.push(inputSearchQuery);
-    localStorage.setItem('searchedTags', JSON.stringify(tagsArray));
-}
-
-function getTags(){
-    if(localStorage.getItem('searchedTags')){
-        let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
-        searchedArray.map(s=>{
-            searchResultButtons.innerHTML += 
-            `<button class="searchResultButton" onclick="getNewGif('${s}')">
-                #${s}
-            </button>`
-        })
-    }
-}
-
-function showResults(arrayGif){ //muestra resultados de busqueda de gif
-    if(arrayGif < 1){
-        let noResults = 'Oops! no se encontraron resultados';
-        let parragraph = document.createElement('p');
-        parragraph.innerHTML = noResults;
-        searchResultBox.append(parragraph)
-    }
-    arrayGif
-        .forEach( (gif)=> {
-            const textToRender = this.showHashtags(gif.title);
-            let imageResultBox=
-            `<div class="imageResultsBox" onclick="getNewGif('${gif.title}')">
-                <div class="gifs">
-                    <img src ="${gif.images.original.url}">
-                </div>
-                <div class="hashtags">
-                    <h2 class="hashtagsGif">${textToRender}</h2>
-                </div>
-            </div>`
-            searchResultBox.innerHTML += imageResultBox;
-    });
-}
-
-function showHashtags(title){ //create - push #hastags #en #hover #gif    
-    const hashtag = '#';
-    let gifTitle = title
-    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
-    let valuesWithHashtag = hashtagsArray.map((valor)=>`${hashtag}${valor}`); // return array ['#hola', '#karibel']
-    let valuesWithHashtagLimited = valuesWithHashtag.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
-    let hashtagsString = valuesWithHashtagLimited.join(' '); //pasar a string separado por espacio
-    return hashtagsString
-}
-
-function showHashtag(title){ //create - push #hastagenhovergif    
-    let gifTitle = title
-    let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
-    let valuesWithHashtagLimited = hashtagsArray.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
-    let hashtagsString = valuesWithHashtagLimited.join(''); //pasar a string separado por espacio
-    return `#${hashtagsString}`
-}
 
 searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de gif
     e.preventDefault()
@@ -151,7 +176,6 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
     searchResult.style.display = 'block';
     createTitle(inputSearchQuery);
     createTags(inputSearchQuery);
-    getTags()
     getGif(inputSearchQuery)
     .then(resp=>{
         showResults(resp.data);  
@@ -159,5 +183,9 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
 })
 
 window.onload = () =>{
-    getTags()
+    getTags() //muestra historial de busquedas realizadas
+    getTopGif()
+    .then(resp=>{
+        showTopResults(resp.data);  
+    }) 
 }

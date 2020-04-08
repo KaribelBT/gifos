@@ -6,7 +6,11 @@ const btnDark = document.querySelector('#btnDark');
 const logo = document.querySelector('#logo');
 const darkLogo = "./images/gifOF_logo_dark.png";
 const lightLogo = "./images/gifOF_logo.png";
+const logoBox = document.querySelector('.logoBox')
 
+logoBox.addEventListener('click', ()=>{
+    location.reload()
+})
 dropButton.addEventListener('click', ()=>{ //muestra menu de themes
     themes.classList.toggle('active');
 })

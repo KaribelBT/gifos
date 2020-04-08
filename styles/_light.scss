@@ -92,7 +92,7 @@
                     }
                 }
             }
-        }
+        }        
         .searchResults{
             .searchResultsBox{
                 .imageResultsBox{
@@ -101,6 +101,19 @@
                         box-shadow: $box-shadow-windows;
                     }
                     .hashtags{
+                        background-image: $bg-gradient-title-light;
+                    }
+                }
+            }
+        }
+        .top{
+            .topResultsBox{
+                .imageTopResultsBox{
+                    &:hover{
+                        background-color: $bg-windows-light;
+                        box-shadow: $box-shadow-windows;
+                    }
+                    .topHashtags{
                         background-image: $bg-gradient-title-light;
                     }
                 }

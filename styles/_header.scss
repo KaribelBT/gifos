@@ -18,6 +18,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .logoBox{
+        &:hover{
+            cursor: pointer;
+        }
+    }
     .buttonsBox{
         display: flex;
         flex-direction: column;

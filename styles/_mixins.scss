@@ -83,3 +83,57 @@
     }
 }
 
+@mixin resultsBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@mixin imageResultsBox{
+    width: 294px;
+    height: 304px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+@mixin gifs{
+    img{
+        object-fit: cover;
+        width: 288px;
+        height: 298px; 
+    }
+}
+
+@mixin hashtags{
+    display: none;
+    h2{
+        margin-left: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        color: $color-secondary;
+    }    
+}
+
+@mixin hoverGifBox{
+    outline-offset:-4px;
+    border: $border-button-dotted;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+@mixin hoverGif{
+    position: relative;
+    z-index: 0;
+}
+
+@mixin hoverHashtags{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(274px);
+}
+

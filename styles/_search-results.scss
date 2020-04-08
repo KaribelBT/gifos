@@ -1,12 +1,21 @@
 main{
+    
     .searchResultsButtons{
         margin-top: 12px;
         margin-bottom: 54px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        overflow: hidden;
         .searchResultButton{
-            box-sizing: border-box;
+            width: max-content;
             height: 34px;
             padding: 7px 8px;
             margin-right: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
             background-color: $bg-button-tag;
             border: $border-button-tag;
             box-shadow: $box-shadow-button-tag;
@@ -15,6 +24,7 @@ main{
             cursor: pointer;
         }
     }
+    
     .searchResults{
         display: none;
         z-index: 1;
@@ -23,52 +33,53 @@ main{
             @include sectionTitle;                   
         }  
         .searchResultsBox{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
+            @include resultsBox;
             .imageResultsBox{
-                width: 294px;
-                height: 304px;
-                margin-bottom: 16px;
-                position: relative;
+                @include imageResultsBox;
                 .gifs{
-                    img{
-                        object-fit: cover;
-                        width: 288px;
-                        height: 298px;                  
-                    }
+                    @include gifs;
                 }    
                 .hashtags{
-                    display: none;
-                    h2{
-                        margin-left: 3px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        color: $color-secondary;
-                    }
-                    
+                    @include hashtags;
                 }
                 &:hover{
-                    outline-offset:-4px;
-                    border: $border-button-dotted;
-                    display: flex;
-                    flex-direction: column;
-                    cursor: pointer;
+                    @include hoverGifBox;
                     .gifs{
-                        position: relative;
-                        z-index: 0;
+                        @include hoverGif;
                     }
                     .hashtags{
-                        width: 100%;
-                        height: 24px;
-                        display: flex;
-                        align-items: center;
-                        position: absolute;
-                        z-index: 1;
-                        transform: translateY(274px);
+                        @include hoverHashtags;
                     }
                 }
             }
         }
     }
+    
+    .top{
+        .topTitleBox{
+            @include sectionTitle;
+        }
+        .topResultsBox{
+            @include resultsBox;
+            .imageTopResultsBox{
+                @include imageResultsBox;
+                .topGifs{
+                    @include gifs;
+                }    
+                .topHashtags{
+                    @include hashtags;
+                }
+                &:hover{
+                    @include hoverGifBox;
+                    .topGifs{
+                        @include hoverGif;
+                    }
+                    .topHashtags{
+                        @include hoverHashtags;
+                    }
+                }
+            }
+        }
+    }
+
 }
