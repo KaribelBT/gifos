@@ -1,3 +1,4 @@
+const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
 const search = document.querySelector('#search');
 const searchBar = document.querySelector('#searchBar');
 const lens = document.querySelector('#lens');
@@ -9,7 +10,7 @@ const searchResultBox = document.querySelector('#searchResultBox');
 const searchResultTitle = document.querySelector('#searchResultTitle');
 const searchResultButtons = document.querySelector('#searchResultButtons');
 const topResultBox = document.querySelector('#topResultBox');
-const API_KEY = 'I4ImkYXIIRPVjxhHSoLhYOy0XEVXwxWj';
+const sugResultBox = document.querySelector('#sugResultBox');
 let tagsArray = [];
 
 let getSuggest = async (q) =>{ //buscar sugerencias
@@ -40,10 +41,11 @@ function getNewGif(title){ // busca gif desde otro gif
     searchResultBox.innerHTML = '';
     searchResult.style.display = 'block';
     createTitle(title)
+    createTags(title)
     getGif(title)
     .then(resp=>{
-        showResults(resp.data);  
-    })  
+        showResults(resp.data);
+    }) 
 }
 
 function createTitle(text){//crear y rellenar titulo 
@@ -100,9 +102,11 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
             </div>`
             searchResultBox.innerHTML += imageResultBox;
     });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
-function showTopResults(arrayGif){ //muestra tendencias
+function showTopResults(arrayGif){ //muestra resultados tendencias
     arrayGif
         .forEach( (gif)=> {
             const textToRender = this.showHashtags(gif.title);
@@ -117,6 +121,33 @@ function showTopResults(arrayGif){ //muestra tendencias
             </div>`
             topResultBox.innerHTML += imageResultBox;
     });
+}
+
+function getSugResults(){ //busca y muestra resultados sugeridos
+    console.log(sugResultBox)
+    const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'stranger things', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon']
+    let shuffledSugGif = sugGifArray.sort(function(){return .4 - Math.random()});
+    let randomSugGif=shuffledSugGif.slice(0,4); 
+    let sugArray = [];   
+    randomSugGif.map(r => {
+        getGif(r)
+        .then (resp =>{
+        let gif = resp.data[0];
+            const textToRender = this.showHashtag(gif.title);
+            let imageResultBox=
+            `<div class="imageSugResultsBox" onclick="getNewGif('${gif.title}')">
+                <div class="sugHashtags">
+                    <h2 class="sugHashtagsGif">${textToRender}</h2>
+                    <img src = ./images/button3.svg>
+                </div>    
+                <div class="sugGifs">
+                    <img src ="${gif.images.original.url}">
+                </div>
+                <button> Ver más...</button>
+            </div>`
+            sugResultBox.innerHTML += imageResultBox;
+        })
+    })
 }
 
 function showHashtags(title){ //create - push #hastags #en #hover #gif    
@@ -183,8 +214,12 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
 })
 
 window.onload = () =>{
-    getTags() //muestra historial de busquedas realizadas
-    getTopGif()
+    //muestra historial de busquedas realizadas    
+    getTags() 
+    //muestra gif sugeridos
+    getSugResults()
+    //muestra tendencias
+    getTopGif() 
     .then(resp=>{
         showTopResults(resp.data);  
     }) 

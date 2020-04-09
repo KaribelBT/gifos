@@ -17,11 +17,14 @@ main{
             align-items: center;
             white-space: nowrap;
             background-color: $bg-button-tag;
-            border: $border-button-tag;
             box-shadow: $box-shadow-button-tag;
             color: $color-secondary;
             font-size: 14px;
-            cursor: pointer;
+            &:hover{
+                outline-offset:-4px;
+                outline: 1px dotted #110038;   
+                cursor: pointer;    
+            }
         }
     }
     
@@ -55,6 +58,68 @@ main{
         }
     }
     
+    .suggestions{
+        .sugTitleBox{
+            @include sectionTitle;
+        }
+        .sugResultsBox{
+            @include resultsBox; 
+            .imageSugResultsBox{
+                width: 288px;
+                height: 313px;
+                margin-bottom: 16px;
+                .sugHashtags{
+                    width: 100%;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    h2{
+                        margin-left: 3px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: $color-secondary;
+                    } 
+                    img{
+                        width: 16px;
+                        height: 14px;
+                        position: absolute;
+                        transform: translate(262px, 1px);
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }       
+                }
+                .sugGifs{
+                    img{
+                       object-fit: cover;
+                       width: 280px;
+                       height: 280px; 
+                       &:hover{
+                            outline-offset:-4px;
+                            outline: 1px dotted #110038;    
+                        }
+                    }
+                }
+                button{
+                    width: 81px;
+                    height: 34px;
+                    position: absolute;
+                    transform: translate(15px, -50px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $color-secondary;
+                    font-size: 14px;
+                    box-shadow: $box-shadow-button-tag;
+                    &:hover{
+                        outline-offset:-4px;
+                        outline: 1px dotted #110038;   
+                        cursor: pointer;    
+                    }
+                }
+            }   
+        }
+    }
     .top{
         .topTitleBox{
             @include sectionTitle;

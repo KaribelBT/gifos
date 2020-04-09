@@ -94,7 +94,7 @@ body {
 
 .dark #themes.active li {
   background-color: #CCCCCC;
-  border: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  border: inset -2px -2px 0  #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
@@ -109,6 +109,14 @@ body {
 .dark #themes.active li .sDark {
   text-decoration: underline;
   text-underline-position: under;
+}
+
+.dark main .searchResultsButtons .searchResultButton {
+  background-color: #2E32FB;
+}
+
+.dark main .searchResultsButtons .searchResultButton:hover {
+  background-color: #2629CC;
 }
 
 .dark main .search {
@@ -170,6 +178,25 @@ body {
 .dark main .searchResults .searchResultsBox .imageResultsBox .hashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .suggestions .sugResultsBox .imageSugResultsBox {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .suggestions .sugResultsBox .imageSugResultsBox button {
+  background-color: #2E32FB;
+}
+
+.dark main .suggestions .sugResultsBox .imageSugResultsBox button:hover {
+  background-color: #2629CC;
 }
 
 .dark main .top .topResultsBox .imageTopResultsBox:hover {
@@ -276,6 +303,14 @@ body {
   text-underline-position: under;
 }
 
+.light main .searchResultsButtons .searchResultButton {
+  background-color: #4180F6;
+}
+
+.light main .searchResultsButtons .searchResultButton:hover {
+  background-color: #3A72DB;
+}
+
 .light main .search {
   background-color: #E6E6E6;
   -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
@@ -336,6 +371,25 @@ body {
 .light main .searchResults .searchResultsBox .imageResultsBox .hashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .suggestions .sugResultsBox .imageSugResultsBox {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .suggestions .sugResultsBox .imageSugResultsBox button {
+  background-color: #4180F6;
+}
+
+.light main .suggestions .sugResultsBox .imageSugResultsBox button:hover {
+  background-color: #3A72DB;
 }
 
 .light main .top .topResultsBox .imageTopResultsBox:hover {
@@ -729,11 +783,15 @@ main .searchResultsButtons .searchResultButton {
           align-items: center;
   white-space: nowrap;
   background-color: #4180F6;
-  border: 1px solid #4C2F99;
   -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
   color: #FFFFFF;
   font-size: 14px;
+}
+
+main .searchResultsButtons .searchResultButton:hover {
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
   cursor: pointer;
 }
 
@@ -832,6 +890,114 @@ main .searchResults .searchResultsBox .imageResultsBox:hover .hashtags {
   z-index: 1;
   -webkit-transform: translateY(274px);
           transform: translateY(274px);
+}
+
+main .suggestions .sugTitleBox {
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 32px;
+  background-color: #FFFAFE;
+  border: 1px solid #E6BBE2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+          box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+}
+
+main .suggestions .sugTitleBox h3 {
+  padding-left: 7px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+main .suggestions .sugResultsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox {
+  width: 288px;
+  height: 313px;
+  margin-bottom: 16px;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags {
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags h2 {
+  margin-left: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags img {
+  width: 16px;
+  height: 14px;
+  position: absolute;
+  -webkit-transform: translate(262px, 1px);
+          transform: translate(262px, 1px);
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugHashtags img:hover {
+  cursor: pointer;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugGifs img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 280px;
+  height: 280px;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox .sugGifs img:hover {
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox button {
+  width: 81px;
+  height: 34px;
+  position: absolute;
+  -webkit-transform: translate(15px, -50px);
+          transform: translate(15px, -50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+}
+
+main .suggestions .sugResultsBox .imageSugResultsBox button:hover {
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
 }
 
 main .top .topTitleBox {

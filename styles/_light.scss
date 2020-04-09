@@ -55,6 +55,14 @@
         }
     }
     main{
+        .searchResultsButtons{
+            .searchResultButton{
+                background-color: $bg-button-tag;
+                &:hover{
+                    background-color: $bg-button-tag-hover;    
+                }
+            }
+        }
         .search{
             background-color: $bg-windows-light;
             box-shadow: $box-shadow-windows;
@@ -104,6 +112,23 @@
                         background-image: $bg-gradient-title-light;
                     }
                 }
+            }
+        }
+        .suggestions{
+            .sugResultsBox{
+                .imageSugResultsBox{
+                    background-color: $bg-windows-light;
+                    box-shadow: $box-shadow-windows;
+                    .sugHashtags{
+                        background-image: $bg-gradient-title-light;
+                    }
+                    button{
+                        background-color: $bg-button-tag;   
+                        &:hover{
+                            background-color: $bg-button-tag-hover;    
+                        }
+                    }
+                }   
             }
         }
         .top{

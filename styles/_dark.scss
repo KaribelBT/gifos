@@ -57,6 +57,14 @@
         }
     }
     main{
+        .searchResultsButtons{
+            .searchResultButton{
+                background-color: $bg-button-tag-dark;
+                &:hover{
+                    background-color: $bg-button-tag-hover-dark;    
+                }
+            }
+        }
         .search{
             background-color: $bg-windows-dark;
             box-shadow: $box-shadow-windows;
@@ -105,6 +113,23 @@
                         background-image: $bg-gradient-title-dark;
                     }
                 }
+            }
+        }
+        .suggestions{
+            .sugResultsBox{
+                .imageSugResultsBox{
+                    background-color: $bg-search-dark;
+                    box-shadow: $box-shadow-gif-dark;
+                    .sugHashtags{
+                        background-image: $bg-gradient-title-dark;
+                    }
+                    button{
+                        background-color: $bg-button-tag-dark;   
+                        &:hover{
+                            background-color: $bg-button-tag-hover-dark;    
+                        }
+                    }
+                }   
             }
         }
         .top{
