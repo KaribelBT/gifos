@@ -11,7 +11,7 @@ const searchResultTitle = document.querySelector('#searchResultTitle');
 const searchResultButtons = document.querySelector('#searchResultButtons');
 const topResultBox = document.querySelector('#topResultBox');
 const sugResultBox = document.querySelector('#sugResultBox');
-const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'stranger things', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon'];
+const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'bleach', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon'];
 let tagsArray = [];
 
 let getSuggest = async (q) =>{ //buscar sugerencias
@@ -107,6 +107,57 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
     document.documentElement.scrollTop = 0;
 }
 
+function getSugResults(){ //busca y muestra resultados sugeridos
+    let shuffledSugGif = sugGifArray.sort(function(){return .4 - Math.random()});
+    let randomSugGif=shuffledSugGif.slice(0,4); 
+    randomSugGif.map(r => {
+        getGif(r)
+        .then (resp =>{
+        let gif = resp.data[0];
+            const textToRender = this.showHashtag(gif.title);
+            let imageResultBox=
+            `<div id="imageSugResultBox" class="imageSugResultsBox">
+                <div class="sugHashtags">
+                    <h2 class="sugHashtagsGif">${textToRender}</h2>
+                    <img onclick="removeSugGif(event)" src = ./images/button3.svg>
+                </div>    
+                <div class="sugGifs">
+                    <img src ="${gif.images.original.url}">
+                </div>
+                <button id="btnSug" onclick="getNewGif('${gif.title}')"> Ver más...</button>
+            </div>`
+            sugResultBox.innerHTML += imageResultBox;
+        })
+    })
+    
+}
+
+function getNewSugResult(){ //busca y muestra 1 resultado sugeridos
+    let shuffledSugGif = sugGifArray[Math.floor(Math.random() * sugGifArray.length)];
+    getGif(shuffledSugGif)
+    .then (resp =>{
+    let gif = resp.data[0];
+        const textToRender = this.showHashtag(gif.title);
+        let imageResultBox=
+        `<div id="imageSugResultBox" class="imageSugResultsBox">
+            <div class="sugHashtags">
+                <h2 class="sugHashtagsGif">${textToRender}</h2>
+                <img onclick="removeSugGif(event)" src = ./images/button3.svg>
+            </div>    
+            <div class="sugGifs">
+                <img src ="${gif.images.original.url}">
+            </div>
+            <button id="btnSug" onclick="getNewGif('${gif.title}')"> Ver más...</button>
+        </div>`
+        sugResultBox.innerHTML += imageResultBox;
+    })
+}
+
+function removeSugGif(event){
+    event.target.parentNode.parentNode.remove()
+    getNewSugResult()
+}
+
 function showTopResults(arrayGif){ //muestra resultados tendencias
     arrayGif
         .forEach( (gif)=> {
@@ -122,51 +173,6 @@ function showTopResults(arrayGif){ //muestra resultados tendencias
             </div>`
             topResultBox.innerHTML += imageResultBox;
     });
-}
-
-function getSugResults(){ //busca y muestra resultados sugeridos
-    let shuffledSugGif = sugGifArray.sort(function(){return .4 - Math.random()});
-    let randomSugGif=shuffledSugGif.slice(0,4); 
-    randomSugGif.map(r => {
-        getGif(r)
-        .then (resp =>{
-        let gif = resp.data[0];
-            const textToRender = this.showHashtag(gif.title);
-            let imageResultBox=
-            `<div class="imageSugResultsBox">
-                <div class="sugHashtags">
-                    <h2 class="sugHashtagsGif">${textToRender}</h2>
-                    <img onclick="getNewSugResult()" src = ./images/button3.svg>
-                </div>    
-                <div class="sugGifs">
-                    <img src ="${gif.images.original.url}">
-                </div>
-                <button onclick="getNewGif('${gif.title}')"> Ver más...</button>
-            </div>`
-            sugResultBox.innerHTML += imageResultBox;
-        })
-    })
-}
-
-function getNewSugResult(){ //elimina gif, busca y muestra 1 resultado sugeridos
-    let shuffledSugGif = sugGifArray[Math.floor(Math.random() * sugGifArray.length)];
-    getGif(shuffledSugGif)
-    .then (resp =>{
-    let gif = resp.data[0];
-        const textToRender = this.showHashtag(gif.title);
-        let imageResultBox=
-        `<div class="imageSugResultsBox">
-            <div class="sugHashtags">
-                <h2 class="sugHashtagsGif">${textToRender}</h2>
-                <img onclick="getNewSugResult()" src = ./images/button3.svg>
-            </div>    
-            <div class="sugGifs">
-                <img src ="${gif.images.original.url}">
-            </div>
-            <button onclick="getNewGif('${gif.title}')"> Ver más...</button>
-        </div>`
-        sugResultBox.innerHTML += imageResultBox;
-    })
 }
 
 function showHashtags(title){ //create - push #hastags #en #hover #gif    
