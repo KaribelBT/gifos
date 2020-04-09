@@ -1,11 +1,12 @@
 main{
-    
     .searchResultsButtons{
+        height: 34px;
         margin-top: 12px;
         margin-bottom: 54px;
         display: flex;
         justify-content: flex-end;
         flex-direction: row-reverse;
+        flex-wrap: wrap;
         overflow: hidden;
         .searchResultButton{
             width: max-content;
@@ -27,7 +28,6 @@ main{
             }
         }
     }
-    
     .searchResults{
         display: none;
         z-index: 1;
@@ -57,7 +57,6 @@ main{
             }
         }
     }
-    
     .suggestions{
         .sugTitleBox{
             @include sectionTitle;

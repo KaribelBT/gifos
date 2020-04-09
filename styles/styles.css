@@ -94,7 +94,7 @@ body {
 
 .dark #themes.active li {
   background-color: #CCCCCC;
-  border: inset -2px -2px 0  #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  border: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
@@ -750,6 +750,7 @@ main .search #sugResults.active li:hover {
 }
 
 main .searchResultsButtons {
+  height: 34px;
   margin-top: 12px;
   margin-bottom: 54px;
   display: -webkit-box;
@@ -762,6 +763,8 @@ main .searchResultsButtons {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   overflow: hidden;
 }
 

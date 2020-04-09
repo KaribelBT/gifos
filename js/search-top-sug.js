@@ -11,6 +11,7 @@ const searchResultTitle = document.querySelector('#searchResultTitle');
 const searchResultButtons = document.querySelector('#searchResultButtons');
 const topResultBox = document.querySelector('#topResultBox');
 const sugResultBox = document.querySelector('#sugResultBox');
+const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'stranger things', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon'];
 let tagsArray = [];
 
 let getSuggest = async (q) =>{ //buscar sugerencias
@@ -124,29 +125,47 @@ function showTopResults(arrayGif){ //muestra resultados tendencias
 }
 
 function getSugResults(){ //busca y muestra resultados sugeridos
-    console.log(sugResultBox)
-    const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'stranger things', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon']
     let shuffledSugGif = sugGifArray.sort(function(){return .4 - Math.random()});
     let randomSugGif=shuffledSugGif.slice(0,4); 
-    let sugArray = [];   
     randomSugGif.map(r => {
         getGif(r)
         .then (resp =>{
         let gif = resp.data[0];
             const textToRender = this.showHashtag(gif.title);
             let imageResultBox=
-            `<div class="imageSugResultsBox" onclick="getNewGif('${gif.title}')">
+            `<div class="imageSugResultsBox">
                 <div class="sugHashtags">
                     <h2 class="sugHashtagsGif">${textToRender}</h2>
-                    <img src = ./images/button3.svg>
+                    <img onclick="getNewSugResult()" src = ./images/button3.svg>
                 </div>    
                 <div class="sugGifs">
                     <img src ="${gif.images.original.url}">
                 </div>
-                <button> Ver más...</button>
+                <button onclick="getNewGif('${gif.title}')"> Ver más...</button>
             </div>`
             sugResultBox.innerHTML += imageResultBox;
         })
+    })
+}
+
+function getNewSugResult(){ //elimina gif, busca y muestra 1 resultado sugeridos
+    let shuffledSugGif = sugGifArray[Math.floor(Math.random() * sugGifArray.length)];
+    getGif(shuffledSugGif)
+    .then (resp =>{
+    let gif = resp.data[0];
+        const textToRender = this.showHashtag(gif.title);
+        let imageResultBox=
+        `<div class="imageSugResultsBox">
+            <div class="sugHashtags">
+                <h2 class="sugHashtagsGif">${textToRender}</h2>
+                <img onclick="getNewSugResult()" src = ./images/button3.svg>
+            </div>    
+            <div class="sugGifs">
+                <img src ="${gif.images.original.url}">
+            </div>
+            <button onclick="getNewGif('${gif.title}')"> Ver más...</button>
+        </div>`
+        sugResultBox.innerHTML += imageResultBox;
     })
 }
 
@@ -166,6 +185,18 @@ function showHashtag(title){ //create - push #hastagenhovergif
     let valuesWithHashtagLimited = hashtagsArray.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
     let hashtagsString = valuesWithHashtagLimited.join(''); //pasar a string separado por espacio
     return `#${hashtagsString}`
+}
+
+window.onload = () =>{
+    //muestra historial de busquedas realizadas    
+    getTags() 
+    //muestra gif sugeridos
+    getSugResults()
+    //muestra tendencias
+    getTopGif() 
+    .then(resp=>{
+        showTopResults(resp.data);  
+    }) 
 }
 
 search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar sugerencias
@@ -212,15 +243,3 @@ searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de 
         showResults(resp.data);  
     })    
 })
-
-window.onload = () =>{
-    //muestra historial de busquedas realizadas    
-    getTags() 
-    //muestra gif sugeridos
-    getSugResults()
-    //muestra tendencias
-    getTopGif() 
-    .then(resp=>{
-        showTopResults(resp.data);  
-    }) 
-}
