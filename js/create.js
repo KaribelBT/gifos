@@ -8,7 +8,18 @@ const cancel = document.querySelector('#cancel');
 const begin = document.querySelector('#begin');
 const test = document.querySelector('.test');
 const closeUno = document.querySelector('#closeUno');
+let captureVideo = document.querySelector('#captureVideo'); 
 
+function success(stream){
+    const mediaStream = stream;
+    captureVideo.srcObject = mediaStream
+    captureVideo.play()
+}
+
+function error(error){
+    alert('error al acceder a la wbcam :(')
+    console.error(error)
+}
 buttonCreate.addEventListener('click', ()=>{
     headerBox.style.display = 'none';
     searchs.style.display = 'none';
@@ -23,9 +34,18 @@ cancel.addEventListener('click', ()=>{
     location.reload()
 })
 
+
+
 begin.addEventListener('click', ()=>{
     instructions.style.display = 'none';
     test.style.display = 'block';
+    navigator.webcam = (
+        navigator.msGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.getUserMedia
+    ) 
+    navigator.webcam({video:true, audio:false}, success, error )
 })
 
 closeUno.addEventListener('click', ()=>{
