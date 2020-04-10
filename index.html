@@ -24,7 +24,7 @@
                 <img id="logo" src="./images/gifOF_logo.png" alt="Logo Gifos">
             </div>
             <div class="buttonsBox">
-                <button class="createButton buttonLight" >Crear Guifos</button>
+                <button id="buttonCreate"class="createButton buttonLight" >Crear Guifos</button>
                 <div class="themeButton">
                     <div class="chooseBox">
                         <button class="chooseButton buttonLight">Elegir Tema</button>
@@ -81,51 +81,52 @@
             <div id="topResultBox" class="topResultsBox"></div>
         </section> 
         
-        <!-- <section class="createGuifos">
-            <div class="createGuifosLogo">
+        <section class="createGuifos">
+            <div class="logoBoxCreate">
                 <img src="./images/arrow.svg" alt="flecha">
-                <img src="./images/gifOF_logo.png" alt="gifos logo">
-                <img src="./images/gifOF_logo_dark.png" alt="gifos logo dark">
+                <img id="logoCreate" src="./images/gifOF_logo.png" alt="gifos logo">
+                
             </div>
             <div class="instructions">
                 <div class="instructionsTitleBox">
                     <h2>Crear Guifos</h2>
                 </div>
-                <div class="instructionsHeader">
-                    <img src="./images/window img.png" alt="icono ventana">
-                    <p>Aquí podrás crear tus propios guifos</p>
-                    <p>Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</p>
-                    <br>
-                    <p>1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
-                    <br>
-                    <p>2) Capturar tu momento guifo</p>
-                    <br>
-                    <p>3) Revisar el momento</p>
-                    <br>
-                    <p>4) Listo para subir y compartir!</p>
-                    <p>¿Quieres comenzar a crear tu guifo ahora?</p>
-                </div>
                 <div class="instructionsBody">
-                    
+                    <div class="instructionsIcon">
+                        <img src="./images/window img.png" alt="icono ventana">
+                    </div>
+                    <div class="instructionsText">
+                        <p class="headerText">Aquí podrás crear tus propios guifos</p>
+                        <br>
+                        <p>Crear tu <b><i>guifo</i></b> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</p>
+                        <br>
+                        <p> <b>1)</b> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
+                        <br>
+                        <p> <b>2)</b> Capturar tu momento guifo</p>
+                        <br>
+                        <p> <b>3)</b> Revisar el momento</p>
+                        <br>
+                        <p> <b>4)</b> Listo para subir y compartir!</p>
+                        <br>
+                        <p>¿Quieres comenzar a crear tu <b><i>guifo</i></b> ahora?</p>
+                    </div>
                 </div>
                 <div class="instructionsFooter">
-                    <button class="cancel">Cancelar</button>
-                    <button class="begin">Comenzar</button>
+                    <button id="cancel">Cancelar</button>
+                    <button id="begin">Comenzar</button>
                 </div>
             </div> 
             <div class="test">
                 <div class="testTitleBox">
                     <h2>Un Chequeo Antes de Empezar</h2>
-                    <img src="./images/button3.svg" alt="cross">
+                    <img id="closeUno"src="./images/button3.svg" alt="cross">
                 </div>
-                <div class="photoBox">
-                    <img src="./images/creategif.jpg" alt="prueba gif">
-                </div>
+                <div class="videoBoxUno"></div>
                 <div class="testButtonBox">
                     <button class="camera">
                         <img src="./images/camera.svg" alt="icono camara">
                     </button>
-                    <button class="captureButton">Capturar</button>
+                    <button class="capture">Capturar</button>
                 </div>
             </div>
             <div class="capturing">
@@ -144,6 +145,7 @@
                         <img src="./images/recording.svg" alt="icono grabando">
                     </button>
                     <button class="readyButton">Listo</button>
+                </div>
             </div>
             <div class="preview">
                 <div class="previewTitleBox">
@@ -161,7 +163,8 @@
                     </div>
                     <button class="repeatButton">Repetir Captura</button>
                     <button class="uploadyButton">Subir Guifo</button>
-            </div>
+                </div>
+             </div>
             <div class="loading">
                 <div class="loadingTitleBox">
                     <h2>Subiendo Guifo</h2>
@@ -177,13 +180,13 @@
                         <button class="cancelButton">Cancelar</button>
                     </div>
                 </div>
-
             </div>
-        </section> -->
+        </section>
     </main>
 
     <script src="./js/header.js"></script>
     <script src="./js/search-top-sug.js"></script>
+    <script src="./js/create.js"></script>
 </body>
 
 </html>

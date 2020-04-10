@@ -66,7 +66,7 @@
             }
         }
         .search{
-            background-color: $bg-windows-dark;
+            background-color: $bg-search-dark;
             box-shadow: $box-shadow-windows;
             .searchTitleBox{
                 background-image: $bg-gradient-title-dark;                
@@ -74,10 +74,13 @@
             .searchBar{
                 #searchButton{
                     &:disabled{
-                        background-color: $bg-windows-dark;
+                        background-color: $bg-search-dark;
                         border: $border-options;
                         box-shadow: $box-shadow-windows;
-                        color: $color-disabled;
+                        color: $color-disabled-dark;
+                        #lens{
+                            fill: $color-disabled-dark;
+                        }
                     }
                     &:enabled{
                         @include buttonNormal;
@@ -141,6 +144,45 @@
                     }
                     .topHashtags{
                         background-image: $bg-gradient-title-dark;
+                    }
+                }
+            }
+        }
+        .createGuifos{
+            .instructions{
+                @include createWindowDark;
+                .instructionsTitleBox{
+                    background-image: $bg-gradient-title-dark;   
+                } 
+                .instructionsFooter{
+                    button{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button-dark;
+                    }
+                    #cancel{
+                        background-color: $bg-color-light;
+                    }
+                    #begin{
+                        background-color: $bg-button-dark;
+                        &.hover{
+                            background-color: $bg-button-hover-dark;
+                        }
+                    }
+                }   
+            }
+            .test{
+                @include createWindowDark;
+                .testTitleBox{
+                    background-image: $bg-gradient-title-dark;    
+                }
+                .testButtonBox{
+                    button{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button-dark; 
+                        background-color: $bg-button-dark; 
+                        &.hover{
+                            background-color: $bg-button-hover-dark;
+                        } 
                     }
                 }
             }

@@ -1,0 +1,156 @@
+//small & medium devices up to 991px
+main{
+    .createGuifos{
+        margin-top: 15px;
+        width: 100%;
+        @include center-container-mobile;
+        box-sizing: border-box;
+        .logoBoxCreate{
+            display: none;
+            justify-content: center;
+            img{
+                padding: 5px;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .instructions{
+            display: none;
+            width: 100%;
+            .instructionsTitleBox{
+                @include createHeaderWindow;    
+            }
+            .instructionsBody{
+                display: flex;
+                flex-direction: row;
+                .instructionsIcon{
+                    box-sizing: border-box;
+                    margin-top: 30px;
+                    margin-left: 25px;
+                    margin-right: 16px;
+                }
+                .instructionsText{
+                    box-sizing: border-box;
+                    margin-top: 30px;
+                    margin-right: 25px;
+                    font-size: 14px;
+                    .headerText{
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .instructionsFooter{
+                width: 100%;
+                margin-top: 16px;
+                padding-bottom: 36px;
+                display: flex;
+                justify-content: center;
+                button{
+                    width: 144px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center; 
+                    justify-content: center;
+                    &:hover{
+                        border: $border-button-dotted;
+                        cursor: pointer;
+                    } 
+                }
+                #cancel{
+                    margin-right: 16px;
+                }  
+            }
+        }
+        .test{
+            display: none;
+            width: 100%;
+            .testTitleBox{
+                @include createHeaderWindow;
+                justify-content: space-between;
+                #closeUno{
+                    margin-right: 10px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            .videoBoxUno{
+                margin-top: 8px;
+                margin-right: 11px;
+                margin-left: 17px;
+                margin-bottom: 21px;
+                height: 434px;
+                background-color: $color-secondary;
+                border: $border-input;
+                box-shadow: $box-shadow-input;
+            }
+            .testButtonBox{
+                width: 100%;
+                height: 36px;
+                padding-bottom: 25px;
+                display: flex;
+                justify-content: center; 
+                button{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:hover{
+                        border: $border-button-dotted;
+                        cursor: pointer;
+                    } 
+                }   
+                .camera{
+                    width: 36px;
+                    height: 36px;
+                }
+                .capture{
+                    width: 144px;
+                    height: 36px;
+
+                }
+            }
+        }
+        .capturing{
+            display: none;
+        }
+        .preview{
+            display: none;
+        }
+        .loading{
+            display: none;
+        }
+    }
+}
+
+//desktop 992px - 1438px
+@media screen and (min-width: $large-devices){
+    main{
+        .createGuifos{
+            margin-top: 39px;
+            .logoBoxCreate{               
+                justify-content: start;
+            }
+            .instructions{
+                width: 684px;
+                height: 386px;
+                margin-top: 75px;
+                margin-left: 250px;
+                margin-right: 289px;                               
+                .instructionsFooter{
+                    width: 304px;
+                    margin-left: 354px;
+                
+                }
+            }
+            .test{
+                width: 854px;
+                height: 548px;
+                margin-top: 75px;
+                margin-left: 186px;
+                margin-right: 289px;        
+            }
+        }
+    }
+}

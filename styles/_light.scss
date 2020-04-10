@@ -144,5 +144,44 @@
                 }
             }
         }
+        .createGuifos{
+            .instructions{
+                @include createWindowLight;
+                .instructionsTitleBox{
+                    background-image: $bg-gradient-title-light;   
+                }
+                .instructionsFooter{
+                    button{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button;
+                    }
+                    #cancel{
+                        background-color: $bg-color-light;
+                    }
+                    #begin{
+                        background-color: $bg-button-light;
+                        &.hover{
+                            background-color: $bg-button-hover-light;
+                        }
+                    }
+                } 
+            }
+            .test{
+                @include createWindowLight;
+                .testTitleBox{
+                    background-image: $bg-gradient-title-light;    
+                }
+                .testButtonBox{
+                    button{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button; 
+                        background-color: $bg-button-light; 
+                        &.hover{
+                            background-color: $bg-button-hover-light;
+                        } 
+                    }
+                }
+            }
+        }
     }
 }

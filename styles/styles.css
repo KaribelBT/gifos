@@ -120,7 +120,7 @@ body {
 }
 
 .dark main .search {
-  background-color: #8F8F8F;
+  background-color: #B4B4B4;
   -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
@@ -131,11 +131,15 @@ body {
 }
 
 .dark main .search .searchBar #searchButton:disabled {
-  background-color: #8F8F8F;
+  background-color: #B4B4B4;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-  color: #B4B4B4;
+  color: #8F8F8F;
+}
+
+.dark main .search .searchBar #searchButton:disabled #lens {
+  fill: #8F8F8F;
 }
 
 .dark main .search .searchBar #searchButton:enabled {
@@ -208,6 +212,57 @@ body {
 .dark main .top .topResultsBox .imageTopResultsBox .topHashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .createGuifos .instructions {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .instructions .instructionsTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .createGuifos .instructions .instructionsFooter button {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .instructions .instructionsFooter #cancel {
+  background-color: #FFFFFF;
+}
+
+.dark main .createGuifos .instructions .instructionsFooter #begin {
+  background-color: #EE3EFE;
+}
+
+.dark main .createGuifos .instructions .instructionsFooter #begin.hover {
+  background-color: #CE36DB;
+}
+
+.dark main .createGuifos .test {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .test .testTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .createGuifos .test .testButtonBox button {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #EE3EFE;
+}
+
+.dark main .createGuifos .test .testButtonBox button.hover {
+  background-color: #CE36DB;
 }
 
 .light {
@@ -401,6 +456,57 @@ body {
 .light main .top .topResultsBox .imageTopResultsBox .topHashtags {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .instructions {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .instructions .instructionsTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .instructions .instructionsFooter button {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .instructions .instructionsFooter #cancel {
+  background-color: #FFFFFF;
+}
+
+.light main .createGuifos .instructions .instructionsFooter #begin {
+  background-color: #F7C9F3;
+}
+
+.light main .createGuifos .instructions .instructionsFooter #begin.hover {
+  background-color: #E6BBE2;
+}
+
+.light main .createGuifos .test {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .test .testTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .test .testButtonBox button {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #F7C9F3;
+}
+
+.light main .createGuifos .test .testButtonBox button.hover {
+  background-color: #E6BBE2;
 }
 
 .titleBox {
@@ -1092,5 +1198,244 @@ main .top .topResultsBox .imageTopResultsBox:hover .topHashtags {
   z-index: 1;
   -webkit-transform: translateY(274px);
           transform: translateY(274px);
+}
+
+main .createGuifos {
+  margin-top: 15px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main .createGuifos .logoBoxCreate {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .logoBoxCreate img {
+  padding: 5px;
+}
+
+main .createGuifos .logoBoxCreate:hover {
+  cursor: pointer;
+}
+
+main .createGuifos .instructions {
+  display: none;
+  width: 100%;
+}
+
+main .createGuifos .instructions .instructionsTitleBox {
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .instructions .instructionsTitleBox h2 {
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .createGuifos .instructions .instructionsBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+main .createGuifos .instructions .instructionsBody .instructionsIcon {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 16px;
+}
+
+main .createGuifos .instructions .instructionsBody .instructionsText {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 30px;
+  margin-right: 25px;
+  font-size: 14px;
+}
+
+main .createGuifos .instructions .instructionsBody .instructionsText .headerText {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+main .createGuifos .instructions .instructionsFooter {
+  width: 100%;
+  margin-top: 16px;
+  padding-bottom: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .instructions .instructionsFooter button {
+  width: 144px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .instructions .instructionsFooter button:hover {
+  border: 1px dotted #110038;
+  cursor: pointer;
+}
+
+main .createGuifos .instructions .instructionsFooter #cancel {
+  margin-right: 16px;
+}
+
+main .createGuifos .test {
+  display: none;
+  width: 100%;
+}
+
+main .createGuifos .test .testTitleBox {
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .createGuifos .test .testTitleBox h2 {
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .createGuifos .test .testTitleBox #closeUno {
+  margin-right: 10px;
+}
+
+main .createGuifos .test .testTitleBox #closeUno:hover {
+  cursor: pointer;
+}
+
+main .createGuifos .test .videoBoxUno {
+  margin-top: 8px;
+  margin-right: 11px;
+  margin-left: 17px;
+  margin-bottom: 21px;
+  height: 434px;
+  background-color: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .test .testButtonBox {
+  width: 100%;
+  height: 36px;
+  padding-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .test .testButtonBox button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .test .testButtonBox button:hover {
+  border: 1px dotted #110038;
+  cursor: pointer;
+}
+
+main .createGuifos .test .testButtonBox .camera {
+  width: 36px;
+  height: 36px;
+}
+
+main .createGuifos .test .testButtonBox .capture {
+  width: 144px;
+  height: 36px;
+}
+
+main .createGuifos .capturing {
+  display: none;
+}
+
+main .createGuifos .preview {
+  display: none;
+}
+
+main .createGuifos .loading {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  main .createGuifos {
+    margin-top: 39px;
+  }
+  main .createGuifos .logoBoxCreate {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  main .createGuifos .instructions {
+    width: 684px;
+    height: 386px;
+    margin-top: 75px;
+    margin-left: 250px;
+    margin-right: 289px;
+  }
+  main .createGuifos .instructions .instructionsFooter {
+    width: 304px;
+    margin-left: 354px;
+  }
+  main .createGuifos .test {
+    width: 854px;
+    height: 548px;
+    margin-top: 75px;
+    margin-left: 186px;
+    margin-right: 289px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
