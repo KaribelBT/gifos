@@ -231,10 +231,6 @@ body {
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.dark main .createGuifos .instructions .instructionsFooter #cancel {
-  background-color: #FFFFFF;
-}
-
 .dark main .createGuifos .instructions .instructionsFooter #begin {
   background-color: #EE3EFE;
 }
@@ -273,6 +269,35 @@ body {
 }
 
 .dark main .createGuifos .capturing .captureButtonBox .capture.hover {
+  background-color: #CE36DB;
+}
+
+.dark main .createGuifos .capturing .preview {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .capturing .preview .previewTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .createGuifos .capturing .preview .previewFooter .loadingBox .iconbox {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #EE3EFE;
+}
+
+.dark main .createGuifos .capturing .preview #upload {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #EE3EFE;
+}
+
+.dark main .createGuifos .capturing .preview #upload.hover {
   background-color: #CE36DB;
 }
 
@@ -486,10 +511,6 @@ body {
           box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.light main .createGuifos .instructions .instructionsFooter #cancel {
-  background-color: #FFFFFF;
-}
-
 .light main .createGuifos .instructions .instructionsFooter #begin {
   background-color: #F7C9F3;
 }
@@ -528,6 +549,35 @@ body {
 }
 
 .light main .createGuifos .capturing .captureButtonBox .capture.hover {
+  background-color: #E6BBE2;
+}
+
+.light main .createGuifos .preview {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .preview .previewTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .preview .previewFooter .loadingBox .iconbox {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #F7C9F3;
+}
+
+.light main .createGuifos .preview .previewFooter #upload {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #F7C9F3;
+}
+
+.light main .createGuifos .preview .previewFooter #upload.hover {
   background-color: #E6BBE2;
 }
 
@@ -1332,12 +1382,14 @@ main .createGuifos .instructions .instructionsFooter button {
 }
 
 main .createGuifos .instructions .instructionsFooter button:hover {
-  border: 1px dotted #110038;
   cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
 }
 
 main .createGuifos .instructions .instructionsFooter #cancel {
   margin-right: 16px;
+  background-color: #FFFFFF;
 }
 
 main .createGuifos .capturing {
@@ -1498,7 +1550,7 @@ main .createGuifos .capturing .captureButtonBox .ready:hover {
   outline: 1px dotted #110038;
 }
 
-main .createGuifos .capturing .captureButtonBox #counter {
+main .createGuifos .capturing .captureButtonBox .counter {
   display: none;
   width: 124px;
   height: 36px;
@@ -1517,6 +1569,167 @@ main .createGuifos .capturing .captureButtonBox #counter {
 
 main .createGuifos .preview {
   display: none;
+  width: 100%;
+}
+
+main .createGuifos .preview .previewTitleBox {
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .createGuifos .preview .previewTitleBox h2 {
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .createGuifos .preview .previewImgBox {
+  margin-top: 8px;
+  margin-right: 11px;
+  margin-left: 17px;
+  margin-bottom: 24px;
+  height: 434px;
+  background-color: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .preview .previewImgBox #previewImg {
+  padding-top: 2px;
+  padding-left: 2px;
+  height: 430px;
+  width: 99%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .createGuifos .preview .previewFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .preview .previewFooter .counter {
+  width: 124px;
+  height: 36px;
+  margin-bottom: 25px;
+  background-color: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .createGuifos .preview .previewFooter .loadingBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: 10px;
+}
+
+main .createGuifos .preview .previewFooter .loadingBox .iconbox {
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .preview .previewFooter .loadingBox .loadingBar {
+  width: 240px;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #FFFCFC, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #FFFCFC, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .preview .previewFooter .loadingBox .loadingBar .loadingCellPink {
+  width: 12px;
+  height: 20px;
+  background-color: #F7C9F3;
+}
+
+main .createGuifos .preview .previewFooter .loadingBox .loadingBar .loadingCell {
+  width: 12px;
+  height: 20px;
+  background-color: #999999;
+}
+
+main .createGuifos .preview .previewFooter button {
+  width: 144px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
+}
+
+main .createGuifos .preview .previewFooter button:hover {
+  cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+main .createGuifos .preview .previewFooter #repeat {
+  border: 1px solid #110038;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
 main .createGuifos .loading {
@@ -1564,10 +1777,46 @@ main .createGuifos .loading {
   main .createGuifos .capturing .captureButtonBox .capture {
     margin-top: 0;
   }
-  main .createGuifos .capturing .captureButtonBox #counter {
+  main .createGuifos .capturing .captureButtonBox .counter {
     position: absolute;
     -webkit-transform: translate(-670px, -1px);
             transform: translate(-670px, -1px);
+  }
+  main .createGuifos .preview {
+    width: 854px;
+    height: 548px;
+    margin-top: 75px;
+    margin-left: 186px;
+    margin-right: 289px;
+  }
+  main .createGuifos .preview .previewImgBox #previewImg {
+    width: 99.5%;
+  }
+  main .createGuifos .preview .previewFooter {
+    padding-left: 11px;
+    padding-right: 16px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .createGuifos .preview .previewFooter .counter {
+    margin-bottom: 0;
+  }
+  main .createGuifos .preview .previewFooter .loadingBox {
+    margin-left: 24px;
+    padding-bottom: 0;
+  }
+  main .createGuifos .preview .previewFooter #repeat {
+    margin-left: 121px;
+    margin-bottom: 0px;
+  }
+  main .createGuifos .preview .previewFooter #upload {
+    margin-left: 14px;
+    margin-bottom: 0px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

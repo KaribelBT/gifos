@@ -155,9 +155,6 @@
                         border: $border-button;
                         box-shadow: $box-shadow-button;
                     }
-                    #cancel{
-                        background-color: $bg-color-light;
-                    }
                     #begin{
                         background-color: $bg-button-light;
                         &.hover{
@@ -173,20 +170,28 @@
                 }
                 .captureButtonBox{
                     .camera{
-                        border: $border-button;
-                        box-shadow: $box-shadow-button; 
-                        background-color: $bg-button-light; 
-                        &.hover{
-                            background-color: $bg-button-hover-light;
-                        } 
+                        @include buttonPinkLight;
                     }
                     .capture{
-                        border: $border-button;
-                        box-shadow: $box-shadow-button; 
-                        background-color: $bg-button-light; 
-                        &.hover{
-                            background-color: $bg-button-hover-light;
-                        } 
+                        @include buttonPinkLight; 
+                    }
+                }
+            }
+            .preview{
+                @include createWindowLight;
+                .previewTitleBox{
+                    background-image: $bg-gradient-title-light;    
+                }
+                .previewFooter{
+                    .loadingBox{
+                        .iconbox{
+                            border: $border-button;
+                            box-shadow: $box-shadow-button; 
+                            background-color: $bg-button-light;     
+                        }
+                    }
+                    #upload{
+                        @include buttonPinkLight;
                     }
                 }
             }

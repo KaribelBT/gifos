@@ -20,7 +20,7 @@
         </div>
     </header>
 
-    <main>
+    <main> 
         <section class="createGuifos">
             <div class="logoBoxCreate">
                 <img src="./images/arrow.svg" alt="flecha">
@@ -70,31 +70,52 @@
                         <img src="./images/camera.svg" alt="icono camara">
                     </button>
                     <button id="captureButton" class="capture">Capturar</button>
+                    <div class="counter">
+                        <p>00:00:00</p>
+                    </div>
                     <button class="recording">
                         <img src="./images/recording.svg" alt="icono grabando">
                     </button>
                     <button class="ready">Listo</button>
-                    <div id="counter">
-                    </div>
+                    
                 </div>                
             </div>
-
             <div class="preview">
                 <div class="previewTitleBox">
                     <h2>Vista Previa</h2>
                 </div>
                 <div class="previewImgBox">
-                    <img id="previewImg"  alt="preview gif">
+                    <img id="previewImg" alt="preview gif">
                 </div>
                 <div class="previewFooter">
-                    <div class="timer">
-                        <p>00:00:03:06</p>
+                    <div class="counter">
                     </div>
-                    <div class="iconBox">
-                        <img src="./images/forward.svg" alt="forward icon">
+                    <div class="loadingBox">
+                        <div class="iconbox">
+                            <img src="./images/forward.svg" alt="forward icon">
+                        </div>
+                        <div class="loadingBar">
+                            <div class="loadingCellPink"></div>
+                            <div class="loadingCellPink"></div>
+                            <div class="loadingCellPink"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>
+                            <div class="loadingCell"></div>    
+                        </div>
                     </div>
-                    <button class="repeatButton">Repetir Captura</button>
-                    <button class="uploadyButton">Subir Guifo</button>
+                    <button id="repeat">Repetir Captura</button>
+                    <button id="upload">Subir Guifo</button>
                 </div>
             </div>
             <div class="loading">

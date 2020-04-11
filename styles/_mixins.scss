@@ -159,3 +159,53 @@
         font-weight: bold;
     }  
 }
+
+@mixin timer{
+    width: 124px;
+    height: 36px;
+    margin-bottom: 25px;
+    background-color: $bg-color-light;
+    border: $border-input;
+    box-shadow: $box-shadow-input;
+    justify-content: center;
+    align-items: center;    
+}
+
+@mixin buttonWhitePink{
+    width: 144px;
+    height: 36px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    &:hover{
+        cursor: pointer;
+        outline-offset:-4px;
+        outline: $border-button-dotted;
+    }     
+}
+
+@mixin buttonPinkLight{
+    border: $border-button;
+    box-shadow: $box-shadow-button; 
+    background-color: $bg-button-light; 
+    &.hover{
+        background-color: $bg-button-hover-light;
+    }     
+}
+
+@mixin buttonPinkDark{
+    border: $border-button;
+    box-shadow: $box-shadow-button-dark; 
+    background-color: $bg-button-dark; 
+    &.hover{
+        background-color: $bg-button-hover-dark;
+    } 
+}
+
+@mixin createWindow{
+    width: 854px;
+    height: 548px;
+    margin-top: 75px;
+    margin-left: 186px;
+    margin-right: 289px;    
+}
