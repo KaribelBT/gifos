@@ -15,6 +15,7 @@ let captureVideo = document.querySelector('#captureVideo');
 let counter = document.getElementsByClassName('counter');
 let recorder = {};
 let countdown = {}
+let myGifos = []
 let form = new FormData();
 
 function success(stream){ //funcion de exito para acceder a webcam
@@ -125,7 +126,24 @@ let getUploadedGif = async function(id){
     let result = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${id}`);
     let data = await result.json();
     return data
-} 
+}
+
+function createStorage(gif){
+    let uploadedGifos = []
+    if(localStorage.getItem('uploadedGifos')){
+        let uploadedArray = JSON.parse(localStorage.getItem('uploadedGifos'))
+        uploadedArray.map(s=>{
+            uploadedGifos.push(s)
+        })
+    }
+    if(uploadedGifos.length>0){
+        myGifos = uploadedGifos
+
+    }
+    myGifos.push(gif);
+    localStorage.setItem('uploadedGifos', JSON.stringify(myGifos));
+}
+
 upload.addEventListener('click',()=>{
     console.log('cargando...')
     uploadGif()
@@ -133,7 +151,7 @@ upload.addEventListener('click',()=>{
         console.log('subido con exito')
         getUploadedGif(res.data.id)
         .then(uploaded =>{
-            console.log(uploaded)
+            createStorage(uploaded.data[0])
         })
     })
 })
