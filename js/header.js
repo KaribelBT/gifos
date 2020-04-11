@@ -7,19 +7,18 @@ const logo = document.querySelector('#logo');
 const darkLogo = "./images/gifOF_logo_dark.png";
 const lightLogo = "./images/gifOF_logo.png";
 const logoBox = document.querySelector('.logoBox')
-const logoBoxCreate = document.querySelector('.logoBoxCreate');
 const logoCreate = document.querySelector('#logoCreate');
 const darkLogoCreate = "./images/gifOF_logo_dark.png";
 const lightLogoCreate = "./images/gifOF_logo.png";
+const buttonCreate = document.querySelector('#buttonCreate');
 
 logoBox.addEventListener('click', ()=>{
     location.reload()
 })
 
-logoBoxCreate.addEventListener('click', ()=>{
-    location.reload()
+buttonCreate.addEventListener('click', ()=>{ //accede a crear guifos
+    window.location.href = '/upload.html'
 })
-
 dropButton.addEventListener('click', ()=>{ //muestra menu de themes
     themes.classList.toggle('active');
 })

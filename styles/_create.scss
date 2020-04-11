@@ -6,7 +6,7 @@ main{
         @include center-container-mobile;
         box-sizing: border-box;
         .logoBoxCreate{
-            display: none;
+            display: flex;
             justify-content: center;
             img{
                 padding: 5px;
@@ -16,7 +16,6 @@ main{
             }
         }
         .instructions{
-            display: none;
             width: 100%;
             .instructionsTitleBox{
                 @include createHeaderWindow;    
@@ -45,8 +44,11 @@ main{
                 width: 100%;
                 margin-top: 16px;
                 padding-bottom: 36px;
+                padding-left: 10px;
+                padding-right: 10px;
                 display: flex;
                 justify-content: center;
+                box-sizing: border-box;
                 button{
                     width: 144px;
                     height: 36px;
@@ -63,20 +65,20 @@ main{
                 }  
             }
         }
-        .test{
+        .capturing{
             display: none;
             width: 100%;
             .testTitleBox{
                 @include createHeaderWindow;
                 justify-content: space-between;
-                #closeUno{
+                #closeCapture{
                     margin-right: 10px;
                     &:hover{
                         cursor: pointer;
                     }
                 }
             }
-            .videoBoxUno{
+            .videoBoxTest{
                 margin-top: 8px;
                 margin-right: 11px;
                 margin-left: 17px;
@@ -85,35 +87,92 @@ main{
                 background-color: $color-secondary;
                 border: $border-input;
                 box-shadow: $box-shadow-input;
+                #captureVideo{
+                    padding-top: 2px;
+                    padding-left: 2px;
+                    height: 430px; 
+                    width: 99%;
+                    object-fit: cover;   
+                }
             }
-            .testButtonBox{
+            .captureButtonBox{
                 width: 100%;
                 height: 36px;
-                padding-bottom: 25px;
+                padding-bottom: 59px;
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: center; 
-                button{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    &:hover{
-                        border: $border-button-dotted;
-                        cursor: pointer;
-                    } 
-                }   
                 .camera{
                     width: 36px;
                     height: 36px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 10px;
+                    &:hover{
+                        cursor: pointer;
+                        outline-offset:-4px;
+                        outline: $border-button-dotted;
+                    }
                 }
                 .capture{
                     width: 144px;
                     height: 36px;
-
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 10px;
+                    &:hover{
+                        cursor: pointer;
+                        outline-offset:-4px;
+                        outline: $border-button-dotted;
+                    }
+                }
+                .recording{
+                    display: none;
+                    width: 36px;
+                    height: 36px;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    background-color: $bg-button-ready;
+                    border: $border-button;
+                    box-shadow: $box-shadow-ready;
+                    &:hover{
+                        cursor: pointer;
+                        outline-offset:-4px;
+                        outline: $border-button-dotted;                    
+                    }
+                }
+                .ready{
+                    display: none;
+                    width: 144px;
+                    height: 36px;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    background-color: $bg-button-ready;
+                    border: $border-button;
+                    box-shadow: $box-shadow-ready;
+                    color: $color-secondary;
+                    &:hover{
+                        cursor: pointer;
+                        outline-offset:-4px;
+                        outline: $border-button-dotted;
+                    }
+                }
+                #counter{
+                    display: none;
+                    width: 124px;
+                    height: 36px;
+                    margin-bottom: 25px;
+                    background-color: $bg-color-light;
+                    border: $border-input;
+                    box-shadow: $box-shadow-input;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
-        }
-        .capturing{
-            display: none;
         }
         .preview{
             display: none;
@@ -141,15 +200,34 @@ main{
                 .instructionsFooter{
                     width: 304px;
                     margin-left: 354px;
-                
                 }
             }
-            .test{
+            .capturing{
                 width: 854px;
                 height: 548px;
                 margin-top: 75px;
                 margin-left: 186px;
-                margin-right: 289px;        
+                margin-right: 289px;  
+                .videoBoxTest{
+                    #captureVideo{
+                        width: 99.5%;
+                    }
+                }
+                .captureButtonBox{
+                    width: 180px;
+                    margin-left: 661px;
+                    position: relative;
+                    .camera{
+                        margin-top: 0;
+                    }
+                    .capture{
+                        margin-top: 0;
+                    }
+                    #counter{
+                        position: absolute;
+                        transform: translate(-670px, -1px);
+                    }
+                }
             }
         }
     }

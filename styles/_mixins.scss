@@ -46,25 +46,25 @@
 @mixin buttonHover{
     background-color:$bg-button-hover-light;
     outline-offset:-4px;
-    outline: 1px dotted #110038;   
+    outline: $border-button-dotted;   
     cursor: pointer;
 }
 
 @mixin buttonHoverDark{
     background-color:$bg-button-hover-dark;
     outline-offset:-4px;
-    outline: 1px dotted #110038;   
+    outline: $border-button-dotted;   
     cursor: pointer;
 }
 @mixin buttonActive{
     background-color:$bg-button-hover-light;
     outline-offset:-4px;
-    outline: 1px dotted #110038; 
+    outline: $border-button-dotted; 
 }
 @mixin buttonActiveDark{
     background-color:$bg-button-hover-dark;
     outline-offset:-4px;
-    outline: 1px dotted #110038; 
+    outline: $border-button-dotted; 
 }
 
 @mixin sectionTitle{

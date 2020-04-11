@@ -166,13 +166,21 @@
                     }
                 } 
             }
-            .test{
+            .capturing{
                 @include createWindowLight;
                 .testTitleBox{
                     background-image: $bg-gradient-title-light;    
                 }
-                .testButtonBox{
-                    button{
+                .captureButtonBox{
+                    .camera{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button; 
+                        background-color: $bg-button-light; 
+                        &.hover{
+                            background-color: $bg-button-hover-light;
+                        } 
+                    }
+                    .capture{
                         border: $border-button;
                         box-shadow: $box-shadow-button; 
                         background-color: $bg-button-light; 

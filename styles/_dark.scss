@@ -170,13 +170,21 @@
                     }
                 }   
             }
-            .test{
+            .capturing{
                 @include createWindowDark;
                 .testTitleBox{
                     background-image: $bg-gradient-title-dark;    
                 }
-                .testButtonBox{
-                    button{
+                .captureButtonBox{
+                    .camera{
+                        border: $border-button;
+                        box-shadow: $box-shadow-button-dark; 
+                        background-color: $bg-button-dark; 
+                        &.hover{
+                            background-color: $bg-button-hover-dark;
+                        } 
+                    }
+                    .capture{
                         border: $border-button;
                         box-shadow: $box-shadow-button-dark; 
                         background-color: $bg-button-dark; 

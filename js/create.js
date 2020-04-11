@@ -1,44 +1,42 @@
-const buttonCreate = document.querySelector('#buttonCreate');
-const headerBox = document.querySelector('.headerBox');
-const searchs = document.querySelector('.search');
-const suggestions = document.querySelector('.suggestions');
-const tops = document.querySelector('.top');
 const instructions = document.querySelector('.instructions');
 const cancel = document.querySelector('#cancel');
 const begin = document.querySelector('#begin');
-const test = document.querySelector('.test');
-const closeUno = document.querySelector('#closeUno');
+const capturing = document.querySelector('.capturing');
+const closeCapture = document.querySelector('#closeCapture');
+const captureButton = document.querySelector('#captureButton');
+const camera = document.querySelector('.camera');
+const logoBoxCreate = document.querySelector('.logoBoxCreate');
+const recording = document.querySelector('.recording');
+const ready = document.querySelector('.ready');
 let captureVideo = document.querySelector('#captureVideo'); 
-
-function success(stream){
+let counter = document.querySelector('#counter');
+let recorder = {};
+let countdown = {}
+function success(stream){ //funcion de exito para acceder a webcam
     const mediaStream = stream;
     captureVideo.srcObject = mediaStream
     captureVideo.play()
+    recorder = new RecordRTCPromisesHandler(mediaStream, {
+        type: 'video'
+    });
 }
 
-function error(error){
+function error(error){ //funcion error para acceder a web came
     alert('error al acceder a la wbcam :(')
     console.error(error)
 }
-buttonCreate.addEventListener('click', ()=>{
-    headerBox.style.display = 'none';
-    searchs.style.display = 'none';
-    searchResultButtons.style.display = 'none';
-    suggestions.style.display = 'none';
-    tops.style.display = 'none';
-    logoBoxCreate.style.display = 'flex';
-    instructions.style.display = 'block';
+
+logoBoxCreate.addEventListener('click', ()=>{ // redirecciona a la pagina principal
+    window.location.href = '/index.html';
 })
 
-cancel.addEventListener('click', ()=>{
-    location.reload()
+cancel.addEventListener('click', ()=>{ //cancela crear guifos
+    window.location.href = '/index.html';
 })
 
-
-
-begin.addEventListener('click', ()=>{
+begin.addEventListener('click', ()=>{ //da acceso a la camara
     instructions.style.display = 'none';
-    test.style.display = 'block';
+    capturing.style.display = 'block';
     navigator.webcam = (
         navigator.msGetUserMedia ||
         navigator.mozGetUserMedia ||
@@ -46,8 +44,54 @@ begin.addEventListener('click', ()=>{
         navigator.getUserMedia
     ) 
     navigator.webcam({video:true, audio:false}, success, error )
+    
 })
 
-closeUno.addEventListener('click', ()=>{
-    location.reload()
+closeCapture.addEventListener('click', ()=>{ // cancela crear guifos
+    window.location.href = '/index.html';
 })
+
+function timer(){
+    var sec = 0;
+    var min = 0;
+    var hour = 0;
+    countdown = setInterval(function(){
+        document.getElementById('counter').innerHTML=`${hour}:${min}:${sec}`;
+        sec++;
+        if(sec==60){
+            sec = 0
+            min++
+            if(min==60){
+                min = 0
+                hour++
+            }
+        }
+    }, 1000);
+}
+
+captureButton.addEventListener('click', ()=>{ // empieza a grabar
+    
+    recorder.startRecording();
+    
+    document.getElementById('testTitle').innerHTML='Capturando Tu Guifo'
+    camera.style.display = 'none';
+    captureButton.style.display = 'none';
+    counter.style.display = 'flex';
+    recording.style.display = 'flex';
+    ready.style.display = 'flex'; 
+    timer()
+})
+ready.addEventListener('click',()=>{ // termina de grabar
+    clearInterval(countdown)
+    recorder.stopRecording()
+    .then(resp=>{
+        recorder.getBlob()
+        .then(blob=>{
+            let form = new FormData();
+            form.append('file', blob, 'myGif.gif'); 
+            console.log(form.get('file'))
+
+        })
+    });
+})
+
