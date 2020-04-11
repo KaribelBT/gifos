@@ -9,6 +9,7 @@ const camera = document.querySelector('.camera');
 const logoBoxCreate = document.querySelector('.logoBoxCreate');
 const recording = document.querySelector('.recording');
 const ready = document.querySelector('.ready');
+const upload = document.querySelector('#upload');
 const preview = document.querySelector('.preview');
 let captureVideo = document.querySelector('#captureVideo'); 
 let counter = document.getElementsByClassName('counter');
@@ -109,4 +110,30 @@ ready.addEventListener('click',()=>{ // termina de grabar
         })
     });
 })
+let uploadGif = async function(){
+    let data = form;
+    form.append('username','KaribelBT')
+    let result = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
+        method: 'post', 
+        body: data
+    });
+    let resp = await result.json();
+    return resp
+}
 
+let getUploadedGif = async function(id){
+    let result = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${id}`);
+    let data = await result.json();
+    return data
+} 
+upload.addEventListener('click',()=>{
+    console.log('cargando...')
+    uploadGif()
+    .then(res=>{
+        console.log('subido con exito')
+        getUploadedGif(res.data.id)
+        .then(uploaded =>{
+            console.log(uploaded)
+        })
+    })
+})
