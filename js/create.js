@@ -12,18 +12,45 @@ let captureVideo = document.querySelector('#captureVideo');
 let counter = document.querySelector('#counter');
 let recorder = {};
 let countdown = {}
+let form = new FormData();
+
 function success(stream){ //funcion de exito para acceder a webcam
     const mediaStream = stream;
     captureVideo.srcObject = mediaStream
     captureVideo.play()
     recorder = new RecordRTCPromisesHandler(mediaStream, {
-        type: 'video'
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+        width: 360,
+        hidden: 240,
+        onGifRecordingStarted: function() {
+            console.log('started')
+        },
     });
 }
 
 function error(error){ //funcion error para acceder a web came
     alert('error al acceder a la wbcam :(')
     console.error(error)
+}
+
+function timer(){
+    var sec = 0;
+    var min = 0;
+    var hour = 0;
+    countdown = setInterval(function(){
+        document.getElementById('counter').innerHTML=`${hour}:${min}:${sec}`;
+        sec++;
+        if(sec==60){
+            sec = 0
+            min++
+            if(min==60){
+                min = 0
+                hour++
+            }
+        }
+    }, 1000);
 }
 
 logoBoxCreate.addEventListener('click', ()=>{ // redirecciona a la pagina principal
@@ -51,23 +78,6 @@ closeCapture.addEventListener('click', ()=>{ // cancela crear guifos
     window.location.href = '/index.html';
 })
 
-function timer(){
-    var sec = 0;
-    var min = 0;
-    var hour = 0;
-    countdown = setInterval(function(){
-        document.getElementById('counter').innerHTML=`${hour}:${min}:${sec}`;
-        sec++;
-        if(sec==60){
-            sec = 0
-            min++
-            if(min==60){
-                min = 0
-                hour++
-            }
-        }
-    }, 1000);
-}
 
 captureButton.addEventListener('click', ()=>{ // empieza a grabar
     
@@ -81,16 +91,18 @@ captureButton.addEventListener('click', ()=>{ // empieza a grabar
     ready.style.display = 'flex'; 
     timer()
 })
+
 ready.addEventListener('click',()=>{ // termina de grabar
     clearInterval(countdown)
     recorder.stopRecording()
     .then(resp=>{
         recorder.getBlob()
         .then(blob=>{
-            let form = new FormData();
             form.append('file', blob, 'myGif.gif'); 
             console.log(form.get('file'))
-
+            let urlCreator = window.URL || window.webkitURL;
+            let imageUrl = urlCreator.createObjectURL(blob);
+            document.querySelector("#previewImg").src = imageUrl;
         })
     });
 })
