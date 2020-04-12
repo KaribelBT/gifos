@@ -15,17 +15,24 @@ const repeat = document.querySelector('#repeat');
 const loading = document.querySelector('.loading');
 const closeLoading = document.querySelector('#closeLoading');
 const loadingCancel = document.querySelector('#loadingCancel');
+const sucessClose = document.querySelector('#sucessClose');
+const copy = document.querySelector('#copy');
+const download = document.querySelector('#download');
+const sucessReady = document.querySelector('#sucessReady');
+const successDiv = document.querySelector('.success');
 let captureVideo = document.querySelector('#captureVideo');
 let counter = document.getElementsByClassName('counter');
 let recorder = {};
 let countdown = {}
 let myGifos = [];
 let mediaStream;
+let gifId = "";
+let gifUrlForClip = "";
 let form = new FormData();
 
 function success(stream) { //funcion de exito para acceder a webcam
     mediaStream = stream;
-    captureVideo.srcObject = mediaStream
+    captureVideo.srcObject = mediaStream;
     captureVideo.play()
     recorder = new RecordRTCPromisesHandler(mediaStream, {
         type: 'gif',
@@ -34,17 +41,17 @@ function success(stream) { //funcion de exito para acceder a webcam
         width: 360,
         hidden: 240,
         onGifRecordingStarted: function () {
-            console.log('started')
+            console.log('started');
         },
     });
 }
 
 function error(error) { //funcion error para acceder a web came
-    alert('error al acceder a la wbcam :(')
-    console.error(error)
+    alert('error al acceder a la wbcam :(');
+    console.error(error);
 }
 
-function timer() {
+function timer() { //funcion para timer de create
     let sec = 0;
     let min = 0;
     let hour = 0;
@@ -64,7 +71,7 @@ function timer() {
     }, 1000);
 }
 
-let uploadGif = async function () {
+let uploadGif = async function () { //funcion para subir gif a la api
     let data = form;
     form.append('username', 'KaribelBT')
     let result = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
@@ -75,13 +82,13 @@ let uploadGif = async function () {
     return resp
 }
 
-let getUploadedGif = async function (id) {
+let getUploadedGif = async function (id) { //funcion para recuperar gif subido
     let result = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${id}`);
     let data = await result.json();
     return data
 }
 
-function createStorage(gif) {
+function createStorage(gif) { //funcion para crear loca storage para mis guifos
     let uploadedGifos = []
     if (localStorage.getItem('uploadedGifos')) {
         let uploadedArray = JSON.parse(localStorage.getItem('uploadedGifos'))
@@ -146,6 +153,7 @@ ready.addEventListener('click', () => { // termina de grabar
                     let urlCreator = window.URL || window.webkitURL;
                     let imageUrl = urlCreator.createObjectURL(blob);
                     document.querySelector("#previewImg").src = imageUrl;
+                    document.querySelector("#otherPreviewImg").src = imageUrl;
                     mediaStream.getTracks().forEach(function (track) {
                         track.stop();
                     });
@@ -157,6 +165,7 @@ repeat.addEventListener('click', () => {
     location.reload();
 
 })
+
 upload.addEventListener('click', () => {
     preview.style.display = 'none';
     loading.style.display = "block";
@@ -165,9 +174,15 @@ upload.addEventListener('click', () => {
             console.log('subido con exito')
             getUploadedGif(res.data.id)
                 .then(uploaded => {
+                    gifId = uploaded.data[0].id
+                    gifUrlForClip = uploaded.data[0].url
                     createStorage(uploaded.data[0])
                 })
         })
+    setTimeout(() => {
+        loading.style.display = "none";       
+        successDiv.style.display = "block";
+    }, 3000);        
 })
 
 closeLoading.addEventListener('click', () => { // cancela crear guifos
@@ -176,4 +191,41 @@ closeLoading.addEventListener('click', () => { // cancela crear guifos
 
 loadingCancel.addEventListener('click', () => { // cancela crear guifos
     window.location.href = '/myguifos.html';
+})
+
+successClose.addEventListener('click', () => { //cancela crear guifos
+    window.location.href = '/myguifos.html';
+})
+
+successReady.addEventListener('click', () => { //cancela crear guifos
+    window.location.href = '/myguifos.html';
+})
+
+copy.addEventListener('click', () => {
+    const el = document.createElement('textarea');
+    el.value = gifUrlForClip;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el); 
+    document.execCommand('copy');
+})
+
+
+download.addEventListener('click',()=>{
+    let downloadUrl = `https://media.giphy.com/media/${gifId}/giphy.gif`;
+    let getGif = fetch(downloadUrl);
+    getGif.then(resp=>{
+        return resp.blob()
+    })
+    .then(blob=>{
+        let urlGif = URL.createObjectURL(blob);
+        let saveImg = document.createElement("a");
+        saveImg.href = urlGif;
+        saveImg.download = "myGuifo.gif";
+        saveImg.style = 'display: "none"';
+        document.body.appendChild(saveImg);
+        saveImg.click();
+        document.body.removeChild(saveImg);
+    })
 })

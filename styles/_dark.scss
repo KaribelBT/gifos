@@ -205,6 +205,17 @@
                     background-image: $bg-gradient-title-dark;    
                 }   
             }
+            .success{
+                @include createWindowDark; 
+                .successTitleBox{
+                    background-image: $bg-gradient-title-dark;    
+                }  
+                .successFooter{
+                    #successReady{
+                        @include buttonPinkDark;
+                    }
+                } 
+            }
         }
     }
 }

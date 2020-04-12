@@ -312,6 +312,28 @@ body {
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
 
+.dark main .createGuifos .success {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .success .successTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
+.dark main .createGuifos .success .successFooter #successReady {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #EE3EFE;
+}
+
+.dark main .createGuifos .success .successFooter #successReady.hover {
+  background-color: #CE36DB;
+}
+
 .light {
   background-color: #FFFFFF;
   color: #110038;
@@ -601,6 +623,28 @@ body {
 .light main .createGuifos .loading .loadingTitleBox {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .success {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .success .successTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.light main .createGuifos .success .successFooter #successReady {
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  background-color: #F7C9F3;
+}
+
+.light main .createGuifos .success .successFooter #successReady.hover {
+  background-color: #E6BBE2;
 }
 
 .titleBox {
@@ -1908,6 +1952,127 @@ main .createGuifos .loading .loadingFooter #loadingCancel:hover {
   outline: 1px dotted #110038;
 }
 
+main .createGuifos .success {
+  display: none;
+}
+
+main .createGuifos .success .successTitleBox {
+  width: 100%;
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .createGuifos .success .successTitleBox h2 {
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .createGuifos .success .successTitleBox #successClose {
+  margin-right: 10px;
+}
+
+main .createGuifos .success .successTitleBox #successClose:hover {
+  cursor: pointer;
+}
+
+main .createGuifos .success .successImgBox {
+  margin-top: 8px;
+  margin-right: 11px;
+  margin-left: 17px;
+  margin-bottom: 21px;
+  height: 434px;
+  background-color: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .success .successBody {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .success .successBody p {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+main .createGuifos .success .successBody button {
+  width: 256px;
+  height: 36px;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #110038;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+main .createGuifos .success .successBody button:hover {
+  cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+main .createGuifos .success .successFooter {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 28px;
+}
+
+main .createGuifos .success .successFooter #successReady {
+  width: 144px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .success .successFooter #successReady:hover {
+  cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
 main .myGuifos {
   width: 100%;
   margin-top: 30px;
@@ -2051,6 +2216,51 @@ main .myGuifos .myGuifosResultsBox .imageMyResultsBox .myGifs img {
   }
   main .createGuifos .loading .loadingBox .loadingBar {
     width: 324px;
+  }
+  main .createGuifos .loading .loadingFooter {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  main .createGuifos .loading .loadingFooter button {
+    margin-right: 10px;
+  }
+  main .createGuifos .success {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 715px;
+    height: 391px;
+    margin-top: 75px;
+    margin-left: 237px;
+    margin-right: 289px;
+    position: relative;
+  }
+  main .createGuifos .success .successImgBox {
+    margin-top: 29px;
+    margin-left: 26px;
+    margin-bottom: 0;
+    width: 371px;
+    height: 196px;
+  }
+  main .createGuifos .success .successImgBox .classpreviewImg {
+    width: 365px;
+    height: 191px;
+  }
+  main .createGuifos .success .successBody {
+    position: absolute;
+    width: 256px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    -webkit-transform: translate(423px, -189px);
+            transform: translate(423px, -189px);
+  }
+  main .createGuifos .success .successFooter {
+    width: 144px;
+    padding-bottom: 0;
+    position: absolute;
+    -webkit-transform: translate(535px, 58px);
+            transform: translate(535px, 58px);
   }
 }
 /*# sourceMappingURL=styles.css.map */

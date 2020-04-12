@@ -20,7 +20,7 @@
         </div>
     </header>
 
-    <main> 
+    <main>
         <section class="createGuifos">
             <div class="logoBoxCreate">
                 <img src="./images/arrow.svg" alt="flecha">
@@ -77,8 +77,8 @@
                         <img src="./images/recording.svg" alt="icono grabando">
                     </button>
                     <button class="ready">Listo</button>
-                    
-                </div>                
+
+                </div>
             </div>
             <div class="preview">
                 <div class="previewTitleBox">
@@ -111,7 +111,7 @@
                             <div class="loadingCell"></div>
                             <div class="loadingCell"></div>
                             <div class="loadingCell"></div>
-                            <div class="loadingCell"></div>    
+                            <div class="loadingCell"></div>
                         </div>
                     </div>
                     <button id="repeat">Repetir Captura</button>
@@ -145,13 +145,13 @@
                         <div class="loadingCell"></div>
                         <div class="loadingCell"></div>
                         <div class="loadingCell"></div>
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
-                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
                     </div>
                     <p>Tiempo restante: <span class="tachado">38 años</span> algunos minutos</p>
                 </div>
@@ -159,14 +159,31 @@
                     <button id="loadingCancel">Cancelar</button>
                 </div>
             </div>
-        <section class="myGuifos">
-            <div class="myGuifosTitleBox">
-                <h3>Mis Guifos:</h3>
+            <div class="success">
+                <div class="successTitleBox">
+                    <h2>Guifo Subido Con Éxito</h2>
+                    <img id="successClose" src="./images/button3.svg" alt="cross">
+                </div>
+                <div class="successImgBox">
+                    <img id="otherPreviewImg" class="previewImg" alt="preview gif">
+                </div>
+                <div class="successBody">
+                    <p>Guifo creado con éxito</p>
+                    <button id="copy">Copiar Enlace Guifo</button>
+                    <button id="download">Descargar Guifo</button>
+                </div>
+                <div class="successFooter">
+                    <button id="successReady">Listo</button>
+                </div>
             </div>
-            <div id="myGuifosResultBox" class="myGuifosResultsBox"></div>
-        </section>
+            <section class="myGuifos">
+                <div class="myGuifosTitleBox">
+                    <h3>Mis Guifos:</h3>
+                </div>
+                <div id="myGuifosResultBox" class="myGuifosResultsBox"></div>
+            </section>
     </main>
-    <script src="./js/header.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
     <script src="./js/create.js"></script>
 </body>

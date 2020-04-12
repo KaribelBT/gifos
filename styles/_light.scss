@@ -201,6 +201,17 @@
                     background-image: $bg-gradient-title-light;    
                 }   
             }
+            .success{
+                @include createWindowLight; 
+                .successTitleBox{
+                    background-image: $bg-gradient-title-light;    
+                }    
+                .successFooter{
+                    #successReady{
+                        @include buttonPinkLight;
+                    }
+                } 
+            }
         }
     }
 }

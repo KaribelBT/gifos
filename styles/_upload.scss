@@ -244,6 +244,58 @@ main{
                 }
             }
         }
+        .success{
+            display: none;
+            .successTitleBox{
+                width: 100%;
+                @include createHeaderWindow;
+                justify-content: space-between;
+                #successClose{
+                    margin-right: 10px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }  
+            .successImgBox{
+                @include bodyWindow;
+            }  
+            .successBody{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p{
+                    font-weight: bold;
+                    margin-bottom: 16px;
+                }
+                button{
+                    width: 256px;
+                    height: 36px;
+                    margin-bottom: 14px;
+                    display: flex;
+                    align-items: center; 
+                    justify-content: center;
+                    border: $border-button;
+                    background-color:$bg-color-light;    
+                    box-shadow: $box-shadow-button; 
+                    &:hover{
+                        cursor: pointer;
+                        outline-offset:-4px;
+                        outline: $border-button-dotted;
+                    }     
+                }
+            }
+            .successFooter{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding-bottom: 28px;
+                #successReady{
+                    @include buttonWhitePink;    
+                }
+            }
+        }
     }
     .myGuifos{
         width: 100%;
@@ -341,7 +393,46 @@ main{
                     .loadingBar{
                         width: 324px;    
                     }
-                }    
+                }  
+                .loadingFooter{
+                    justify-content: flex-end;
+                    button{
+                        margin-right: 10px;
+                    } 
+                    
+                } 
+            }
+            .success{
+                box-sizing: border-box;
+                width: 715px;
+                height: 391px; 
+                margin-top: 75px;
+                margin-left: 237px;
+                margin-right: 289px;  
+                position: relative;
+                .successImgBox{
+                    margin-top: 29px;
+                    margin-left: 26px;
+                    margin-bottom:0;
+                    width: 371px;
+                    height: 196px;
+                    .classpreviewImg{
+                        width: 365px;
+                        height: 191px;   
+                    }
+                } 
+                .successBody{
+                    position: absolute;
+                    width: 256px;
+                    align-items: start;
+                    transform: translate(423px, -189px);
+                }
+                .successFooter{
+                    width: 144px;
+                    padding-bottom: 0;
+                    position: absolute;
+                    transform: translate(535px, 58px);                    
+                }
             }
         }
     }
