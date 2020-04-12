@@ -86,6 +86,19 @@ body {
   color: #FFFFFF;
 }
 
+.dark .misGuifosBox #my {
+  color: #FFFFFF;
+}
+
+.dark .misGuifosBox #my:visited {
+  color: #FFFFFF;
+}
+
+.dark .misGuifosBox:hover {
+  border: 1px dotted #FFFFFF;
+  cursor: pointer;
+}
+
 .dark #themes.active {
   background-color: #8F8F8F;
   -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
@@ -233,6 +246,7 @@ body {
 
 .dark main .createGuifos .instructions .instructionsFooter #begin {
   background-color: #EE3EFE;
+  color: #FFFFFF;
 }
 
 .dark main .createGuifos .instructions .instructionsFooter #begin.hover {
@@ -255,6 +269,7 @@ body {
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   background-color: #EE3EFE;
+  color: #FFFFFF;
 }
 
 .dark main .createGuifos .capturing .captureButtonBox .camera.hover {
@@ -266,38 +281,40 @@ body {
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   background-color: #EE3EFE;
+  color: #FFFFFF;
 }
 
 .dark main .createGuifos .capturing .captureButtonBox .capture.hover {
   background-color: #CE36DB;
 }
 
-.dark main .createGuifos .capturing .preview {
+.dark main .createGuifos .preview {
   background-color: #B4B4B4;
   -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 }
 
-.dark main .createGuifos .capturing .preview .previewTitleBox {
+.dark main .createGuifos .preview .previewTitleBox {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
 
-.dark main .createGuifos .capturing .preview .previewFooter .loadingBox .iconbox {
+.dark main .createGuifos .preview .previewFooter .loadingBox .iconbox {
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   background-color: #EE3EFE;
 }
 
-.dark main .createGuifos .capturing .preview #upload {
+.dark main .createGuifos .preview .previewFooter #upload {
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   background-color: #EE3EFE;
+  color: #FFFFFF;
 }
 
-.dark main .createGuifos .capturing .preview #upload.hover {
+.dark main .createGuifos .preview .previewFooter #upload.hover {
   background-color: #CE36DB;
 }
 
@@ -328,6 +345,7 @@ body {
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   background-color: #EE3EFE;
+  color: #FFFFFF;
 }
 
 .dark main .createGuifos .success .successFooter #successReady.hover {
@@ -398,8 +416,21 @@ body {
           box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.light .guifosBox {
-  color: #FFFFFF;
+.light .misGuifosBox {
+  color: #110038;
+}
+
+.light .misGuifosBox #my {
+  color: #110038;
+}
+
+.light .misGuifosBox #my:visited {
+  color: #110038;
+}
+
+.light .misGuifosBox:hover {
+  border: 1px dotted #110038;
+  cursor: pointer;
 }
 
 .light #themes.active {
@@ -792,22 +823,13 @@ body {
           align-items: center;
 }
 
-.headerBox .buttonsBox .misGuifosBox a {
+.headerBox .buttonsBox .misGuifosBox #my {
   text-decoration: none;
 }
 
-.headerBox .buttonsBox .misGuifosBox a::first-letter {
+.headerBox .buttonsBox .misGuifosBox #my::first-letter {
   text-decoration: underline;
   text-underline-position: under;
-}
-
-.headerBox .buttonsBox .misGuifosBox a:visited {
-  color: #110038;
-}
-
-.headerBox .buttonsBox .misGuifosBox:hover {
-  border: 1px dotted #110038;
-  cursor: pointer;
 }
 
 .headerBox .buttonsBox #disabled p {
@@ -2241,8 +2263,17 @@ main .myGuifos .myGuifosResultsBox .imageMyResultsBox .myGifs img {
     margin-bottom: 0;
     width: 371px;
     height: 196px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
-  main .createGuifos .success .successImgBox .classpreviewImg {
+  main .createGuifos .success .successImgBox #otherPreviewImg {
     width: 365px;
     height: 191px;
   }

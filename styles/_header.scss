@@ -89,20 +89,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            a{
+            #my{
                 text-decoration: none;
                 &::first-letter{
                     text-decoration: underline;
                     text-underline-position: under;           
                 }
-                &:visited{
-                    color: $color-primary;
-                }
-            }
-            &:hover{
-                border: $border-button-dotted;
-                cursor: pointer;
-            }
+            }            
         }
         #disabled{
             p{

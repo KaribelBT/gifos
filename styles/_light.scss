@@ -31,8 +31,18 @@
     .dropButton{
         @include buttonNormal;
     }
-    .guifosBox{
-        color: $color-secondary;
+    .misGuifosBox{
+        color: $color-primary;
+        #my{
+            color: $color-primary;
+            &:visited{
+                color: $color-primary;
+            }
+        }
+        &:hover{
+            border: $border-button-dotted;
+            cursor: pointer;
+        }
     }
     #themes{                
         &.active{

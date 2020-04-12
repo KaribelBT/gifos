@@ -35,6 +35,16 @@
     }
     .misGuifosBox{
         color: $color-secondary;
+        #my{
+            color: $color-secondary;
+            &:visited{
+                color: $color-secondary;
+            }
+        }
+        &:hover{
+            border: $border-button-dotted-dark;
+            cursor: pointer;
+        }
     }
     #themes{          
         &.active{
@@ -158,9 +168,11 @@
                     button{
                         border: $border-button;
                         box-shadow: $box-shadow-button-dark;
+                        
                     }
                     #begin{
                         background-color: $bg-button-dark;
+                        color: $color-secondary;
                         &.hover{
                             background-color: $bg-button-hover-dark;
                         }
@@ -174,10 +186,13 @@
                 }
                 .captureButtonBox{
                     .camera{
-                        @include buttonPinkDark;    
+                        @include buttonPinkDark;  
+                        color: $color-secondary;  
                     }
                     .capture{
                         @include buttonPinkDark;
+                        color: $color-secondary;
+                    }   
                 }
             }
             .preview{
@@ -187,18 +202,19 @@
                 }
                 .previewFooter{
                     .loadingBox{
-                       .iconbox{
+                        .iconbox{
                             border: $border-button;
                             box-shadow: $box-shadow-button-dark; 
                             background-color: $bg-button-dark;     
                         }
                     }
-                }
                     #upload{
                         @include buttonPinkDark;
+                        color: $color-secondary;
                     }
                 }
             }
+            
             .loading{
                 @include createWindowDark; 
                 .loadingTitleBox{
@@ -213,6 +229,7 @@
                 .successFooter{
                     #successReady{
                         @include buttonPinkDark;
+                        color: $color-secondary;
                     }
                 } 
             }

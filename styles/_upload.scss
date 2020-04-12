@@ -416,7 +416,10 @@ main{
                     margin-bottom:0;
                     width: 371px;
                     height: 196px;
-                    .classpreviewImg{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    #otherPreviewImg{
                         width: 365px;
                         height: 191px;   
                     }
