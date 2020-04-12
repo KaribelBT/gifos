@@ -1047,8 +1047,6 @@ main .searchResultsButtons {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   overflow: hidden;
 }
 
@@ -2018,6 +2016,15 @@ main .createGuifos .success .successImgBox {
   border: 1px solid #979797;
   -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .success .successImgBox #otherPreviewImg {
+  padding-top: 2px;
+  padding-left: 2px;
+  height: 430px;
+  width: 99%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main .createGuifos .success .successBody {

@@ -1,5 +1,7 @@
 const myGuifosResultBox = document.querySelector('#myGuifosResultBox');
+
 window.onload = () =>{
+    //mantiene change theme
     if(localStorage.getItem('isDark')=='true'){
         document.body.classList.add('dark');
         document.body.classList.remove('light');
@@ -9,7 +11,7 @@ window.onload = () =>{
         document.body.classList.remove('dark');
         logo.src = lightLogo;
     }
-
+    //agrega gif a mis guifos
     if(localStorage.getItem('uploadedGifos')){
         let arrayGifs = JSON.parse(localStorage.getItem('uploadedGifos'))
         arrayGifs.map(g=>{

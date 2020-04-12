@@ -24,7 +24,6 @@ const download = document.querySelector('#download');
 const sucessReady = document.querySelector('#sucessReady');
 const successDiv = document.querySelector('.success');
 const myGuifosResultBox = document.querySelector('#myGuifosResultBox');
-
 let captureVideo = document.querySelector('#captureVideo');
 let counter = document.getElementsByClassName('counter');
 let recorder = {};
@@ -35,7 +34,8 @@ let gifId = "";
 let gifUrlForClip = "";
 let form = new FormData();
 
-function success(stream) { //funcion de exito para acceder a webcam
+//funcion de exito para acceder a webcam
+function success(stream) { 
     mediaStream = stream;
     captureVideo.srcObject = mediaStream;
     captureVideo.play()
@@ -51,32 +51,34 @@ function success(stream) { //funcion de exito para acceder a webcam
     });
 }
 
-function error(error) { //funcion error para acceder a web came
+//funcion error para acceder a webcam
+function error(error) { 
     alert('error al acceder a la wbcam :(');
     console.error(error);
 }
 
-function timer() { //funcion para timer de create
+//funcion para timer de create
+function timer() { 
     let sec = 0;
     let min = 0;
     let hour = 0;
     countdown = setInterval(function () {
         counter[0].innerHTML = `${hour}:${min}:${sec}`;
         counter[1].innerHTML = `${hour}:${min}:${sec}`;
-
         sec++;
         if (sec == 60) {
-            sec = 0
-            min++
+            sec = 0;
+            min++;
             if (min == 60) {
-                min = 0
-                hour++
+                min = 0;
+                hour++;
             }
         }
     }, 1000);
 }
 
-let uploadGif = async function () { //funcion para subir gif a la api
+//funcion para subir gif a la api
+let uploadGif = async function () { 
     let data = form;
     let result = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
         method: 'post',
@@ -86,13 +88,15 @@ let uploadGif = async function () { //funcion para subir gif a la api
     return resp
 }
 
-let getUploadedGif = async function (id) { //funcion para recuperar gif subido
+//funcion para recuperar gif subido
+let getUploadedGif = async function (id) {
     let result = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${id}`);
     let data = await result.json();
     return data
 }
 
-function createStorage(gif) { //funcion para crear loca storage para mis guifos
+//funcion para crear local storage para mis guifos
+function createStorage(gif) { 
     let uploadedGifos = []
     if (localStorage.getItem('uploadedGifos')) {
         let uploadedArray = JSON.parse(localStorage.getItem('uploadedGifos'))
@@ -108,15 +112,43 @@ function createStorage(gif) { //funcion para crear loca storage para mis guifos
     localStorage.setItem('uploadedGifos', JSON.stringify(myGifos));
 }
 
-logoBoxCreate.addEventListener('click', () => { // redirecciona a la pagina principal
+window.onload = () =>{
+    //mantiene change theme
+    if(localStorage.getItem('isDark')=='true'){
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+        logo.src = darkLogo;
+    }else{
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+        logo.src = lightLogo;
+    }
+    //agrega gif a mis guifos
+    if(localStorage.getItem('uploadedGifos')){
+        let arrayGifs = JSON.parse(localStorage.getItem('uploadedGifos'))
+        arrayGifs.map(g=>{
+            myGuifosResultBox.innerHTML +=
+            `<div class="imageResultsBox">
+                <div class="myGifs">
+                    <img src ="${g.images.original.url}">
+                </div>
+            </div>`
+        })
+    }
+}
+
+// redirecciona a la pagina principal
+logoBoxCreate.addEventListener('click', () => { 
     window.location.href = '/index.html';
 })
 
-cancel.addEventListener('click', () => { //cancela crear guifos
+//cancela crear guifos
+cancel.addEventListener('click', () => { 
     window.location.href = '/myguifos.html';
 })
 
-begin.addEventListener('click', () => { //da acceso a la camara
+//da acceso a la camara
+begin.addEventListener('click', () => { 
     instructions.style.display = 'none';
     capturing.style.display = 'block';
     navigator.webcam = (
@@ -129,11 +161,13 @@ begin.addEventListener('click', () => { //da acceso a la camara
 
 })
 
-closeCapture.addEventListener('click', () => { // cancela crear guifos
+// cancela crear guifos
+closeCapture.addEventListener('click', () => { 
     window.location.href = '/myguifos.html';
 })
 
-captureButton.addEventListener('click', () => { // empieza a grabar
+// empieza a grabar
+captureButton.addEventListener('click', () => { 
     document.getElementById('testTitle').innerHTML = 'Capturando Tu Guifo'
     camera.style.display = 'none';
     captureButton.style.display = 'none';
@@ -144,7 +178,8 @@ captureButton.addEventListener('click', () => { // empieza a grabar
     timer()
 })
 
-ready.addEventListener('click', () => { // termina de grabar
+// termina de grabar
+ready.addEventListener('click', () => { 
     capturing.style.display = 'none';
     preview.style.display = 'block';
     clearInterval(countdown)
@@ -165,11 +200,13 @@ ready.addEventListener('click', () => { // termina de grabar
         });
 })
 
+//vuelve a la primera pantalla
 repeat.addEventListener('click', () => {
     location.reload();
 
 })
 
+//sube el gif
 upload.addEventListener('click', () => {
     preview.style.display = 'none';
     loading.style.display = "block";
@@ -189,22 +226,27 @@ upload.addEventListener('click', () => {
     }, 3000);        
 })
 
-closeLoading.addEventListener('click', () => { // cancela crear guifos
+// cancela crear guifos
+closeLoading.addEventListener('click', () => { 
     window.location.href = '/myguifos.html';
 })
 
-loadingCancel.addEventListener('click', () => { // cancela crear guifos
+// cancela crear guifos
+loadingCancel.addEventListener('click', () => {
     window.location.href = '/myguifos.html';
 })
 
-successClose.addEventListener('click', () => { //cancela crear guifos
+// cancela crear guifos
+successClose.addEventListener('click', () => {
     window.location.href = '/myguifos.html';
 })
 
-successReady.addEventListener('click', () => { //cancela crear guifos
+//devuelve a mis guifos luego de subido el gif
+successReady.addEventListener('click', () => {
     window.location.href = '/myguifos.html';
 })
 
+//copia enlace del gif
 copy.addEventListener('click', () => {
     const el = document.createElement('textarea');
     el.value = gifUrlForClip;
@@ -215,7 +257,7 @@ copy.addEventListener('click', () => {
     document.execCommand('copy');
 })
 
-
+//descarga gif
 download.addEventListener('click',()=>{
     let downloadUrl = `https://media.giphy.com/media/${gifId}/giphy.gif`;
     let getGif = fetch(downloadUrl);
@@ -234,25 +276,3 @@ download.addEventListener('click',()=>{
     })
 })
 
-window.onload = () =>{
-    if(localStorage.getItem('isDark')=='true'){
-        document.body.classList.add('dark');
-        document.body.classList.remove('light');
-        logo.src = darkLogo;
-    }else{
-        document.body.classList.add('light');
-        document.body.classList.remove('dark');
-        logo.src = lightLogo;
-    }
-    if(localStorage.getItem('uploadedGifos')){
-        let arrayGifs = JSON.parse(localStorage.getItem('uploadedGifos'))
-        arrayGifs.map(g=>{
-            myGuifosResultBox.innerHTML +=
-            `<div class="imageResultsBox">
-                <div class="myGifs">
-                    <img src ="${g.images.original.url}">
-                </div>
-            </div>`
-        })
-    }
-}

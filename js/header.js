@@ -13,18 +13,22 @@ const lightLogoCreate = "./images/gifOF_logo.png";
 const buttonCreate = document.querySelector('#buttonCreate');
 const myButton =  document.querySelector('#myButton');
 
+//vuelve al home
 logoBox.addEventListener('click', ()=>{
     window.location.href = '/index.html'
 })
 
-buttonCreate.addEventListener('click', ()=>{ //accede a crear guifos
+//accede a crear guifos
+buttonCreate.addEventListener('click', ()=>{ 
     window.location.href = '/upload.html'
 })
 
+//accede a change theme
 dropButton.addEventListener('click', ()=>{ //muestra menu de themes
     themes.classList.toggle('active');
 })
 
+//change dark
 btnDark.addEventListener('click', ()=>{ //change theme
     document.body.classList.add('dark');
     document.body.classList.remove('light');
@@ -33,6 +37,7 @@ btnDark.addEventListener('click', ()=>{ //change theme
     localStorage.setItem('isDark', true)
 })
 
+//change light
 btnLight.addEventListener('click', ()=>{ //change theme
     document.body.classList.add('light');
     document.body.classList.remove('dark');
@@ -40,4 +45,3 @@ btnLight.addEventListener('click', ()=>{ //change theme
     logo.src = lightLogo;
     localStorage.setItem('isDark', false)
 })
-

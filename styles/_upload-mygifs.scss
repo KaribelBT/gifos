@@ -259,6 +259,9 @@ main{
             }  
             .successImgBox{
                 @include bodyWindow;
+                #otherPreviewImg{
+                    @include recorder;       
+                }
             }  
             .successBody{
                 width: 100%;

@@ -14,31 +14,36 @@ const sugResultBox = document.querySelector('#sugResultBox');
 const sugGifArray = ['cute dogs', 'cute cats', 'sailor moon', 'dragon ball', 'the big bang theory', 'friends', 'nintendo', 'games of thrones', 'breaking bad', 'simpsons', 'bleach', 'doctor who', 'happy', 'angry', 'sad', 'fuck off', 'panda', 'fox', 'dance', 'music', 'orgullo y prejuicio', 'narwhals', 'disney', 'travel', 'pokemon'];
 let tagsArray = [];
 
-let getSuggest = async (q) =>{ //buscar sugerencias
+//función para buscar sugerencias
+let getSuggest = async (q) =>{ 
     let response = await fetch(`https://api.giphy.com/v1/tags/related/${q}?api_key=${API_KEY}`);
     let suggest = await response.json();
     return suggest.data.splice(0,3);
 }
 
-function setSug(suggestion){ //busca sugerencias de busqueda input
+// función para buscar sugerencias de busqueda input
+function setSug(suggestion){ 
     search.value = suggestion
     sugResults.innerHTML = '';
     sugResults.classList.remove('active');
 }
 
-async function getGif(inputSearchQuery){ //busca gifs desde un input
+//función para buscar gifs desde un input
+async function getGif(inputSearchQuery){
     let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
     let data = await resp.json();
     return data;
 }
 
-async function getTopGif(){ //busca gifs de trending
+//función para buscar gifs de trending
+async function getTopGif(){ 
     let resp = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`);
     let data = await resp.json();
     return data;
 }
 
-function getNewGif(title){ // busca gif desde otro gif
+//función para buscar gif desde otro gif
+function getNewGif(title){
     searchResultBox.innerHTML = '';
     searchResult.style.display = 'block';
     createTitle(title)
@@ -49,12 +54,14 @@ function getNewGif(title){ // busca gif desde otro gif
     }) 
 }
 
-function createTitle(text){//crear y rellenar titulo 
+//función crear y rellenar titulo 
+function createTitle(text){
     let searchTitle = `<h3>${text}:</h3>`;
     searchResultTitle.innerHTML = searchTitle;
 }
 
-function createTags (inputSearchQuery){//crea los tags para volver a buscar
+//función para crear los tags para volver a buscar
+function createTags (inputSearchQuery){
     let searchedTags = []
     if(localStorage.getItem('searchedTags')){
         let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
@@ -64,13 +71,13 @@ function createTags (inputSearchQuery){//crea los tags para volver a buscar
     }
     if(searchedTags.length>0){
         tagsArray = searchedTags
-
     }
     tagsArray.push(inputSearchQuery);
     localStorage.setItem('searchedTags', JSON.stringify(tagsArray));
 }
 
-function getTags(){ //muestra los tags creados
+//función para mostrar los tags creados
+function getTags(){ 
     if(localStorage.getItem('searchedTags')){
         let searchedArray = JSON.parse(localStorage.getItem('searchedTags'))
         searchedArray.map(s=>{
@@ -82,7 +89,8 @@ function getTags(){ //muestra los tags creados
     }
 }
 
-function showResults(arrayGif){ //muestra resultados de busqueda de gif
+//función para mostrar resultados de busqueda de gif
+function showResults(arrayGif){ 
     if(arrayGif < 1){
         let noResults = 'Oops! no se encontraron resultados';
         let parragraph = document.createElement('p');
@@ -107,7 +115,8 @@ function showResults(arrayGif){ //muestra resultados de busqueda de gif
     document.documentElement.scrollTop = 0;
 }
 
-function getSugResults(){ //busca y muestra resultados sugeridos
+//función busca y muestra resultados sugeridos
+function getSugResults(){ 
     let shuffledSugGif = sugGifArray.sort(function(){return .4 - Math.random()});
     let randomSugGif=shuffledSugGif.slice(0,4); 
     randomSugGif.map(r => {
@@ -129,10 +138,10 @@ function getSugResults(){ //busca y muestra resultados sugeridos
             sugResultBox.innerHTML += imageResultBox;
         })
     })
-    
 }
 
-function getNewSugResult(){ //busca y muestra 1 resultado sugeridos
+//función busca y muestra 1 resultado sugeridos
+function getNewSugResult(){ 
     let shuffledSugGif = sugGifArray[Math.floor(Math.random() * sugGifArray.length)];
     getGif(shuffledSugGif)
     .then (resp =>{
@@ -153,12 +162,14 @@ function getNewSugResult(){ //busca y muestra 1 resultado sugeridos
     })
 }
 
+//función remueve 1 gif sugerido
 function removeSugGif(event){
     event.target.parentNode.parentNode.remove()
     getNewSugResult()
 }
 
-function showTopResults(arrayGif){ //muestra resultados tendencias
+//función muestra resultados tendencias
+function showTopResults(arrayGif){
     arrayGif
         .forEach( (gif)=> {
             const textToRender = this.showHashtags(gif.title);
@@ -175,7 +186,8 @@ function showTopResults(arrayGif){ //muestra resultados tendencias
     });
 }
 
-function showHashtags(title){ //create - push #hastags #en #hover #gif    
+//función crea y push #hastags #en #hover #gif 
+function showHashtags(title){    
     const hashtag = '#';
     let gifTitle = title
     let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
@@ -185,7 +197,8 @@ function showHashtags(title){ //create - push #hastags #en #hover #gif
     return hashtagsString
 }
 
-function showHashtag(title){ //create - push #hastagenhovergif    
+//función crea y push #hastagenhovergif   
+function showHashtag(title){    
     let gifTitle = title
     let hashtagsArray = gifTitle.split(' '); // return array ['hola', 'karibel']
     let valuesWithHashtagLimited = hashtagsArray.filter((element, i)=>i < 4); // Filtra solo 4 primeras palabras
@@ -194,6 +207,7 @@ function showHashtag(title){ //create - push #hastagenhovergif
 }
 
 window.onload = () =>{
+    //mantiene change theme
     if(localStorage.getItem('isDark')=='true'){
         document.body.classList.add('dark');
         document.body.classList.remove('light');
@@ -213,8 +227,8 @@ window.onload = () =>{
         showTopResults(resp.data);  
     }) 
 }
-
-search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar sugerencias
+//habilitar btn busqueda + mostrar sugerencias
+search.addEventListener('keyup', ev=> { 
     if (search.value.length > 0){
         searchButton.disabled = false;
         lens.src = activeLens;
@@ -244,7 +258,8 @@ search.addEventListener('keyup', ev=> { //habilitar btn busqueda + mostrar suger
     } 
 })
 
-searchBar.addEventListener('submit', (e)=>{ //muestra resultados de busqueda de gif
+//muestra resultados de busqueda de gif
+searchBar.addEventListener('submit', (e)=>{ 
     e.preventDefault()
     let inputSearchQuery = search.value;
     searchResultBox.innerHTML = '';
