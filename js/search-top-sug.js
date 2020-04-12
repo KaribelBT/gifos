@@ -30,14 +30,14 @@ function setSug(suggestion){
 
 //función para buscar gifs desde un input
 async function getGif(inputSearchQuery){
-    let resp = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
+    let resp = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputSearchQuery}`);
     let data = await resp.json();
     return data;
 }
 
 //función para buscar gifs de trending
 async function getTopGif(){ 
-    let resp = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`);
+    let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}`);
     let data = await resp.json();
     return data;
 }
