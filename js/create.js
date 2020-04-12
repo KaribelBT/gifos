@@ -7,6 +7,9 @@ const closeCapture = document.querySelector('#closeCapture');
 const captureButton = document.querySelector('#captureButton');
 const camera = document.querySelector('.camera');
 const logoBoxCreate = document.querySelector('.logoBoxCreate');
+const logo = document.querySelector('#logoCreate');
+const darkLogo = "./images/gifOF_logo_dark.png";
+const lightLogo = "./images/gifOF_logo.png";
 const recording = document.querySelector('.recording');
 const ready = document.querySelector('.ready');
 const upload = document.querySelector('#upload');
@@ -229,3 +232,15 @@ download.addEventListener('click',()=>{
         document.body.removeChild(saveImg);
     })
 })
+
+window.onload = () =>{
+    if(localStorage.getItem('isDark')=='true'){
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+        logo.src = darkLogo;
+    }else{
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+        logo.src = lightLogo;
+    }
+}
