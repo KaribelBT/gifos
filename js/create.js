@@ -11,15 +11,20 @@ const recording = document.querySelector('.recording');
 const ready = document.querySelector('.ready');
 const upload = document.querySelector('#upload');
 const preview = document.querySelector('.preview');
-let captureVideo = document.querySelector('#captureVideo'); 
+const repeat = document.querySelector('#repeat');
+const loading = document.querySelector('.loading');
+const closeLoading = document.querySelector('#closeLoading');
+const loadingCancel = document.querySelector('#loadingCancel');
+let captureVideo = document.querySelector('#captureVideo');
 let counter = document.getElementsByClassName('counter');
 let recorder = {};
 let countdown = {}
-let myGifos = []
+let myGifos = [];
+let mediaStream;
 let form = new FormData();
 
-function success(stream){ //funcion de exito para acceder a webcam
-    const mediaStream = stream;
+function success(stream) { //funcion de exito para acceder a webcam
+    mediaStream = stream;
     captureVideo.srcObject = mediaStream
     captureVideo.play()
     recorder = new RecordRTCPromisesHandler(mediaStream, {
@@ -28,30 +33,30 @@ function success(stream){ //funcion de exito para acceder a webcam
         quality: 10,
         width: 360,
         hidden: 240,
-        onGifRecordingStarted: function() {
+        onGifRecordingStarted: function () {
             console.log('started')
         },
     });
 }
 
-function error(error){ //funcion error para acceder a web came
+function error(error) { //funcion error para acceder a web came
     alert('error al acceder a la wbcam :(')
     console.error(error)
 }
 
-function timer(){
+function timer() {
     let sec = 0;
     let min = 0;
     let hour = 0;
-    countdown = setInterval(function(){
-        counter[0].innerHTML=`${hour}:${min}:${sec}`;
-        counter[1].innerHTML=`${hour}:${min}:${sec}`;
-        
+    countdown = setInterval(function () {
+        counter[0].innerHTML = `${hour}:${min}:${sec}`;
+        counter[1].innerHTML = `${hour}:${min}:${sec}`;
+
         sec++;
-        if(sec==60){
+        if (sec == 60) {
             sec = 0
             min++
-            if(min==60){
+            if (min == 60) {
                 min = 0
                 hour++
             }
@@ -59,84 +64,32 @@ function timer(){
     }, 1000);
 }
 
-logoBoxCreate.addEventListener('click', ()=>{ // redirecciona a la pagina principal
-    window.location.href = '/index.html';
-})
-
-cancel.addEventListener('click', ()=>{ //cancela crear guifos
-    window.location.href = '/index.html';
-})
-
-begin.addEventListener('click', ()=>{ //da acceso a la camara
-    instructions.style.display = 'none';
-    capturing.style.display = 'block';
-    navigator.webcam = (
-        navigator.msGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.getUserMedia
-    ) 
-    navigator.webcam({video:true, audio:false}, success, error )
-    
-})
-
-closeCapture.addEventListener('click', ()=>{ // cancela crear guifos
-    window.location.href = '/index.html';
-})
-
-captureButton.addEventListener('click', ()=>{ // empieza a grabar
-    document.getElementById('testTitle').innerHTML='Capturando Tu Guifo'
-    camera.style.display = 'none';
-    captureButton.style.display = 'none';
-    counter[0].style.display = 'flex';
-    recording.style.display = 'flex';
-    ready.style.display = 'flex'; 
-    recorder.startRecording();
-    timer()
-})
-
-ready.addEventListener('click',()=>{ // termina de grabar
-    capturing.style.display = 'none';
-    preview.style.display = 'block';
-    clearInterval(countdown)
-    recorder.stopRecording()
-    .then(resp=>{
-        recorder.getBlob()
-        .then(blob=>{
-            form.append('file', blob, 'myGif.gif'); 
-            console.log(form.get('file'))
-            let urlCreator = window.URL || window.webkitURL;
-            let imageUrl = urlCreator.createObjectURL(blob);
-            document.querySelector("#previewImg").src = imageUrl;
-        })
-    });
-})
-let uploadGif = async function(){
+let uploadGif = async function () {
     let data = form;
-    form.append('username','KaribelBT')
+    form.append('username', 'KaribelBT')
     let result = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
-        method: 'post', 
+        method: 'post',
         body: data
     });
     let resp = await result.json();
     return resp
 }
 
-let getUploadedGif = async function(id){
+let getUploadedGif = async function (id) {
     let result = await fetch(`https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${id}`);
     let data = await result.json();
     return data
 }
 
-function createStorage(gif){
+function createStorage(gif) {
     let uploadedGifos = []
-    if(localStorage.getItem('uploadedGifos')){
+    if (localStorage.getItem('uploadedGifos')) {
         let uploadedArray = JSON.parse(localStorage.getItem('uploadedGifos'))
-        uploadedArray.map(s=>{
+        uploadedArray.map(s => {
             uploadedGifos.push(s)
         })
     }
-    if(uploadedGifos.length>0){
+    if (uploadedGifos.length > 0) {
         myGifos = uploadedGifos
 
     }
@@ -144,14 +97,83 @@ function createStorage(gif){
     localStorage.setItem('uploadedGifos', JSON.stringify(myGifos));
 }
 
-upload.addEventListener('click',()=>{
-    console.log('cargando...')
+logoBoxCreate.addEventListener('click', () => { // redirecciona a la pagina principal
+    window.location.href = '/index.html';
+})
+
+cancel.addEventListener('click', () => { //cancela crear guifos
+    window.location.href = '/myguifos.html';
+})
+
+begin.addEventListener('click', () => { //da acceso a la camara
+    instructions.style.display = 'none';
+    capturing.style.display = 'block';
+    navigator.webcam = (
+        navigator.msGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.getUserMedia
+    )
+    navigator.webcam({ video: true, audio: false }, success, error)
+
+})
+
+closeCapture.addEventListener('click', () => { // cancela crear guifos
+    window.location.href = '/myguifos.html';
+})
+
+captureButton.addEventListener('click', () => { // empieza a grabar
+    document.getElementById('testTitle').innerHTML = 'Capturando Tu Guifo'
+    camera.style.display = 'none';
+    captureButton.style.display = 'none';
+    counter[0].style.display = 'flex';
+    recording.style.display = 'flex';
+    ready.style.display = 'flex';
+    recorder.startRecording();
+    timer()
+})
+
+ready.addEventListener('click', () => { // termina de grabar
+    capturing.style.display = 'none';
+    preview.style.display = 'block';
+    clearInterval(countdown)
+    recorder.stopRecording()
+        .then(resp => {
+            recorder.getBlob()
+                .then(blob => {
+                    form.append('file', blob, 'myGif.gif');
+                    console.log(form.get('file'))
+                    let urlCreator = window.URL || window.webkitURL;
+                    let imageUrl = urlCreator.createObjectURL(blob);
+                    document.querySelector("#previewImg").src = imageUrl;
+                    mediaStream.getTracks().forEach(function (track) {
+                        track.stop();
+                    });
+                })
+        });
+})
+
+repeat.addEventListener('click', () => {
+    location.reload();
+
+})
+upload.addEventListener('click', () => {
+    preview.style.display = 'none';
+    loading.style.display = "block";
     uploadGif()
-    .then(res=>{
-        console.log('subido con exito')
-        getUploadedGif(res.data.id)
-        .then(uploaded =>{
-            createStorage(uploaded.data[0])
+        .then(res => {
+            console.log('subido con exito')
+            getUploadedGif(res.data.id)
+                .then(uploaded => {
+                    createStorage(uploaded.data[0])
+                })
         })
-    })
+})
+
+closeLoading.addEventListener('click', () => { // cancela crear guifos
+    window.location.href = '/myguifos.html';
+})
+
+loadingCancel.addEventListener('click', () => { // cancela crear guifos
+    window.location.href = '/myguifos.html';
 })

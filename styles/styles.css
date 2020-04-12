@@ -301,6 +301,17 @@ body {
   background-color: #CE36DB;
 }
 
+.dark main .createGuifos .loading {
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.dark main .createGuifos .loading .loadingTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
+  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+}
+
 .light {
   background-color: #FFFFFF;
   color: #110038;
@@ -581,6 +592,17 @@ body {
   background-color: #E6BBE2;
 }
 
+.light main .createGuifos .loading {
+  background-color: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.light main .createGuifos .loading .loadingTitleBox {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
 .titleBox {
   max-width: 1448px;
   width: 100%;
@@ -726,18 +748,36 @@ body {
           align-items: center;
 }
 
+.headerBox .buttonsBox .misGuifosBox a {
+  text-decoration: none;
+}
+
+.headerBox .buttonsBox .misGuifosBox a::first-letter {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.headerBox .buttonsBox .misGuifosBox a:visited {
+  color: #110038;
+}
+
 .headerBox .buttonsBox .misGuifosBox:hover {
   border: 1px dotted #110038;
   cursor: pointer;
 }
 
-.headerBox .buttonsBox .misGuifosBox:hover p::first-letter {
+.headerBox .buttonsBox #disabled p {
+  color: #B4B4B4;
+}
+
+.headerBox .buttonsBox #disabled p::first-letter {
   text-decoration: underline;
   text-underline-position: under;
 }
 
-.headerBox .buttonsBox .misGuifosBox:active {
-  color: #8C7D9D;
+.headerBox .buttonsBox #disabled:hover {
+  border: none;
+  cursor: default;
 }
 
 @media screen and (min-width: 992px) {
@@ -1274,9 +1314,6 @@ main .top .topResultsBox .imageTopResultsBox:hover .topHashtags {
 
 main .createGuifos {
   margin-top: 15px;
-  width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -1597,7 +1634,7 @@ main .createGuifos .preview .previewImgBox {
   margin-top: 8px;
   margin-right: 11px;
   margin-left: 17px;
-  margin-bottom: 24px;
+  margin-bottom: 21px;
   height: 434px;
   background-color: #FFFFFF;
   border: 1px solid #979797;
@@ -1736,6 +1773,193 @@ main .createGuifos .loading {
   display: none;
 }
 
+main .createGuifos .loading .loadingTitleBox {
+  width: 100%;
+  width: 100%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .createGuifos .loading .loadingTitleBox h2 {
+  margin-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+main .createGuifos .loading .loadingTitleBox #closeLoading {
+  margin-right: 10px;
+}
+
+main .createGuifos .loading .loadingTitleBox #closeLoading:hover {
+  cursor: pointer;
+}
+
+main .createGuifos .loading .loadingBox {
+  margin-top: 8px;
+  margin-right: 11px;
+  margin-left: 17px;
+  margin-bottom: 21px;
+  height: 434px;
+  background-color: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .createGuifos .loading .loadingBox .iconBox {
+  margin-top: 139px;
+}
+
+main .createGuifos .loading .loadingBox .textBold {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+main .createGuifos .loading .loadingBox .loadingBar {
+  margin-top: 41px;
+  margin-bottom: 8px;
+  width: 97%;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #B4B4B4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #FFFCFC, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #FFFCFC, inset 2px 2px 0 0 #000000;
+}
+
+main .createGuifos .loading .loadingBox .loadingBar .loadingCellPink {
+  width: 12px;
+  height: 20px;
+  background-color: #F7C9F3;
+}
+
+main .createGuifos .loading .loadingBox .loadingBar .loadingCell {
+  width: 12px;
+  height: 20px;
+  background-color: #999999;
+}
+
+main .createGuifos .loading .loadingBox .tachado {
+  text-decoration: line-through;
+}
+
+main .createGuifos .loading .loadingFooter {
+  width: 100%;
+  height: 73px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .createGuifos .loading .loadingFooter #loadingCancel {
+  width: 144px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #110038;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+main .createGuifos .loading .loadingFooter #loadingCancel:hover {
+  cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px dotted #110038;
+}
+
+main .myGuifos {
+  width: 100%;
+  margin-top: 30px;
+}
+
+main .myGuifos .myGuifosTitleBox {
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 32px;
+  background-color: #FFFAFE;
+  border: 1px solid #E6BBE2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+          box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+}
+
+main .myGuifos .myGuifosTitleBox h3 {
+  padding-left: 7px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+main .myGuifos .myGuifosResultsBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main .myGuifos .myGuifosResultsBox .imageMyResultsBox {
+  width: 294px;
+  height: 304px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+main .myGuifos .myGuifosResultsBox .imageMyResultsBox .myGifs img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 288px;
+  height: 298px;
+}
+
 @media screen and (min-width: 992px) {
   main .createGuifos {
     margin-top: 39px;
@@ -1817,6 +2041,16 @@ main .createGuifos .loading {
   main .createGuifos .preview .previewFooter #upload {
     margin-left: 14px;
     margin-bottom: 0px;
+  }
+  main .createGuifos .loading {
+    width: 854px;
+    height: 548px;
+    margin-top: 75px;
+    margin-left: 186px;
+    margin-right: 289px;
+  }
+  main .createGuifos .loading .loadingBox .loadingBar {
+    width: 324px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

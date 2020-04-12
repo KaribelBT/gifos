@@ -11,14 +11,16 @@ const logoCreate = document.querySelector('#logoCreate');
 const darkLogoCreate = "./images/gifOF_logo_dark.png";
 const lightLogoCreate = "./images/gifOF_logo.png";
 const buttonCreate = document.querySelector('#buttonCreate');
+const myButton =  document.querySelector('#myButton');
 
 logoBox.addEventListener('click', ()=>{
-    location.reload()
+    window.location.href = '/index.html'
 })
 
 buttonCreate.addEventListener('click', ()=>{ //accede a crear guifos
     window.location.href = '/upload.html'
 })
+
 dropButton.addEventListener('click', ()=>{ //muestra menu de themes
     themes.classList.toggle('active');
 })
@@ -37,3 +39,4 @@ btnLight.addEventListener('click', ()=>{ //change theme
     themes.classList.toggle('active')
     logoCreate.src = lightLogoCreate;
 })
+

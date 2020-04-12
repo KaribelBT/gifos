@@ -89,18 +89,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            a{
+                text-decoration: none;
+                &::first-letter{
+                    text-decoration: underline;
+                    text-underline-position: under;           
+                }
+                &:visited{
+                    color: $color-primary;
+                }
+            }
             &:hover{
                 border: $border-button-dotted;
                 cursor: pointer;
-                p{
-                    &::first-letter{
-                        text-decoration: underline;
-                        text-underline-position: under;           
-                    }
+            }
+        }
+        #disabled{
+            p{
+                color: $color-disabled;
+                &::first-letter{
+                    text-decoration: underline;
+                    text-underline-position: under;           
                 }
             }
-            &:active{
-                color: #8C7D9D;
+            &:hover{
+                border: none;
+                cursor: default;
             }
         }
     }

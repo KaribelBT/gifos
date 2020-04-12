@@ -199,6 +199,12 @@
                     }
                 }
             }
+            .loading{
+                @include createWindowDark; 
+                .loadingTitleBox{
+                    background-image: $bg-gradient-title-dark;    
+                }   
+            }
         }
     }
 }

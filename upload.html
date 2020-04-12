@@ -121,22 +121,52 @@
             <div class="loading">
                 <div class="loadingTitleBox">
                     <h2>Subiendo Guifo</h2>
-                    <img src="./images/button3.svg" alt="cross">
+                    <img id="closeLoading" src="./images/button3.svg" alt="cross">
                 </div>
                 <div class="loadingBox">
-                    <img src=".images/globe_img.png" alt="globe icon">
-                    <p>Estamos subiendo tu guifo…</p>
-                    <div class="loadingBarGraphic">
+                    <div class="iconBox">
+                        <img src="./images/globo.png" alt="globe icon">
                     </div>
-                    <p>Tiempo restante: 38 años algunos minutos</p>
-                    <div class="loadingFooter">
-                        <button class="cancelButton">Cancelar</button>
+                    <p class="textBold">Estamos subiendo tu guifo…</p>
+                    <div class="loadingBar">
+                        <div class="loadingCellPink"></div>
+                        <div class="loadingCellPink"></div>
+                        <div class="loadingCellPink"></div>
+                        <div class="loadingCellPink"></div>
+                        <div class="loadingCellPink"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
+                        <div class="loadingCell"></div>    
                     </div>
+                    <p>Tiempo restante: <span class="tachado">38 años</span> algunos minutos</p>
+                </div>
+                <div class="loadingFooter">
+                    <button id="loadingCancel">Cancelar</button>
                 </div>
             </div>
+        <section class="myGuifos">
+            <div class="myGuifosTitleBox">
+                <h3>Mis Guifos:</h3>
+            </div>
+            <div id="myGuifosResultBox" class="myGuifosResultsBox"></div>
         </section>
-        <img id="falacias" src="" alt="">
     </main>
+    <script src="./js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
     <script src="./js/create.js"></script>
 </body>

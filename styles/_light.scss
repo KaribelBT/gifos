@@ -195,6 +195,12 @@
                     }
                 }
             }
+            .loading{
+                @include createWindowLight; 
+                .loadingTitleBox{
+                    background-image: $bg-gradient-title-light;    
+                }   
+            }
         }
     }
 }
