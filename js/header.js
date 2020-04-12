@@ -30,13 +30,12 @@ btnDark.addEventListener('click', ()=>{ //change theme
     document.body.classList.remove('light');
     themes.classList.toggle('active')
     logo.src = darkLogo;
-    logoCreate.src = darkLogoCreate;
 })
 
 btnLight.addEventListener('click', ()=>{ //change theme
     document.body.classList.add('light');
     document.body.classList.remove('dark');
     themes.classList.toggle('active')
-    logoCreate.src = lightLogoCreate;
+    logo.src = lightLogo;
 })
 
