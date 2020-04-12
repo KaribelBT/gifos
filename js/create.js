@@ -23,6 +23,8 @@ const copy = document.querySelector('#copy');
 const download = document.querySelector('#download');
 const sucessReady = document.querySelector('#sucessReady');
 const successDiv = document.querySelector('.success');
+const myGuifosResultBox = document.querySelector('#myGuifosResultBox');
+
 let captureVideo = document.querySelector('#captureVideo');
 let counter = document.getElementsByClassName('counter');
 let recorder = {};
@@ -76,7 +78,6 @@ function timer() { //funcion para timer de create
 
 let uploadGif = async function () { //funcion para subir gif a la api
     let data = form;
-    form.append('username', 'KaribelBT')
     let result = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
         method: 'post',
         body: data
@@ -242,5 +243,16 @@ window.onload = () =>{
         document.body.classList.add('light');
         document.body.classList.remove('dark');
         logo.src = lightLogo;
+    }
+    if(localStorage.getItem('uploadedGifos')){
+        let arrayGifs = JSON.parse(localStorage.getItem('uploadedGifos'))
+        arrayGifs.map(g=>{
+            myGuifosResultBox.innerHTML +=
+            `<div class="imageResultsBox">
+                <div class="myGifs">
+                    <img src ="${g.images.original.url}">
+                </div>
+            </div>`
+        })
     }
 }
